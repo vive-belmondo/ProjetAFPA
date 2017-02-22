@@ -1,0 +1,85 @@
+<div>
+  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+    <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="Prénom" required autofocus>
+          <div ng-messages="vm.userForm.firstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le prénom est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName" placeholder="Nom" required>
+          <div ng-messages="vm.userForm.lastName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le nom est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="fonction">fonction</label>
+          <input type="text" id="fonction" name="fonction" class="form-control" ng-model="vm.credentials.fonction" placeholder="fonction" required>
+          <div ng-messages="vm.userForm.fonction.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La fonction est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="etablissement">Etablissement</label>
+          <input type="text" id="etablissement" name="etablissement" class="form-control" ng-model="vm.credentials.etablissement" placeholder="Etablissement" required>
+          <div ng-messages="vm.userForm.etablissement.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">L'établissement est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="adresse" class="form-control" ng-model="vm.credentials.adresse" placeholder="Adresse" required>
+          <div ng-messages="vm.userForm.adresse.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">L'adresse est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="cp">Code postal</label>
+          <input type="text" id="cp" name="cp" class="form-control" ng-model="vm.credentials.cp" placeholder="Code postal" required>
+          <div ng-messages="vm.userForm.cp.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le code postal est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="tel">Numéro de téléphone</label>
+          <input type="tel" id="tel" name="tel" class="form-control" ng-model="vm.credentials.tel" placeholder="Numéro de téléphone" required>
+          <div ng-messages="vm.userForm.tel.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le numéro de téléphone est obligatoire</p>
+            <p class="help-block error-text" ng-message="tel">Le numéro de téléphone  est invalide</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" ng-model="vm.credentials.email" placeholder="E-mail" lowercase required>
+          <div ng-messages="vm.userForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">L'adresse e-mail est obligatoire</p>
+            <p class="help-block error-text" ng-message="email">L'adresse mail est invalide</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Mot de passe" uib-popover="{{vm.getPopoverMsg()}}" popover-trigger="outsideClick" password-validator required>
+          <div ng-messages="vm.userForm.password.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le mot de passe est obligatoire</p>
+            <div ng-repeat="passwordError in passwordErrors">
+              <p class="help-block error-text" ng-show="vm.userForm.password.$error.requirements">{{passwordError}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-show="!vm.userForm.password.$error.required">
+          <label>Password Requirements</label>
+          <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-primary">Sign up</button>
+          &nbsp; or&nbsp;
+          <a ui-sref="authentication.signin" class="show-signup">Sign in</a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
