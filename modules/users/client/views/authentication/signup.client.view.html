@@ -17,6 +17,13 @@
           </div>
         </div>
         <div class="form-group" show-errors>
+          <label for="username">Pseudo</label>
+          <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username" placeholder="Pseudo" required>
+          <div ng-messages="vm.userForm.username.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le nom est obligatoire</p>
+          </div>
+        </div>
+<!--         <div class="form-group" show-errors>
           <label for="fonction">fonction</label>
           <input type="text" id="fonction" name="fonction" class="form-control" ng-model="vm.credentials.fonction" placeholder="fonction" required>
           <div ng-messages="vm.userForm.fonction.$error" role="alert">
@@ -30,7 +37,7 @@
             <p class="help-block error-text" ng-message="required">L'établissement est obligatoire</p>
           </div>
         </div>
-        <div class="form-group" show-errors>
+ -->        <div class="form-group" show-errors>
           <label for="adresse">Adresse</label>
           <input type="text" id="adresse" name="adresse" class="form-control" ng-model="vm.credentials.adresse" placeholder="Adresse" required>
           <div ng-messages="vm.userForm.adresse.$error" role="alert">

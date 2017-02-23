@@ -26,6 +26,14 @@ exports.signup = function (req, res) {
   var user = new User(req.body);
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
+  user.email = req.body.email;
+  user.fonction = req.body.fonction;
+  user.etablissement = req.body.etablissement;
+  user.adresse = req.body.adresse;
+  user.cp = req.body.cp;
+  user.ville = req.body.ville;
+  user.tel = req.body.tel;
+
 
   // Then save the user
   user.save(function (err) {
