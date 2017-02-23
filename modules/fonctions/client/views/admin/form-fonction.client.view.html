@@ -1,0 +1,29 @@
+<div>
+  <div class="page-header">
+    <h1>{{vm.fonction._id ? 'Edit Fonction' : 'New fonction'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.fonction._id" class="btn btn-trash" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.fonctionForm" class="form-horizontal" ng-submit="vm.save(vm.form.fonctionForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group col-md-12" show-errors>
+
+          <label class="control-label" for="fonctionName">Marques</label>
+          <input type="text" name="fonctionName" ng-model="vm.fonction.fonctionName" id="fonctionName" class="form-control" placeholder="Nom de la marque" required>
+          <div ng-messages="vm.form.fonctionForm.fonctionName.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Fonction name is required.</p>
+          </div>
+
+
+        </div>
+        <div class="form-group col-md-12">
+          <md-button type="submit" class="btn btn-default">{{vm.fonction._id ? 'Update' : 'ajouter'}}</md-button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

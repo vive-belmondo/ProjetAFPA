@@ -1,0 +1,46 @@
+<section>
+
+
+<!--     <form>
+        <input type="text" ng-model="marquetype" placeholder="recherche">
+    </form>
+ -->
+
+        <select type="text" ng-model="marquetype">
+          <option value="">Marque</option>
+          <option data-ng-repeat="fonction in vm.fonctions" ng-value="fonction._id">
+              {{ fonction.fonctionName | uppercase  }}
+          </option>
+        </select>
+
+         <md-button class="md-raised md-primary" data-ui-sref="admin.fonctions.create">ajouter</md-button>
+
+    <table id="tableau" border="1" class="table table-stripedy">
+        <thead>
+            <tr>
+                <th>marque</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr data-ng-repeat="fonction in vm.fonctions" ng-show="marquetype === fonction._id || !marquetype" >
+                <td>{{ fonction.fonctionName | uppercase  }}</td>
+                <td>
+                  <md-button class="md-fab md-mini md-primary" ng-click="vm.remove(fonction)">
+                    -
+                  </md-button>
+                  <md-button class="md-fab md-mini md-primary" data-ui-sref="admin.fonctions.edit({fonctionId: fonction._id})">
+                    /
+                  </md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+  <div class="alert alert-warning text-center" data-ng-if="fonction.$resolved && !fonction.length">
+    No fonction yet, why don't you <a data-ui-sref="admin.fonctions.create">create one</a>?
+  </div>
+</section>
+
