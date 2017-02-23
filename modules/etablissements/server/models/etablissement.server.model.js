@@ -18,19 +18,25 @@ var EtablissementSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'ville cannot be blank'
+    required: 'le nom de l\'etablissement est obligatoire'
   },
   cp: {
     type: Number,
     default: '',
     trim: true,
-    required: 'code postal cannot be blank'
+    required: 'le code postal est obligatoire '
   },
   dpt: {
     type: Number,
     default: '',
     trim: true,
-    required: 'departement cannot be blank'
+    required: 'le département est obligatoire'
+  },
+  adresse: {
+    type: String,
+    default:'',
+    trim: true,
+    required: 'l\'adresse est obligatoire'
   },
    
   user: {

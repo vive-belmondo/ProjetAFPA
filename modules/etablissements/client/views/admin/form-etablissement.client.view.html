@@ -18,6 +18,12 @@
               <p class="help-block error-text" ng-message="required">Etablissement name is required.</p>
           </div>
 
+          <label class="control-label" for="cp">adresse</label>
+          <input type="text" name="cp" ng-model="vm.etablissement.adresse" id="adresse" class="form-control" placeholder="code postal" required>
+          <div ng-messages="vm.form.etablissementForm.adresse.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">l'adresse est obligatoire.</p>
+          </div>
+
 
           <label class="control-label" for="cp">Code postal</label>
           <input type="text" name="cp" ng-model="vm.etablissement.cp" id="cp" class="form-control" placeholder="code postal" required>

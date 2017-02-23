@@ -50,6 +50,7 @@ exports.update = function (req, res) {
   etablissement.etablissementName = req.body.etablissementName;
   etablissement.cp = req.body.cp;
   etablissement.dpt = req.body.dpt;
+  etablissement.adresse = req.body.adresse;
 
 
 
