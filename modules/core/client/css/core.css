@@ -1,5 +1,6 @@
+/*////////// HEADER //////////////*/
 .content {
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -41,6 +42,76 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
-.header-menu{
+/*.header-menu{
   background-image: linear-gradient(to bottom, #C8EF8F 0%, #6AAF04 100%);
+}*/
+
+
+
+ /*///////////////  CARD ////////////////////*/
+.card{
+  background-color: white;
+  width:100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 1px solid #c6a0a0;
+
 }
+
+.card-img{
+  display:block;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 100%;
+}
+.card-block{
+  padding:0 0 20px 0;
+}
+.card-title{
+  text-transform: uppercase;
+  text-align: center;
+  background-color:#4571b3;
+  color:black;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  color: white;
+
+}
+.card-text{
+  padding: 15px 20px 10px 20px;
+}
+.card-stats{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+}
+.card-stat-title {
+  background-color: white;
+  align-items: stretch;
+  text-transform: uppercase;
+  color: #4571b3;
+  display: block;
+}
+
+.card-stats-stat {
+  background-color: white;
+  align-items: stretch;
+  padding: 10px;
+  color: #9f9e9e;
+}
+.card-btn{
+  flex: 1;
+  margin: 5px;
+}
+
+.card-buttons{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+}
+
+
+/*/////////////////////*/
