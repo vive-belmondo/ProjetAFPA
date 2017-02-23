@@ -1,0 +1,44 @@
+<section>
+
+
+<!--         <select type="text" ng-model="marquetype">
+          <option value="">Marque</option>
+          <option data-ng-repeat="etablissement in vm.etablissements" ng-value="etablissement._id">
+              {{ etablissement.etablissementName | uppercase  }}
+          </option>
+        </select> -->
+
+         <button class="btn btn-success" data-ui-sref="admin.etablissements.create">+ ajouter un etablissement</button>
+
+
+
+  
+  <table >
+    <thead >
+      <tr >
+        <th >VILLE</th>
+        <th >CODE POSTAL</th>
+        <th >DEPARTEMENT</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr  ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName'">
+        <td >{{ etablissement.etablissementName | uppercase }}</td>
+        <td >{{ etablissement.cp }}</td>
+        <td >{{ etablissement.dpt }}</td>
+        <td>
+          <button class="md-fab md-mini md-primary"  data-ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})"><i class="material-icons">mode_edit</i></button>
+          <button class="btn btn-danger" ng-click="vm.remove(etablissement)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <div class="alert alert-warning text-center" data-ng-if="etablissement.$resolved && !etablissement.length">
+    No etablissement yet, why don't you <a data-ui-sref="admin.etablissements.create">create one</a>?
+  </div>
+</section>
+
