@@ -2,12 +2,12 @@
 
 
 <!--     <form>
-        <input type="text" ng-model="marquetype" placeholder="recherche">
+        <input type="text" ng-model="fonctiontype" placeholder="recherche">
     </form>
  -->
 
-        <select type="text" ng-model="marquetype">
-          <option value="">Marque</option>
+        <select type="text" ng-model="fonctiontype">
+          <option value="">Fonction</option>
           <option data-ng-repeat="fonction in vm.fonctions" ng-value="fonction._id">
               {{ fonction.fonctionName | uppercase  }}
           </option>
@@ -18,13 +18,13 @@
     <table id="tableau" border="1" class="table table-stripedy">
         <thead>
             <tr>
-                <th>marque</th>
+                <th>fonction</th>
 
             </tr>
         </thead>
         <tbody>
 
-            <tr data-ng-repeat="fonction in vm.fonctions" ng-show="marquetype === fonction._id || !marquetype" >
+            <tr data-ng-repeat="fonction in vm.fonctions" ng-show="fonctiontype === fonction._id || !fonctiontype" >
                 <td>{{ fonction.fonctionName | uppercase  }}</td>
                 <td>
                   <md-button class="md-fab md-mini md-primary" ng-click="vm.remove(fonction)">

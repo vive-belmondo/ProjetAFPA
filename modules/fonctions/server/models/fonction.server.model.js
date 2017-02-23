@@ -18,7 +18,7 @@ var FonctionSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'Marque cannot be blank'
+    required: 'Fonction cannot be blank'
   },
   
  
