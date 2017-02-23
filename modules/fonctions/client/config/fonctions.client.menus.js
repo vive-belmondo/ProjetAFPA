@@ -9,7 +9,7 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'Marques',
+      title: 'Fonctions',
       state: 'fonctions',
       type: 'dropdown',
       roles: ['*']
@@ -17,7 +17,7 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'fonctions', {
-      title: 'Liste des Marques',
+      title: 'Liste des Fonctions',
       state: 'fonctions.list',
       roles: ['*']
     });
