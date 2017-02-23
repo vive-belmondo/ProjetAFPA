@@ -1,0 +1,66 @@
+<section>
+  <div class="page-header">
+    <h1>Etablissements</h1>
+  </div>
+  <!-- 
+    <form>
+        <input type="text" ng-model="marquetype" placeholder="recherche">
+    </form>
+
+  
+  <div class="col-md-12">
+   <table id="tableau" border="1" class="table table-stripedy">
+        <thead>
+            <tr>
+                <th>marque</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr data-ng-repeat="etablissement in vm.etablissements | filter: marquetype">
+                <td>{{ etablissement.etablissementName | uppercase  }}</td>
+                <td>
+                  <a class="btn btn-primary" ng-click="vm.remove(etablissement)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                  </a>
+                  <a class="btn btn-primary pull"  data-ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})">
+                    <i class="glyphicon glyphicon-edit"></i>
+                  </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+    {{vm.cars}}
+  <bm-tab bm-tab-data="vm.cars"></bm-tab>
+ -->
+  <md-button class="md-raised md-primary" data-ui-sref="admin.etablissements.create">+ ajouter une ville</md-button>
+  <form>
+    <input type="text" ng-model="searchEtablissement" placeholder="recherche">
+  </form>
+
+
+  <md-table-container>
+  <table md-table>
+    <thead md-head>
+      <tr md-row>
+        <th md-column>VILLE</th>
+        <th md-column>CODE POSTAL</th>
+        <th md-column>DEPARTEMENT</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName' | filter: searchEtablissement">
+        <td md-cell>{{ etablissement.etablissementName | uppercase }}</td>
+        <td md-cell>{{ etablissement.cp }}</td>
+        <td md-cell>{{ etablissement.dpt }}</td>
+      
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+
+
+</section>

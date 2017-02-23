@@ -1,0 +1,43 @@
+<div>
+  <div class="page-header">
+    <h1>{{vm.etablissement._id ? 'Edit Etablissement' : 'New etablissement'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.etablissement._id" class="btn btn-trash" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.etablissementForm" class="form-horizontal" ng-submit="vm.save(vm.form.etablissementForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group col-md-12" show-errors>
+
+          <label class="control-label" for="etablissementName">Ville</label>
+          <input type="text" name="etablissementName" ng-model="vm.etablissement.etablissementName" id="etablissementName" class="form-control" placeholder="Nom de la ville" required>
+          <div ng-messages="vm.form.etablissementForm.etablissementName.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Etablissement name is required.</p>
+          </div>
+
+
+          <label class="control-label" for="cp">Code postal</label>
+          <input type="text" name="cp" ng-model="vm.etablissement.cp" id="cp" class="form-control" placeholder="code postal" required>
+          <div ng-messages="vm.form.etablissementForm.cp.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">CP name is required.</p>
+          </div>
+
+
+          <label class="control-label" for="dpt">Département</label>
+          <input type="text" name="dpt" ng-model="vm.etablissement.dpt" id="dpt" class="form-control" placeholder="département" required>
+          <div ng-messages="vm.form.etablissementForm.dpt.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Département name is required.</p>
+          </div>
+
+
+        </div>
+        <div class="form-group col-md-12">
+          <button type="submit" class="btn btn-default">{{vm.etablissement._id ? 'Update' : 'ajouter'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

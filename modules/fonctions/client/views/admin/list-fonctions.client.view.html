@@ -37,11 +37,31 @@
 </div>
 
 
+<<<<<<< HEAD
+=======
+         <button class="btn btn-primary" data-ui-sref="admin.fonctions.create">ajouter</md-button>
+>>>>>>> 67a24c83f4734d9345054f609de4f6d5261c2c01
 
 
 
+<<<<<<< HEAD
     </div>
 
+=======
+            <tr data-ng-repeat="fonction in vm.fonctions" ng-show="fonctiontype === fonction._id || !fonctiontype" >
+                <td>{{ fonction.fonctionName | uppercase  }}</td>
+                <td>
+                  <md-button class="md-fab md-mini md-primary" ng-click="vm.remove(fonction)">
+                    -
+                  </md-button>
+                  <md-button class="md-fab md-mini md-primary" data-ui-sref="admin.fonctions.edit({fonctionId: fonction._id})">
+                    /
+                  </md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+>>>>>>> 67a24c83f4734d9345054f609de4f6d5261c2c01
 
 
 
