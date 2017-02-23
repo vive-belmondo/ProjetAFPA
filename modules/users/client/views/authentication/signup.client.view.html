@@ -45,6 +45,13 @@
           </div>
         </div>
         <div class="form-group" show-errors>
+          <label for="ville">Ville</label>
+          <input type="text" id="ville" name="ville" class="form-control" ng-model="vm.credentials.ville" placeholder="Ville" required>
+          <div ng-messages="vm.userForm.ville.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La ville est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
           <label for="tel">Numéro de téléphone</label>
           <input type="tel" id="tel" name="tel" class="form-control" ng-model="vm.credentials.tel" placeholder="Numéro de téléphone" required>
           <div ng-messages="vm.userForm.tel.$error" role="alert">

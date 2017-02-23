@@ -78,6 +78,14 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
+    username: {
+    type: String,
+    unique: 'Username already exists',
+    required: 'Please fill in a username',
+    validate: [validateUsername, 'Please enter a valid username: 3+ characters long, non restricted word, characters "_-.", no consecutive dots, does not begin or end with dots, letters a-z and numbers 0-9.'],
+    lowercase: true,
+    trim: true
+  },
   fonction: {
     type: Schema.ObjectId,
     ref: 'Fonction'

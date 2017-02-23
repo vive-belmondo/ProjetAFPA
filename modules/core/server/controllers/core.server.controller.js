@@ -20,6 +20,12 @@ exports.renderIndex = function (req, res) {
       email: validator.escape(req.user.email),
       lastName: validator.escape(req.user.lastName),
       firstName: validator.escape(req.user.firstName),
+      fonction: req.user.fonction,
+      etablissement:req.user.etablissement,
+      adresse: req.user.adresse,
+      cp:req.user.cp,
+      ville: req.user.ville,
+      tel: req.user.tel,
       additionalProvidersData: req.user.additionalProvidersData
     };
   }
