@@ -1,27 +1,27 @@
 <div>
-  <div class="page-header">
+<!--   <div class="page-header">
     <h1>{{vm.fonction._id ? 'Edit Fonction' : 'Nouvelle fonction'}}</h1>
   </div>
   <div class="pull-right">
     <a ng-show="vm.fonction._id" class="btn btn-trash" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
-  </div>
-  <div class="col-md-12">
+  </div> -->
+  <div class="titre">Modifier une fonction</div>
+  <div class="col-md-6">
     <form name="vm.form.fonctionForm" class="form-horizontal" ng-submit="vm.save(vm.form.fonctionForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group col-md-12" show-errors>
-
           <div class="input-group">
             <label class="input-group-addon" for="fonctionName">Fonction</label>
             <input type="text" name="fonctionName" ng-model="vm.fonction.fonctionName" id="fonctionName" class="form-control" placeholder="Nom de la fonction" required>
-<!--             <div ng-messages="vm.form.fonctionForm.fonctionName.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">La fonction est obligatoire</p>
-            </div>
- -->      
-          <span class="input-group-btn"><button type="submit" class="btn btn-success">{{vm.fonction._id ? 'valider' : 'ajouter'}}</button></span>
+            <span class="input-group-btn"><button type="submit" class="btn btn-success">valider</button></span>
+        </div>
+        <div ng-messages="vm.form.fonctionForm.fonctionName.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">La fonction est obligatoire</p>
         </div>
       </fieldset>
     </form>
+    <span><button ng-click="vm.back()" class="btn btn-danger">annuler</button></span>
   </div>
 </div>

@@ -14,6 +14,7 @@
     vm.authentication = Authentication;
     vm.form = {};
     vm.save = save;
+    vm.back = back;
 
 
 
@@ -52,5 +53,10 @@
         Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Fonction save error!' });
       }
     }
+
+      function back() {
+        $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
+      }
+
   }
 }());
