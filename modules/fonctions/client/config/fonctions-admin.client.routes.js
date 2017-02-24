@@ -41,7 +41,7 @@
       .state('admin.fonctions.edit', {
         url: '/:fonctionId/edit',
         templateUrl: '/modules/fonctions/client/views/admin/form-fonction.client.view.html',
-        controller: 'FonctionsAdminController',
+        controller: 'FonctionsAdminListController',
         controllerAs: 'vm',
         data: {
           roles: ['admin']
