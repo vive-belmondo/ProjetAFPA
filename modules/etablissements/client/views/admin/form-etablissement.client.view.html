@@ -12,14 +12,14 @@
       <fieldset>
         <div class="form-group col-md-12" show-errors>
 
-          <label class="control-label" for="etablissementName">Ville</label>
-          <input type="text" name="etablissementName" ng-model="vm.etablissement.etablissementName" id="etablissementName" class="form-control" placeholder="Nom de la ville" required>
+          <label class="control-label" for="etablissementName">Nom de l'etablissement</label>
+          <input type="text" name="etablissementName" ng-model="vm.etablissement.etablissementName" id="etablissementName" class="form-control" placeholder="Nom de l'etablissement" required>
           <div ng-messages="vm.form.etablissementForm.etablissementName.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Etablissement name is required.</p>
+              <p class="help-block error-text" ng-message="required">Le nom de l'établissement est obligatore</p>
           </div>
 
           <label class="control-label" for="cp">adresse</label>
-          <input type="text" name="cp" ng-model="vm.etablissement.adresse" id="adresse" class="form-control" placeholder="code postal" required>
+          <input type="text" name="cp" ng-model="vm.etablissement.adresse" id="adresse" class="form-control" placeholder="adresse" required>
           <div ng-messages="vm.form.etablissementForm.adresse.$error" role="alert">
               <p class="help-block error-text" ng-message="required">l'adresse est obligatoire.</p>
           </div>
@@ -28,14 +28,14 @@
           <label class="control-label" for="cp">Code postal</label>
           <input type="text" name="cp" ng-model="vm.etablissement.cp" id="cp" class="form-control" placeholder="code postal" required>
           <div ng-messages="vm.form.etablissementForm.cp.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">CP name is required.</p>
+              <p class="help-block error-text" ng-message="required">Le code postal est obligatoire.</p>
           </div>
 
 
           <label class="control-label" for="dpt">Département</label>
           <input type="text" name="dpt" ng-model="vm.etablissement.dpt" id="dpt" class="form-control" placeholder="département" required>
           <div ng-messages="vm.form.etablissementForm.dpt.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Département name is required.</p>
+              <p class="help-block error-text" ng-message="required">Le département est obligatoire.</p>
           </div>
 
 

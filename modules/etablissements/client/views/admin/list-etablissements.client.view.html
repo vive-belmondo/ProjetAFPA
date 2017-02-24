@@ -13,12 +13,13 @@
 
 
   
-  <table >
+  <table class="table table-bordered table-striped table-condensed table-responsive">
     <thead >
       <tr >
-        <th >VILLE</th>
+        <th >NOM DE L'ETABLISSEMENT</th>
         <th >CODE POSTAL</th>
         <th >DEPARTEMENT</th>
+        <th >ADRESSE</th>
       </tr>
     </thead>
     <tbody >
@@ -26,6 +27,7 @@
         <td >{{ etablissement.etablissementName | uppercase }}</td>
         <td >{{ etablissement.cp }}</td>
         <td >{{ etablissement.dpt }}</td>
+        <td >{{ etablissement.adresse }}</td>
         <td>
           <button class="btn btn-warning" ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})"><i class="material-icons">modifier</i></button>
           <button class="btn btn-danger" ng-click="vm.remove(etablissement)">delete</button>
