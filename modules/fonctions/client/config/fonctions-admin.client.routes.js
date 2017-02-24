@@ -21,20 +21,23 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin']
-        }
-      })
-      .state('admin.fonctions.create', {
-        url: '/create',
-        templateUrl: '/modules/fonctions/client/views/admin/form-fonction.client.view.html',
-        controller: 'FonctionsAdminController',
-        controllerAs: 'vm',
-        data: {
-          roles: ['admin']
         },
         resolve: {
           fonctionResolve: newFonction
         }
       })
+      // .state('admin.fonctions.create', {
+      //   url: '/create',
+      //   templateUrl: '/modules/fonctions/client/views/admin/form-fonction.client.view.html',
+      //   controller: 'FonctionsAdminController',
+      //   controllerAs: 'vm',
+      //   data: {
+      //     roles: ['admin']
+      //   },
+      //   resolve: {
+      //     fonctionResolve: newFonction
+      //   }
+      // })
       .state('admin.fonctions.edit', {
         url: '/:fonctionId/edit',
         templateUrl: '/modules/fonctions/client/views/admin/form-fonction.client.view.html',

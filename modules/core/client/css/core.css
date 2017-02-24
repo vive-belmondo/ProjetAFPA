@@ -114,4 +114,18 @@ a:hover .header-profile-image {
 }
 
 
-/*/////////////////////*/
+/*///////// TYPO ////////////*/
+body{
+  font-family: 'Montserrat', sans-serif;
+  color: #1b2631;
+  font-size: 15px;
+}
+
+.titre{
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #1b2631;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
+}
