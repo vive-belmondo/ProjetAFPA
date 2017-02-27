@@ -35,12 +35,12 @@
       <table id="tableau" border="1" class="table table-striped table-condensed table-responsive">
         <thead>
           <tr>
-            <th>fonction</th>
+            <th>FONCTIONS</th>
           </tr>
         </thead>
         <tbody>
           <tr data-ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName' | filter: searchFonction">
-            <td>{{ fonction.fonctionName | uppercase}}</td>
+            <td>{{ fonction.fonctionName }}</td>
             <td>
               <button class="btn btn-info" data-ui-sref="admin.fonctions.edit({fonctionId: fonction._id})"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(fonction)"><span class="glyphicon glyphicon-trash"></span></button>
@@ -48,9 +48,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="alert alert-warning text-center" data-ng-if="fonction.$resolved && !fonction.length">
-        No fonction yet, why don't you <a data-ui-sref="admin.fonctions.create">create one</a>?
     </div>
   </div>
 </section>
