@@ -47,6 +47,7 @@
         $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Fonction saved successfully!' });
         vm.fonctions.push(res);
+        back();
       }
 
       function errorCallback(res) {

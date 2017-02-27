@@ -1,17 +1,12 @@
 <div>
   <div class="page-header">
-    <h1>{{vm.etablissement._id ? 'Edit Etablissement' : 'New etablissement'}}</h1>
-  </div>
-  <div class="pull-right">
-    <a ng-show="vm.etablissement._id" class="btn btn-trash" ng-click="vm.remove()">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
+    <h1>{{vm.etablissement._id ? 'Modifier un établissement' : 'Créer un établissement'}}</h1>
   </div>
   <div class="col-md-12">
     <form name="vm.form.etablissementForm" class="form-horizontal" ng-submit="vm.save(vm.form.etablissementForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group col-md-12" show-errors>
-
+        
           <label class="control-label" for="etablissementName">Nom de l'etablissement</label>
           <input type="text" name="etablissementName" ng-model="vm.etablissement.etablissementName" id="etablissementName" class="form-control" placeholder="Nom de l'etablissement" required>
           <div ng-messages="vm.form.etablissementForm.etablissementName.$error" role="alert">

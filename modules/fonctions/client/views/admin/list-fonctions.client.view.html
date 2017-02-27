@@ -21,7 +21,7 @@
             <div class="input-group">
               <label class="input-group-addon sr-only" for="fonctionName">Fonction</label>
               <input type="text" name="fonctionName" ng-model="vm.fonction.fonctionName" id="fonctionName" class="form-control" placeholder="Ajouter une fonction" required>
-            <span class="input-group-btn"><button type="submit" class="btn btn-success">{{vm.fonction._id ? 'modifier' : 'ajouter'}}</button></span>
+            <span class="input-group-btn"><button type="submit" class="btn btn-success">ajouter</button></span>
             </div>
           </div>
         </fieldset>
@@ -42,8 +42,8 @@
           <tr data-ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName' | filter: searchFonction">
             <td>{{ fonction.fonctionName | uppercase}}</td>
             <td>
-              <button class="btn btn-danger" ng-click="vm.remove(fonction)"><span class="glyphicon glyphicon-trash"></span></button>
               <button class="btn btn-info" data-ui-sref="admin.fonctions.edit({fonctionId: fonction._id})"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-danger" ng-click="vm.remove(fonction)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>
         </tbody>
