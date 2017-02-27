@@ -19,6 +19,7 @@ exports.read = function (req, res) {
  * Update a User
  */
 exports.update = function (req, res) {
+  console.log(req.body);
   var user = req.model;
 
   // For security purposes only merge these parameters
@@ -66,7 +67,8 @@ exports.delete = function (req, res) {
  * List of Users
  */
 exports.list = function (req, res) {
-  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').exec(function (err, users) {
+  
+  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').populate('fonction','fonctionName').populate('etablissement','etablissementName').exec(function (err, users) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

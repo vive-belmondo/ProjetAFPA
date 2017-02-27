@@ -33,6 +33,9 @@ exports.signup = function (req, res) {
   user.cp = req.body.cp;
   user.ville = req.body.ville;
   user.tel = req.body.tel;
+  user.civilite = req.body.civilite;
+  user.dn = req.body.dn;
+  user.matricule = req.body.matricule;
 
 
   // Then save the user
@@ -169,9 +172,12 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
               firstName: providerUserProfile.firstName,
               lastName: providerUserProfile.lastName,
               username: availableUsername,
+              fonction: providerUserProfile.fonction,
+              etablissement: providerUserProfile.etablissement,  
               displayName: providerUserProfile.displayName,
               profileImageURL: providerUserProfile.profileImageURL,
               provider: providerUserProfile.provider,
+
               providerData: providerUserProfile.providerData
             });
 
