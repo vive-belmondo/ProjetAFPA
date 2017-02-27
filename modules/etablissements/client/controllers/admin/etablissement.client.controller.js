@@ -15,6 +15,8 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.back = back;
+
     // vm.AjoutOptionAuSelect = AjoutOptionAuSelect;
 
     // Remove existing Etablissement
@@ -49,5 +51,10 @@
         Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Etablissement save error!' });
       }
     }
+
+    function back() {
+        $state.go('admin.etablissements.list'); // should we send the User to the list or the updated Fonction's view?
+    }
+
   }
 }());

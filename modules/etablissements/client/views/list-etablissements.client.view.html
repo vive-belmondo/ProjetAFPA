@@ -46,21 +46,18 @@
     <thead >
       <tr >
         <th >NOM DE L'ETABLISSEMENT</th>
-        <th >CODE POSTAL</th>
-        <th >DEPARTEMENT</th>
         <th >ADRESSE</th>
+        <th >CODE POSTAL</th>
+        <th >VILLE</th>
       </tr>
     </thead>
     <tbody >
       <tr  ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName' | filter: searchEtablissement">
         <td >{{ etablissement.etablissementName | uppercase }}</td>
-        <td >{{ etablissement.cp }}</td>
-        <td >{{ etablissement.dpt }}</td>
         <td >{{ etablissement.adresse }}</td>
+        <td >{{ etablissement.cp }}</td>
+        <td >{{ etablissement.ville }}</td>
       </tr>
     </tbody>
   </table>
-
-
-
 </section>

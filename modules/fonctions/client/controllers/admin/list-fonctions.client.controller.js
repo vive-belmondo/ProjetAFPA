@@ -18,6 +18,7 @@
 
 
 
+
 	vm.fonctions = FonctionsService.query();
 
     // Remove existing Fonction
@@ -55,9 +56,8 @@
       }
     }
 
-      function back() {
-        $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
-      }
-
+    function back() {
+      $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
+    }
   }
 }());

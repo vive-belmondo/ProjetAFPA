@@ -25,18 +25,18 @@
         <table class="table table-bordered table-striped table-condensed table-responsive">
           <thead >
             <tr >
-              <th >NOM DE L'ETABLISSEMENT</th>
-              <th >DEPARTEMENT</th>
-              <th >CODE POSTAL</th>
-              <th >ADRESSE</th>
+              <th>NOM DE L'ETABLISSEMENT</th>
+              <th>ADRESSE</th>
+              <th>CODE POSTAL</th>
+              <th>VILLE</th>
             </tr>
           </thead>
           <tbody >
             <tr  ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName' | filter: searchEtablissement">
-              <td >{{ etablissement.etablissementName | uppercase }}</td>
-              <td >{{ etablissement.dpt }}</td>
-              <td >{{ etablissement.cp }}</td>
-              <td >{{ etablissement.adresse }}</td>
+              <td>{{ etablissement.etablissementName | uppercase }}</td>
+              <td>{{ etablissement.adresse }}</td>
+              <td>{{ etablissement.cp }}</td>
+              <td>{{ etablissement.ville | uppercase }}</td>
               <td>
                 <button class="btn btn-info" data-ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})"><span class="glyphicon glyphicon-pencil"></span></button>
                 <button class="btn btn-danger" ng-click="vm.remove(etablissement)"><span class="glyphicon glyphicon-trash"></span></button>
