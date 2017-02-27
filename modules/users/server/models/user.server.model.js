@@ -118,6 +118,25 @@ var UserSchema = new Schema({
     trim: true,
     required: 'Le numéro de téléphone est obligatoire'
   },
+  civilite: {
+    type: String,
+    default: '',
+    trim: true
+    
+  },
+  dn: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'La date de naissance est obligatoire'
+  },
+  matricule: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Le numéro du matricule est obligatoire'
+  },
+
   password: {
     type: String,
     default: ''
