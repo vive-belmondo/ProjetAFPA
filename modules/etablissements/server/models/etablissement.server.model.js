@@ -26,11 +26,11 @@ var EtablissementSchema = new Schema({
     trim: true,
     required: 'le code postal est obligatoire '
   },
-  dpt: {
-    type: Number,
+  ville: {
+    type: String,
     default: '',
     trim: true,
-    required: 'le département est obligatoire'
+    required: 'la ville est obligatoire'
   },
   adresse: {
     type: String,

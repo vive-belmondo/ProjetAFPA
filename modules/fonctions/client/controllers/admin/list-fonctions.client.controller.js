@@ -18,6 +18,7 @@
 
 
 
+
 	vm.fonctions = FonctionsService.query();
 
     // Remove existing Fonction
@@ -47,7 +48,7 @@
         $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Fonction saved successfully!' });
         vm.fonctions.push(res);
-        back();
+        $state.reload();
       }
 
       function errorCallback(res) {
@@ -55,9 +56,8 @@
       }
     }
 
-      function back() {
-        $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
-      }
-
+    function back() {
+      $state.go('admin.fonctions.list'); // should we send the User to the list or the updated Fonction's view?
+    }
   }
 }());

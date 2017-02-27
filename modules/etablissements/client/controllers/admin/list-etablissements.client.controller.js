@@ -24,5 +24,10 @@
         });
       }
     }
+    
+    function back() {
+        $state.go('admin.etablissements.list'); // should we send the User to the list or the updated Fonction's view?
+    }
+
   }
 }());

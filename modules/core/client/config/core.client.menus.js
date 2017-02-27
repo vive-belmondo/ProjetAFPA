@@ -20,17 +20,17 @@
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Edit Profile',
+      title: 'Modifier le Profil',
       state: 'settings.profile'
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Edit Profile Picture',
+      title: 'Modifier la photo',
       state: 'settings.picture'
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Change Password',
+      title: 'Changer le mot de passe',
       state: 'settings.password'
     });
 
