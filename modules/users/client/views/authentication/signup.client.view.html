@@ -25,15 +25,14 @@
         </div>
         <label class="control-label" for="fonction">Fonction</label>
         <div>
-          <select ng-model="vm.user.fonction">
+          <select ng-model="vm.credentials.fonction">
             <option value="">Sélectionner</option>
             <option ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName'" ng-value="fonction._id">{{ fonction.fonctionName | uppercase  }}</option>
           </select>
         </div>
-
         <label class="control-label" for="fonction">Etablissement</label>
         <div>
-          <select ng-model="vm.user.etablissement">
+          <select ng-model="vm.credentials.etablissement">
             <option value="">Sélectionner</option>
             <option ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName'" ng-value="etablissement._id">{{ etablissement.etablissementName | uppercase  }}</option>
           </select>
@@ -58,6 +57,27 @@
           <input type="text" id="ville" name="ville" class="form-control" ng-model="vm.credentials.ville" placeholder="Ville" required>
           <div ng-messages="vm.userForm.ville.$error" role="alert">
             <p class="help-block error-text" ng-message="required">La ville est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="dn">Date de naissance</label>
+          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.credentials.dn" placeholder="Date de naissance" required>
+          <div ng-messages="vm.userForm.dn.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La dn est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="civilite">Civilité</label>
+          <input type="text" id="civilite" name="civilite" class="form-control" ng-model="vm.credentials.civilite" placeholder="civilité" required>
+          <div ng-messages="vm.userForm.civilite.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La civilite est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="matricule">Matricule</label>
+          <input type="text" id="matricule" name="matricule" class="form-control" ng-model="vm.credentials.matricule" placeholder="Matricule" required>
+          <div ng-messages="vm.userForm.matricule.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La matricule est obligatoire</p>
           </div>
         </div>
         <div class="form-group" show-errors>

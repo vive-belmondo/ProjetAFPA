@@ -5,13 +5,15 @@
     .module('users.admin')
     .controller('UserListController', UserListController);
 
-  UserListController.$inject = ['$scope', '$filter', 'AdminService'];
+  UserListController.$inject = ['$scope', '$filter', 'AdminService','FonctionsService','EtablissementsService',];
 
-  function UserListController($scope, $filter, AdminService) {
+  function UserListController($scope, $filter, AdminService,FonctionsService,EtablissementsService) {
     var vm = this;
     vm.buildPager = buildPager;
     vm.figureOutItemsToDisplay = figureOutItemsToDisplay;
     vm.pageChanged = pageChanged;
+    vm.fonctions = FonctionsService.query();
+    vm.etablissements = EtablissementsService.query();
 
     AdminService.query(function (data) {
       vm.users = data;

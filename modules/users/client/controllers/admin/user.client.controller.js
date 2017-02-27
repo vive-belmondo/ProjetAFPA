@@ -5,9 +5,9 @@
     .module('users.admin')
     .controller('UserController', UserController);
 
-  UserController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve', 'Notification'];
+  UserController.$inject = ['$scope', '$state', '$window','FonctionsService','EtablissementsService', 'Authentication', 'userResolve', 'Notification'];
 
-  function UserController($scope, $state, $window, Authentication, user, Notification) {
+  function UserController($scope, $state, $window,FonctionsService,EtablissementsService, Authentication, user, Notification) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -15,6 +15,8 @@
     vm.remove = remove;
     vm.update = update;
     vm.isContextUserSelf = isContextUserSelf;
+    vm.fonctions = FonctionsService.query();
+    vm.etablissements = EtablissementsService.query();
 
     function remove(user) {
       if ($window.confirm('Are you sure you want to delete this user?')) {
