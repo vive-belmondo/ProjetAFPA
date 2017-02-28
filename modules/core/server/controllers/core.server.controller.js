@@ -3,6 +3,7 @@
 var validator = require('validator'),
   path = require('path'),
   config = require(path.resolve('./config/config'));
+  
 
 /**
  * Render the main application page
@@ -44,6 +45,25 @@ exports.renderServerError = function (req, res) {
     error: 'Oops! Something went wrong...'
   });
 };
+
+
+
+
+
+// exports.getVicopo = function(req, res){
+//   var ville = req.body.val;
+//   console.log(req.body);
+  
+//   res.vicopo(ville, function (err, cities) {
+//     if (err) {
+//         throw err;
+//     } else {
+//         res.json(cities);
+//         console.log(cities);
+//     }
+// });
+  
+// };
 
 /**
  * Render the server not found responses
