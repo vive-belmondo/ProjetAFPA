@@ -1,0 +1,46 @@
+<section>
+  <div class="page-header">
+    <h1>Competences</h1>
+  </div>
+
+
+
+    
+    
+
+    
+    <form>
+        <input type="text" ng-model="marquetype" placeholder="recherche">
+    </form>
+
+  
+  <div class="col-md-12">
+   <table id="tableau" border="1" class="table table-stripedy">
+        <thead>
+            <tr>
+                <th>marque</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr data-ng-repeat="competence in vm.competences | filter: marquetype">
+                <td>{{ competence.competenceName | uppercase  }}</td>
+                <td>
+                  <a class="btn btn-primary" ng-click="vm.remove(competence)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                  </a>
+                  <a class="btn btn-primary pull"  data-ui-sref="admin.competences.edit({competenceId: competence._id})">
+                    <i class="glyphicon glyphicon-edit"></i>
+                  </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+
+
+
+</section>
