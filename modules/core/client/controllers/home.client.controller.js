@@ -5,9 +5,9 @@
     .module('core')
     .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$http'];
+    // HomeController.$inject = ['$http'];
 
-  function HomeController($http) {
+  function HomeController() {
     var vm = this;
    	
 
@@ -21,10 +21,10 @@
     // }
    
       
-    $http.get('https://vicopo.selfbuild.fr/api.min.js').then(function successCallback(response){
-      console.log(response); // voir dans le console.log et cliquer sur Object pour voir ce qu'il y a dedans
+    // $http.get('https://vicopo.selfbuild.fr/api.min.js').then(function successCallback(response){
+    //   console.log(response); // voir dans le console.log et cliquer sur Object pour voir ce qu'il y a dedans
       
-    });
+    // });
 	
   }
 }());

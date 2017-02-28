@@ -34,6 +34,8 @@ exports.update = function (req, res) {
   user.cp = req.body.cp;
   user.ville = req.body.ville;
   user.tel = req.body.tel;
+  user.matricule = req.body.matricule;
+  user.dn = req.body.dn;
 
   user.save(function (err) {
     if (err) {

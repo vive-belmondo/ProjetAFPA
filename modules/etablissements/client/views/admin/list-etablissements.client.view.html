@@ -38,15 +38,15 @@
               <td>{{ etablissement.cp }}</td>
               <td>{{ etablissement.ville | uppercase }}</td>
               <td>
-                <button class="btn btn-info" data-ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button class="btn btn-info" ui-sref="admin.etablissements.edit({etablissementId: etablissement._id})"><span class="glyphicon glyphicon-pencil"></span></button>
                 <button class="btn btn-danger" ng-click="vm.remove(etablissement)"><span class="glyphicon glyphicon-trash"></span></button>
               </td>
             </tr>
           </tbody>
         </table>
     </div>
-    <div class="alert alert-warning text-center" data-ng-if="etablissement.$resolved && !etablissement.length">
-      No etablissement yet, why don't you <a data-ui-sref="admin.etablissements.create">create one</a>?
+    <div class="alert alert-warning text-center" ng-if="etablissement.$resolved && !etablissement.length">
+      No etablissement yet, why don't you <a ui-sref="admin.etablissements.create">create one</a>?
     </div>
   </div>
 </section>
