@@ -11,7 +11,7 @@
   function menuConfig(menuService) {
     menuService.addSubMenuItem('topbar', 'admin', {
       title: 'Manage curriculums',
-      state: 'curriculums'
+      state: 'curriculums.competences.list'
     });
   }
 }());

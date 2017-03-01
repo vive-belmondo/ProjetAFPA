@@ -9,21 +9,24 @@
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('competences', {
+      .state('curriculums.competences', {
         abstract: true,
         url: '/competences',
         template: '<ui-view/>'
       })
-      .state('competences.list', {
+      .state('curriculums.competences.list', {
         url: '',
-        templateUrl: '/modules/curriculums/client/views/competences/list-competences.client.view.html',
+        templateUrl: '/modules/curriculums/client/views/competences/admin/list-competences.client.view.html',
         controller: 'CompetencesAdminListController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Competences List'
+          pageTitle: 'competences'
+        },
+        resolve: {
+          competenceResolve: newCompetence
         }
       })
-      .state('competences.view', {
+      .state('curriculums.competences.view', {
         url: '/:competenceId',
         templateUrl: '/modules/curriculums/client/views/competences/view-competence.client.view.html',
         controller: 'CompetencesController',
@@ -34,6 +37,15 @@
         data: {
           pageTitle: 'Competence {{ competenceResolve.title }}'
         }
+      })
+      .state('curriculums.competences.edit', {
+        url: '/:competenceId/edit',
+        templateUrl: '/modules/curriculums/client/views/competences/admin/form-competence.client.view.html',
+        controller: 'CompetencesAdminController',
+        controllerAs: 'vm',
+        resolve: {
+          competenceResolve: getCompetence
+        }
       });
   }
 
@@ -43,5 +55,11 @@
     return CompetencesService.get({
       competenceId: $stateParams.competenceId
     }).$promise;
+  }
+
+  newCompetence.$inject = ['CompetencesService'];
+
+  function newCompetence(CompetencesService) {
+    return new CompetencesService();
   }
 }());

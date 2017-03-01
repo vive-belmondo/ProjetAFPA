@@ -19,7 +19,7 @@
 
 
 
-	vm.competences = CompetencesService.query();
+	 vm.competences = CompetencesService.query();
 
     // Remove existing Competence
     function remove(competence) {
@@ -45,7 +45,7 @@
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
+        $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence saved successfully!' });
         vm.competences.push(res);
         $state.reload();
@@ -57,7 +57,7 @@
     }
 
     function back() {
-      $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
+      $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
     }
   }
 }());

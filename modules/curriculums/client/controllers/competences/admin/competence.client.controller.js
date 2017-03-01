@@ -41,7 +41,7 @@
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
+        $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence saved successfully!' });
       }
 
@@ -51,7 +51,7 @@
     }
     
     function back() {
-      $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
+      $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
     }
 
   }

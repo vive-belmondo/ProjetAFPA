@@ -12,23 +12,24 @@
     // Users state routing
     $stateProvider
       .state('curriculums', {
-        // abstract: true,
+        abstract: true,
         url: '/curriculums',
-        templateUrl: '/modules/curriculums/client/views/menu-cv.client.view.html',
-        controller: 'CurriculumsController',
-        controllerAs: 'vm',
-        data: {
-          roles: ['user', 'admin']
-        }
-      })
-      .state('curriculums.create', {
-        url: '/competences',
-        templateUrl: '/modules/curriculums/client/views/competences/admin/list-competences.client.view.html',
-        controller: 'CompetencesAdminListController',
-        controllerAs: 'vm',
-        data: {
-          pageTitle: 'competences'
-        }
+        templateUrl: '/modules/curriculums/client/views/menu-cv.client.view.html'
       });
   }
+
+  getCompetence.$inject = ['$stateParams', 'CompetencesService'];
+
+  function getCompetence($stateParams, CompetencesService) {
+    return CompetencesService.get({
+      competenceId: $stateParams.competenceId
+    }).$promise;
+  }
+
+  newCompetence.$inject = ['CompetencesService'];
+
+  function newCompetence(CompetencesService) {
+    return new CompetencesService();
+  }
+  
 }());
