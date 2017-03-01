@@ -1,0 +1,20 @@
+<div>
+  <div class="titre">Modifier une compétence technique</div>
+    <div class="col-md-6">
+      <form name="vm.form.techniqueForm" class="form-horizontal" ng-submit="vm.save(vm.form.techniqueForm.$valid)" novalidate>
+        <fieldset>
+          <div class="form-group col-md-12" show-errors>
+            <div class="input-group">
+              <label class="input-group-addon" for="techniqueName">Compétence</label>
+              <input type="text" name="techniqueName" ng-model="vm.technique.techniqueName" id="techniqueName" class="form-control" placeholder="compétence technique" required>
+              <span class="input-group-btn"><button type="submit" class="btn btn-success">valider</button></span>
+          </div>
+          <div ng-messages="vm.form.techniqueForm.techniqueName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La compétence technique est obligatoire</p>
+          </div>
+        </fieldset>
+      </form>
+      <span><button ng-click="vm.back()" class="btn btn-danger">annuler</button></span>
+    </div>
+  </div>
+</div>
