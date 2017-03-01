@@ -19,12 +19,12 @@
       <table id="tableau" border="1" class="table table-striped table-condensed table-responsive">
         <thead>
           <tr>
-            <th>COMPETENCES PEDAGOGIQUES</th>
+            <th class="col-md-10 col-sm-9">COMPETENCES PEDAGOGIQUES</th>
           </tr>
         </thead>
         <tbody>
           <tr data-ng-repeat="competence in vm.competences">
-            <td ng-if="competence.competenceName">{{ competence.competenceName}}</td>
+            <td ng-if="competence.competenceName" class="col-md-10 col-sm-9">{{ competence.competenceName}}</td>
             <td ng-if="competence.competenceName">
               <button class="btn btn-info" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})" ng-model="peda"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(competence)"><span class="glyphicon glyphicon-trash"></span></button>
