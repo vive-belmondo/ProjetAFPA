@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('competences.routes')
+    .module('curriculums.routes')
     .config(routeConfig);
 
   routeConfig.$inject = ['$stateProvider'];
@@ -16,7 +16,7 @@
       })
       .state('competences.list', {
         url: '',
-        templateUrl: '/modules/competences/client/views/list-competences.client.view.html',
+        templateUrl: '/modules/curriculums/client/views/competences/list-competences.client.view.html',
         controller: 'CompetencesAdminListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('competences.view', {
         url: '/:competenceId',
-        templateUrl: '/modules/competences/client/views/view-competence.client.view.html',
+        templateUrl: '/modules/curriculums/client/views/competences/view-competence.client.view.html',
         controller: 'CompetencesController',
         controllerAs: 'vm',
         resolve: {

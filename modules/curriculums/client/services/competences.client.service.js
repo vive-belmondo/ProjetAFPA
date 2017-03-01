@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('competences.services')
+    .module('curriculums.services')
     .factory('CompetencesService', CompetencesService);
 
   CompetencesService.$inject = ['$resource', '$log'];

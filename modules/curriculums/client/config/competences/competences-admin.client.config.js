@@ -3,7 +3,7 @@
 
   // Configuring the Competences Admin module
   angular
-    .module('competences.admin')
+    .module('curriculums.admin')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];

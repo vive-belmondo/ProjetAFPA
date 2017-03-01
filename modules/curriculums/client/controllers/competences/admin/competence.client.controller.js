@@ -2,35 +2,31 @@
   'use strict';
 
   angular
-    .module('competences.admin')
-    .controller('CompetencesAdminListController', CompetencesAdminListController);
+    .module('curriculums.admin')
+    .controller('CompetencesAdminController', CompetencesAdminController);
 
-  CompetencesAdminListController.$inject = ['CompetencesService', '$window', 'Notification','$scope', '$state', 'competenceResolve', 'Authentication'];
+  CompetencesAdminController.$inject = ['$scope', '$state', '$window', 'competenceResolve', 'Authentication', 'Notification'];
 
-  function CompetencesAdminListController(CompetencesService, $window, Notification, $scope, $state, competence, Authentication) {
+  function CompetencesAdminController($scope, $state, $window, competence, Authentication, Notification) {
     var vm = this;
-    vm.remove = remove;
+
     vm.competence = competence;
     vm.authentication = Authentication;
     vm.form = {};
+    vm.remove = remove;
     vm.save = save;
-    vm.back = back;
-
-
-
-
-	vm.competences = CompetencesService.query();
+    // vm.AjoutOptionAuSelect = AjoutOptionAuSelect;
 
     // Remove existing Competence
-    function remove(competence) {
+    function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
-        competence.$remove(function() {
-	        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence deleted successfully!' });
-	        vm.competences.splice(vm.competences.indexOf(competence),1);
-
+        vm.competence.$remove(function() {
+          $state.go('admin.competences.list');
+          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence deleted successfully!' });
         });
       }
     }
+
 
     // Save Competence
     function save(isValid) {
@@ -47,17 +43,16 @@
       function successCallback(res) {
         $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence saved successfully!' });
-        vm.competences.push(res);
-        $state.reload();
       }
 
       function errorCallback(res) {
         Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Competence save error!' });
       }
     }
-
+    
     function back() {
       $state.go('admin.competences.list'); // should we send the User to the list or the updated Competence's view?
     }
+
   }
 }());

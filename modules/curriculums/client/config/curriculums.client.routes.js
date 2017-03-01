@@ -22,8 +22,8 @@
         }
       })
       .state('curriculums.create', {
-        url: '/curriculums/create',
-        templateUrl: '/modules/competences/client/views/admin/list-competences.client.view.html',
+        url: '/competences',
+        templateUrl: '/modules/curriculums/client/views/competences/admin/list-competences.client.view.html',
         controller: 'CompetencesAdminListController',
         controllerAs: 'vm',
         data: {

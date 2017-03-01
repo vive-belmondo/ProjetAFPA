@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('competences')
+    .module('curriculums')
     .controller('CompetencesListController', CompetencesListController);
 
   CompetencesListController.$inject = ['CompetencesService'];

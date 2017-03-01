@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('competences')
+    .module('curriculums')
     .controller('CompetencesController', CompetencesController);
 
   CompetencesController.$inject = ['$scope', 'competenceResolve', 'Authentication'];
