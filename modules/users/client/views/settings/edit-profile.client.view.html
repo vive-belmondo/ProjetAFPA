@@ -1,0 +1,112 @@
+<section class="row">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+    <form name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.user.firstName" placeholder="First Name" required autofocus>
+          <div ng-messages="vm.userForm.firstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le prénom est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Nom" required>
+          <div ng-messages="vm.userForm.lastName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le nom est obligatoire</p>
+          </div>
+        </div>
+
+
+<!-- 
+        <div class="form-group" show-errors>
+          <label for="fonction">fonction</label>
+          <input type="text" id="fonction" name="fonction" class="form-control" ng-model="vm.user.fonction" placeholder="fonction" required>
+          <div ng-messages="vm.userForm.fonction.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La fonction est obligatoire</p>
+          </div>
+        </div> -->
+
+-------------------------------------------------------------------------------------------
+
+
+        <label class="control-label" for="fonction">Fonction</label>
+        <div>
+          <select ng-model="vm.user.fonction">
+            <option value="">Sélectionner</option>
+            <option ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName'" ng-value="fonction._id">{{ fonction.fonctionName | uppercase  }}</option>
+          </select>
+        </div>
+
+
+
+--------------------------------------------------------------------------------------------------
+        <label class="control-label" for="etablissement">Etablissement</label>
+        <div>
+          <select ng-model="vm.user.etablissement">
+            <option value="">Sélectionner</option>
+            <option ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName'" ng-value="etablissement._id">{{ etablissement.etablissementName | uppercase  }}</option>
+          </select>
+        </div>
+
+--------------------------------------------------------------------------------------------------
+
+        <div class="form-group" show-errors>
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="adresse" class="form-control" ng-model="vm.user.adresse" placeholder="Adresse" required>
+          <div ng-messages="vm.userForm.adresse.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">L'adresse est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="cp">Code postal</label>
+          <input type="text" id="cp" name="cp" class="form-control" ng-model="vm.user.cp" placeholder="Code postal" required>
+          <div ng-messages="vm.userForm.cp.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le code postal est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="ville">Ville</label>
+          <input type="text" id="ville" name="ville" class="form-control" ng-model="vm.user.ville" placeholder="Ville" required>
+          <div ng-messages="vm.userForm.ville.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La ville est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="tel">Numéro de téléphone</label>
+          <input type="tel" id="tel" name="tel" class="form-control" ng-model="vm.user.tel" placeholder="Numéro de téléphone" required>
+          <div ng-messages="vm.userForm.tel.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le numéro de téléphone est obligatoire</p>
+            <p class="help-block error-text" ng-message="tel">Le numéro de téléphone  est invalide</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" ng-model="vm.user.email" placeholder="Email" lowercase required>
+          <div ng-messages="vm.userForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Email address is required.</p>
+            <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="matricule">Matricule</label>
+          <input type="text" id="matricule" name="matricule" class="form-control" ng-model="vm.user.matricule" placeholder="Matricule" required>
+          <div ng-messages="vm.userForm.matricule.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le numéro du  matricule est obligatoire</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="dn">date de naissance</label>
+          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.user.dn" placeholder="date de naissance" required>
+          <div ng-messages="vm.userForm.dn.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Le numéro du  dn est obligatoire</p>
+          </div>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-primary">Save Profile</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+mes boules
