@@ -14,7 +14,6 @@
     vm.updateUserProfile = updateUserProfile;
     vm.fonctions = FonctionsService.query();
     vm.etablissements = EtablissementsService.query(); 
-    vm.mes boules = mes boules;
 
 
 

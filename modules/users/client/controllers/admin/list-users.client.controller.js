@@ -14,7 +14,6 @@
     vm.pageChanged = pageChanged;
     vm.fonctions = FonctionsService.query();
     vm.etablissements = EtablissementsService.query();
-    vm.mes boules = mes boules;
     
     AdminService.query(function (data) {
       vm.users = data;

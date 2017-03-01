@@ -17,7 +17,8 @@
     vm.isContextUserSelf = isContextUserSelf;
     vm.fonctions = FonctionsService.query();
     vm.etablissements = EtablissementsService.query();
-    vm.mes boules = mes boules;
+
+
     function remove(user) {
       if ($window.confirm('Are you sure you want to delete this user?')) {
         if (user) {
