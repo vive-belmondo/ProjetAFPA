@@ -14,7 +14,8 @@
     vm.pageChanged = pageChanged;
     vm.fonctions = FonctionsService.query();
     vm.etablissements = EtablissementsService.query();
-
+    vm.mes boules = mes boules;
+    
     AdminService.query(function (data) {
       vm.users = data;
       vm.buildPager();
@@ -34,7 +35,7 @@
       vm.filterLength = vm.filteredItems.length;
       var begin = ((vm.currentPage - 1) * vm.itemsPerPage);
       var end = begin + vm.itemsPerPage;
-      vm.pagedItems = vm.filteredItems.slice(begin, end);
+      vm.pagedItems = vm.filteredItems.slice(begin, end); 
     }
 
     function pageChanged() {

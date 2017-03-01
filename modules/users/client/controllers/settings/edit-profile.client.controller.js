@@ -13,7 +13,10 @@
     vm.user = Authentication.user;
     vm.updateUserProfile = updateUserProfile;
     vm.fonctions = FonctionsService.query();
-    vm.etablissements = EtablissementsService.query();
+    vm.etablissements = EtablissementsService.query(); 
+    vm.mes boules = mes boules;
+
+
 
     // Update a user profile
     function updateUserProfile(isValid) {
