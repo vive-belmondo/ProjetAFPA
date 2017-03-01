@@ -65,12 +65,12 @@
         controllerAs: 'vm'
       })
       .state('authentication.signup', {
-        url: '/signup',
+        url: '/newuser',
         templateUrl: '/modules/users/client/views/authentication/signup.client.view.html',
         controller: 'AuthenticationController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Signup'
+          pageTitle: 'new user'
         }
       })
       .state('authentication.signin', {
