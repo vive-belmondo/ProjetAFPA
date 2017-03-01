@@ -18,18 +18,18 @@
       });
   }
 
-  getCompetence.$inject = ['$stateParams', 'CompetencesService'];
+  // getCompetence.$inject = ['$stateParams', 'CompetencesService'];
 
-  function getCompetence($stateParams, CompetencesService) {
-    return CompetencesService.get({
-      competenceId: $stateParams.competenceId
-    }).$promise;
-  }
+  // function getCompetence($stateParams, CompetencesService) {
+  //   return CompetencesService.get({
+  //     competenceId: $stateParams.competenceId
+  //   }).$promise;
+  // }
 
-  newCompetence.$inject = ['CompetencesService'];
+  // newCompetence.$inject = ['CompetencesService'];
 
-  function newCompetence(CompetencesService) {
-    return new CompetencesService();
-  }
+  // function newCompetence(CompetencesService) {
+  //   return new CompetencesService();
+  // }
   
 }());

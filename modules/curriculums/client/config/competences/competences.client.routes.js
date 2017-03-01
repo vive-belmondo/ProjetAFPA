@@ -16,8 +16,8 @@
       })
       .state('curriculums.competences.list', {
         url: '',
-        templateUrl: '/modules/curriculums/client/views/competences/admin/list-competences.client.view.html',
-        controller: 'CompetencesAdminListController',
+        templateUrl: '/modules/curriculums/client/views/competences/list-competences.client.view.html',
+        controller: 'CompetencesListController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'competences'
@@ -40,8 +40,8 @@
       })
       .state('curriculums.competences.edit', {
         url: '/:competenceId/edit',
-        templateUrl: '/modules/curriculums/client/views/competences/admin/form-competence.client.view.html',
-        controller: 'CompetencesAdminController',
+        templateUrl: '/modules/curriculums/client/views/competences/form-competence.client.view.html',
+        controller: 'CompetencesController',
         controllerAs: 'vm',
         resolve: {
           competenceResolve: getCompetence
