@@ -32,7 +32,6 @@ exports.create = function (req, res) {
 exports.read = function (req, res) {
   // convert mongoose document to JSON
   var competence = req.competence ? req.competence.toJSON() : {};
-
   // Add a custom field to the Competence, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Competence model.
   competence.isCurrentUserOwner = !!(req.user && competence.user && competence.user._id.toString() === req.user._id.toString());
@@ -45,9 +44,7 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var competence = req.competence;
-
   competence.competenceName = req.body.competenceName;
-
 
   competence.save(function (err) {
     if (err) {
@@ -96,13 +93,11 @@ exports.list = function (req, res) {
  * Competence middleware
  */
 exports.competenceByID = function (req, res, next, id) {
-
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
       message: 'Competence is invalid'
     });
   }
-
   Competence.findById(id).populate('user', 'displayName').exec(function (err, competence) {
     if (err) {
       return next(err);
@@ -113,5 +108,19 @@ exports.competenceByID = function (req, res, next, id) {
     }
     req.competence = competence;
     next();
+  });
+};
+
+////////////////////////// competences by user ////////////////// 
+exports.competencesByConnectedUserService = function (req, res) {
+  Competence.find({ user: req.user._id }).exec(function (err, competences) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      console.log (res);
+      res.json(competences);
+    }
   });
 };

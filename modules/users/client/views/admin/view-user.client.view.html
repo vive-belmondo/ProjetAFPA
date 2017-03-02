@@ -5,10 +5,11 @@
         <h1 ng-bind="vm.user.username"></h1>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-primary" ui-sref="admin.user-edit({userId: vm.user._id})">
+        <a class="btn btn-primary" data-ng-click="vm.downloadPdf({userId: vm.user._id})" target="_blank">PDF</a>
+        <a class="btn btn-info" ui-sref="admin.user-edit({userId: vm.user._id})">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-if="!vm.isContextUserSelf()">
+        <a class="btn btn-danger" ng-click="vm.remove()" ng-if="!vm.isContextUserSelf()">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </div>
@@ -49,4 +50,3 @@
     </div>
   </div>
 </section>
-mes boules

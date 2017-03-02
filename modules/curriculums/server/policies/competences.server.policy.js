@@ -20,15 +20,21 @@ exports.invokeRolesPolicies = function () {
     }, {
             resources: '/api/competences/:competenceId',
             permissions: '*'
+    }, {
+            resources: '/api/competencesByConnectedUserService',
+            permissions: '*'
     }]
   }, {
         roles: ['user'],
         allows: [{
             resources: '/api/competences',
-            permissions: ['get']
+            permissions: '*'
     }, {
             resources: '/api/competences/:competenceId',
-            permissions: ['get']
+            permissions: '*'
+    }, {
+            resources: '/api/competencesByConnectedUserService',
+            permissions: '*'
     }]
   }, {
         roles: ['guest'],

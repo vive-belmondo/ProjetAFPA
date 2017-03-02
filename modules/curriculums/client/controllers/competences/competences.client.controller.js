@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('CompetencesController', CompetencesController);
 
-  CompetencesController.$inject = ['$scope', '$state', '$window', 'competenceResolve', 'Authentication', 'Notification'];
+  CompetencesController.$inject = ['$scope', '$state', '$window', 'competenceResolve', 'Authentication', 'Notification', 'CompetencesByUserService'];
 
-  function CompetencesController($scope, $state, $window, competence, Authentication, Notification) {
+  function CompetencesController($scope, $state, $window, competence, Authentication, Notification, CompetencesByUserService) {
     var vm = this;
 
     vm.competence = competence;

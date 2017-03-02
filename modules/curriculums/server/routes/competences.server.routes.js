@@ -18,6 +18,14 @@ module.exports = function (app) {
     .put(competences.update)
     .delete(competences.delete);
 
+  app.route('/api/competencesByConnectedUserService').all(competencesPolicy.isAllowed)
+    .get(competences.competencesByConnectedUserService);
+
+
+
+
   // Finish by binding the competence middleware
   app.param('competenceId', competences.competenceByID);
 };
+
+

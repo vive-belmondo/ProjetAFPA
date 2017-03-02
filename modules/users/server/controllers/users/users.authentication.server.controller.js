@@ -172,7 +172,13 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
               displayName: providerUserProfile.displayName,
               profileImageURL: providerUserProfile.profileImageURL,
               provider: providerUserProfile.provider,
-
+              adresse: providerUserProfile.adresse,
+              cp: providerUserProfile.cp,
+              ville: providerUserProfile.ville,
+              tel: providerUserProfile.tel,
+              civilite:providerUserProfile.civilite,
+              dn: providerUserProfile.dn,
+              matricule: providerUserProfile.matricule,
               providerData: providerUserProfile.providerData
             });
 

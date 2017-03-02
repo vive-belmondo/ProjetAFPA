@@ -28,6 +28,21 @@
             </div>
           </div>
         </div>
+        <label class="control-label" for="fonction">Fonction</label>
+        <div>
+          <select ng-model="vm.user.fonction">
+            <option value="">Sélectionner</option>
+            <option ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName'" ng-value="fonction._id">{{ fonction.fonctionName | uppercase  }}</option>
+          </select>
+        </div>
+        <label class="control-label" for="etablissement">Etablissement</label>
+        <div>
+          <select ng-model="vm.user.etablissement">
+            <option value="">Sélectionner</option>
+            <option ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName'" ng-value="etablissement._id">{{ etablissement.etablissementName | uppercase  }}</option>
+          </select>
+        </div>
+
         <div class="form-group">
           <input type="submit" value="Update" class="btn btn-default">
         </div>
@@ -35,4 +50,3 @@
     </form>
   </div>
 </section>
-mes boules

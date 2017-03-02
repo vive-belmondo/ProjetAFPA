@@ -13,6 +13,10 @@ var CurriculumSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  competence: {
+  	type: Schema.ObjectId,
+  	ref: 'Competence'
   }
 });
 

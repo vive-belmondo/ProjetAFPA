@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('CompetencesListController', CompetencesListController);
 
-  CompetencesListController.$inject = ['CompetencesService', '$window', 'Notification','$scope', '$state', 'competenceResolve', 'Authentication'];
+  CompetencesListController.$inject = ['$location', '$window', 'Notification','$scope', '$state', 'competenceResolve', 'Authentication', 'CompetencesByConnectedUserService', 'UsersService'];
 
-  function CompetencesListController(CompetencesService, $window, Notification, $scope, $state, competence, Authentication) {
+  function CompetencesListController($location, $window, Notification, $scope, $state, competence, Authentication, CompetencesByConnectedUserService, UsersService) {
     var vm = this;
     vm.remove = remove;
     vm.competence = competence;
@@ -15,11 +15,11 @@
     vm.form = {};
     vm.save = save;
     vm.back = back;
+    vm.user = Authentication.user;
 
 
+    vm.competences = CompetencesByConnectedUserService.query();
 
-
-	 vm.competences = CompetencesService.query();
 
     // Remove existing Competence
     function remove(competence) {
@@ -56,8 +56,13 @@
       }
     }
 
+
     function back() {
       $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
     }
+
+
   }
 }());
+
+
