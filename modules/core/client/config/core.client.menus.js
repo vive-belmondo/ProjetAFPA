@@ -20,23 +20,20 @@
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Modifier le Profil',
-      state: 'settings.profile'
+      title: 'Modifier votre profil',
+      state: 'settings.profile',
+      roles: ['admin']
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Modifier la photo',
-      state: 'settings.picture'
+      title: 'Modifier votre photo',
+      state: 'settings.picture',
+      roles: ['admin']
     });
 
     menuService.addSubMenuItem('account', 'settings', {
-      title: 'Changer le mot de passe',
+      title: 'Changer votre mot de passe',
       state: 'settings.password'
-    });
-
-    menuService.addSubMenuItem('account', 'settings', {
-      title: 'Manage Social Accounts',
-      state: 'settings.accounts'
     });
   }
 }());

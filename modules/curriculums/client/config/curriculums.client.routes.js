@@ -15,21 +15,15 @@
         abstract: true,
         url: '/curriculums',
         templateUrl: '/modules/curriculums/client/views/menu-cv.client.view.html'
+      })
+      .state('curriculums.apercu', {
+        url: '',
+        templateUrl: '/modules/curriculums/client/views/apercu.client.view.html',
+        // controller: 'ApercuController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Aperçu du CV'
+        }
       });
   }
-
-  // getCompetence.$inject = ['$stateParams', 'CompetencesService'];
-
-  // function getCompetence($stateParams, CompetencesService) {
-  //   return CompetencesService.get({
-  //     competenceId: $stateParams.competenceId
-  //   }).$promise;
-  // }
-
-  // newCompetence.$inject = ['CompetencesService'];
-
-  // function newCompetence(CompetencesService) {
-  //   return new CompetencesService();
-  // }
-  
 }());

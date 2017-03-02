@@ -13,4 +13,18 @@
     vm.user = Authentication.user;
 
   }
+
+
+	function downloadPdf(car) {
+	$http.get('/api/cars/pdf/' + car._id)
+	 .then(function(response) {
+	    var path = response.data;
+	        path = path.slice(1);
+	    $window.open (path, '_blank');
+	});
+}
+
+
+
+
 }());
