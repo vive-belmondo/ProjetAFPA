@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('TechniquesListController', TechniquesListController);
 
-  TechniquesListController.$inject = ['TechniquesService', '$window', 'Notification','$scope', '$state', 'techniqueResolve', 'Authentication'];
+  TechniquesListController.$inject = ['TechniquesByConnectedUserService', '$window', 'Notification','$scope', '$state', 'techniqueResolve', 'Authentication'];
 
-  function TechniquesListController(TechniquesService, $window, Notification, $scope, $state, technique, Authentication) {
+  function TechniquesListController(TechniquesByConnectedUserService, $window, Notification, $scope, $state, technique, Authentication) {
     var vm = this;
     vm.remove = remove;
     vm.technique = technique;
@@ -16,10 +16,8 @@
     vm.save = save;
     vm.back = back;
 
-
-
-
-	 vm.techniques = TechniquesService.query();
+    vm.techniques = TechniquesByConnectedUserService.query();
+    
 
     // Remove existing Technique
     function remove(technique) {

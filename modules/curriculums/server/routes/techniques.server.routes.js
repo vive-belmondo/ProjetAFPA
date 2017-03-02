@@ -18,6 +18,9 @@ module.exports = function (app) {
     .put(techniques.update)
     .delete(techniques.delete);
 
+  app.route('/api/techniquesByConnectedUserService').all(techniquesPolicy.isAllowed)
+    .get (techniques.techniquesByConnectedUserService)
+
   // Finish by binding the technique middleware
   app.param('techniqueId', techniques.techniqueByID);
 };
