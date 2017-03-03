@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('TechniquesListController', TechniquesListController);
 
-  TechniquesListController.$inject = ['TechniquesByConnectedUserService', '$window', 'Notification','$scope', '$state', 'techniqueResolve', 'Authentication'];
+  TechniquesListController.$inject = ['TechniquesByConnectedUserService', '$window', 'Notification','$scope', '$state', 'techniqueResolve', 'Authentication', 'UsersService'];
 
-  function TechniquesListController(TechniquesByConnectedUserService, $window, Notification, $scope, $state, technique, Authentication) {
+  function TechniquesListController(TechniquesByConnectedUserService, $window, Notification, $scope, $state, technique, Authentication, UsersService) {
     var vm = this;
     vm.remove = remove;
     vm.technique = technique;
@@ -18,14 +18,12 @@
 
     vm.techniques = TechniquesByConnectedUserService.query();
     
-
     // Remove existing Technique
     function remove(technique) {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('Etes-vous sûr(e) de vouloir supprimer?')) {
         technique.$remove(function() {
-	        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Technique deleted successfully!' });
+	        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> La compétence technique est supprimée avec succès' });
 	        vm.techniques.splice(vm.techniques.indexOf(technique),1);
-
         });
       }
     }
@@ -44,13 +42,13 @@
 
       function successCallback(res) {
         $state.go('curriculums.techniques.list'); // should we send the User to the list or the updated Technique's view?
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Technique saved successfully!' });
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> La compétence technique est sauvegardée avec succès!' });
         vm.techniques.push(res);
         $state.reload();
       }
 
       function errorCallback(res) {
-        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Technique save error!' });
+        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Erreur de sauvegarde' });
       }
     }
 

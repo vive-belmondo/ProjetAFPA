@@ -18,8 +18,15 @@ module.exports = function (app) {
     .put(techniques.update)
     .delete(techniques.delete);
 
-  app.route('/api/techniquesByConnectedUserService').all(techniquesPolicy.isAllowed)
-    .get (techniques.techniquesByConnectedUserService)
+  app.route('/api/techniquesByConnectedUser').all(techniquesPolicy.isAllowed)
+    .get(techniques.techniquesByConnectedUser)
+    .post(techniques.create);
+
+  //Single technique routes
+  app.route('/api/techniquesByConnectedUser/:techniqueId').all(techniquesPolicy.isAllowed)
+    .get(techniques.read)
+    .put(techniques.update)
+    .delete(techniques.delete);
 
   // Finish by binding the technique middleware
   app.param('techniqueId', techniques.techniqueByID);

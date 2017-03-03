@@ -15,22 +15,18 @@
     vm.form = {};
     vm.save = save;
     vm.back = back;
-    vm.user = Authentication.user;
-
 
     vm.competences = CompetencesByConnectedUserService.query();
 
-
-    // Remove existing Competence
     function remove(competence) {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('Etes-vous sûr(e) de vouloir supprimer?')) {
         competence.$remove(function() {
-	        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence deleted successfully!' });
+	        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> La compétence pédagogique est supprimée avec succès' });
 	        vm.competences.splice(vm.competences.indexOf(competence),1);
-
         });
       }
     }
+
 
     // Save Competence
     function save(isValid) {
@@ -46,13 +42,13 @@
 
       function successCallback(res) {
         $state.go('curriculums.competences.list'); // should we send the User to the list or the updated Competence's view?
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Competence saved successfully!' });
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> La compétence pédagogique est sauvegardée avec succès' });
         vm.competences.push(res);
         $state.reload();
       }
 
       function errorCallback(res) {
-        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Competence save error!' });
+        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Erreur de sauvegarde!' });
       }
     }
 

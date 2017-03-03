@@ -117,14 +117,13 @@ exports.techniqueByID = function (req, res, next, id) {
 };
 
 ////////////////////////// techniques by user ////////////////// 
-exports.techniquesByConnectedUserService = function (req, res) {
+exports.techniquesByConnectedUser = function (req, res) {
   Technique.find({ user: req.user._id }).exec(function (err, techniques) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log (res);
       res.json(techniques);
     }
   });

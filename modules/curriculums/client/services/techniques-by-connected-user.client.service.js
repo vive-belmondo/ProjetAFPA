@@ -8,6 +8,12 @@
   TechniquesByConnectedUserService.$inject = ['$resource', '$log'];
 
   function TechniquesByConnectedUserService($resource, $log) {
-    return $resource('/api/techniquesByConnectedUserService');
+    return $resource('/api/techniquesByConnectedUser/:techniqueId', {
+      techniqueId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   }
 }());

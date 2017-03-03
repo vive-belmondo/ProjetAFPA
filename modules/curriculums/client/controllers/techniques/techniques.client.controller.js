@@ -22,7 +22,7 @@
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
         vm.technique.$remove(function() {
-          $state.go('admin.techniques.list');
+          $state.go('curriculums.techniques.list');
           Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Technique deleted successfully!' });
         });
       }

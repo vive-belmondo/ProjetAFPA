@@ -26,7 +26,7 @@
           <tr data-ng-repeat="competence in vm.competences">
             <td class="col-md-10 col-sm-9">{{competence.competenceName}}</td>
             <td>
-              <button class="btn btn-info" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})" ng-model="peda"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-info" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(competence)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>

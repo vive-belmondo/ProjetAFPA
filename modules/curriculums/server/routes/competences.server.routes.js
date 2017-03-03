@@ -12,16 +12,21 @@ module.exports = function (app) {
     .get(competences.list)
     .post(competences.create);
 
-  // Single competence routes
+  //Single competence routes
   app.route('/api/competences/:competenceId').all(competencesPolicy.isAllowed)
     .get(competences.read)
     .put(competences.update)
     .delete(competences.delete);
 
-  app.route('/api/competencesByConnectedUserService').all(competencesPolicy.isAllowed)
-    .get(competences.competencesByConnectedUserService);
+  app.route('/api/competencesByConnectedUser').all(competencesPolicy.isAllowed)
+    .get(competences.competencesByConnectedUser)
+    .post(competences.create);
 
-
+  //Single competence routes
+  app.route('/api/competencesByConnectedUser/:competenceId').all(competencesPolicy.isAllowed)
+    .get(competences.read)
+    .put(competences.update)
+    .delete(competences.delete);
 
 
   // Finish by binding the competence middleware

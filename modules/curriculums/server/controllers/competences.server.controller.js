@@ -112,14 +112,13 @@ exports.competenceByID = function (req, res, next, id) {
 };
 
 ////////////////////////// competences by user ////////////////// 
-exports.competencesByConnectedUserService = function (req, res) {
+exports.competencesByConnectedUser = function (req, res) {
   Competence.find({ user: req.user._id }).exec(function (err, competences) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log (res);
       res.json(competences);
     }
   });

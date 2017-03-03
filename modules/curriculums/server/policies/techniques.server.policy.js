@@ -21,7 +21,10 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/techniques/:techniqueId',
             permissions: '*'
     }, {
-            resources: '/api/techniquesByConnectedUserService',
+            resources: '/api/techniquesByConnectedUser',
+            permissions: '*'
+    }, {
+            resources: '/api/techniquesByConnectedUser/:techniqueId',
             permissions: '*'
     }]
 
@@ -37,7 +40,10 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/techniques/:techniqueId',
             permissions: '*'
     }, {
-            resources: '/api/techniquesByConnectedUserService',
+            resources: '/api/techniquesByConnectedUser',
+            permissions: '*'
+    }, {
+            resources: '/api/techniquesByConnectedUser/:techniqueId',
             permissions: '*'
     }]
   }, {

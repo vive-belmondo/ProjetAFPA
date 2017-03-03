@@ -8,6 +8,12 @@
   CompetencesByConnectedUserService.$inject = ['$resource', '$log'];
 
   function CompetencesByConnectedUserService($resource, $log) {
-    return $resource('/api/competencesByConnectedUserService');
+    return $resource('/api/competencesByConnectedUser/:competenceId', {
+      competenceId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   }
 }());

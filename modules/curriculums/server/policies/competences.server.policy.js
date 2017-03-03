@@ -21,7 +21,10 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/competences/:competenceId',
             permissions: '*'
     }, {
-            resources: '/api/competencesByConnectedUserService',
+            resources: '/api/competencesByConnectedUser',
+            permissions: '*'
+    }, {
+            resources: '/api/competencesByConnectedUser/:competenceId',
             permissions: '*'
     }]
   }, {
@@ -33,7 +36,10 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/competences/:competenceId',
             permissions: '*'
     }, {
-            resources: '/api/competencesByConnectedUserService',
+            resources: '/api/competencesByConnectedUser',
+            permissions: '*'
+    }, {
+            resources: '/api/competencesByConnectedUser/:competenceId',
             permissions: '*'
     }]
   }, {

@@ -19,13 +19,13 @@
       <table id="tableau" border="1" class="table table-striped table-condensed table-responsive">
         <thead>
           <tr>
-            <th>COMPETENCES TECHNIQUES</th>
+            <th class="col-md-10 col-sm-9">COMPETENCES TECHNIQUES</th>
           </tr>
         </thead>
         <tbody>
           <tr data-ng-repeat="technique in vm.techniques">
-            <td ng-if="technique.techniqueName">{{ technique.techniqueName}}</td>
-            <td ng-if="technique.techniqueName">
+            <td class="col-md-10 col-sm-9">{{ technique.techniqueName}}</td>
+            <td>
               <button class="btn btn-info" data-ui-sref="curriculums.techniques.edit({techniqueId: technique._id})" ><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(technique)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
