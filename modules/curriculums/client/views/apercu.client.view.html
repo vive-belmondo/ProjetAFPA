@@ -12,7 +12,7 @@
 		<div class="col-md-12">
 			<div class="row cadre">
 				<div  class="col-md-5">
-					<div ng-repeat = "fonction in vm.fonctions" ng-show = "vm.user.fonction === fonction._id ">
+					<div ng-repeat = "fonction in vm.fonctions" ng-if = "vm.user.fonction === fonction._id ">
 					{{ fonction.fonctionName}}
 					</div>
 --------------------------------------------------------------------------------------					
