@@ -15,7 +15,7 @@
         template: '<ui-view/>'
       })
       .state('curriculums.competences.list', {
-        url: '/:idUser/list',
+        url: '/list',
         templateUrl: '/modules/curriculums/client/views/competences/list-competences.client.view.html',
         controller: 'CompetencesListController',
         controllerAs: 'vm',
