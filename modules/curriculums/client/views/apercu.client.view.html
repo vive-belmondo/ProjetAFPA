@@ -1,3 +1,35 @@
-<section>
-  <div class="titre">Aperçu de votre CV</div>
+<!-- <section>
+	<div class="titre">Aperçu de votre CV</div>
+	<a class="btn btn-primary" data-ng-click="vm.downloadPdf({curriculumId: vm.curriculumId})" target="_blank">PDF</a>
+	<div>
+		{{ vm.user.displayName }}<br>
+		<div ng-repeat="fonction in vm.fonction">{{ fonction.fonctionName }}</div>
+		<div ng-repeat = "competences in vm.competences">{{ competences.competenceName }}</div>
+	</div>
+</section>
+ --><section>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row cadre">
+				<div class="col-md-5">
+					{{ vm.user.firstName }} {{ vm.user.lastName | uppercase }}<br>
+					{{ vm.fonction.fonctionName }}<br>
+					mail {{ vm.user.email }} <br>
+					adresse {{ vm.user.adresse }} <br>
+					cp {{ vm.user.cp }} <br>
+					ville {{ vm.user.ville }} <br>
+					tel {{ vm.user.tel }} <br>
+					civilité {{ vm.user.civilite }} <br>
+					Né(e) le {{ vm.user.dn }} <br>
+					matricule {{ vm.user.matricule }} <br>
+					{{ vm.etablissement.etablissementName }}<br>
+				</div>
+				<div class="col-md-5 col-md-offset-2">
+					<img class="photoCV" ng-src="{{ vm.user.profileImageURL }}"><br>
+					<br>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 </section>

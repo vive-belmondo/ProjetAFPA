@@ -19,7 +19,7 @@
       .state('curriculums.apercu', {
         url: '',
         templateUrl: '/modules/curriculums/client/views/apercu.client.view.html',
-        // controller: 'ApercuController',
+        controller: 'CurriculumsController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Aperçu du CV'

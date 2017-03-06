@@ -25,7 +25,7 @@ exports.curriculumByID = function (req, res, next, id) {
       message: 'Curriculum is invalid'
     });
   }
-  Curriculum.findById(id).populate('user', 'displayName').populate('fonction').populate('etablissement').exec(function (err, curriculum) {
+  Curriculum.findById(id).populate('user', 'displayName').populate('competence').populate('fonction','fonctionName').exec(function (err, curriculum) {
     if (err) {
       return next(err);
     } else if (!curriculum) {

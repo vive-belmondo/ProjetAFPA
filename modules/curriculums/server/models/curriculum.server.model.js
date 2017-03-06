@@ -17,6 +17,10 @@ var CurriculumSchema = new Schema({
   competence: {
   	type: Schema.ObjectId,
   	ref: 'Competence'
+  },
+  technique: {
+  	type: Schema.ObjectId,
+  	ref: 'Technique'
   }
 });
 

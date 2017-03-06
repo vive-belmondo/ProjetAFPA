@@ -133,3 +133,15 @@ body{
 .nav{
   text-transform: uppercase;
 }
+
+/*///////// DECO //////////*/
+.photoCV{
+  border: 0px solid;
+  border-radius: 5px;
+}
+
+.cadre{
+  background-color: #eef6fe;
+  border-radius: 5px;
+  padding: 10px;
+}
