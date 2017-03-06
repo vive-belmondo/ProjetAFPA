@@ -19,18 +19,12 @@ var LangueSchema = new Schema({
     default: '',
     trim: true,
   },
-  langueLu: {
+  niveau: {
     type: String,
     default: '',
     trim: true,
-    value: 'lu',
   },
-  langueEcrit: {
-    type: String,
-    default: '',
-    trim: true,
-    value: 'écrit',
-  },
+  
   user: {
     type: Schema.ObjectId,
     ref: 'User'

@@ -5,10 +5,20 @@
         <fieldset>
           <div class="form-group col-md-12" show-errors>
             <div class="titre"> Ajouter une langue </div>
-            <div class="input-group">
-              <label class="input-group-addon sr-only" for="langueName">langue </label>
+            <div >
               <input type="text" name="langueName" ng-model="vm.langue.langueName" id="langueName" class="form-control" placeholder="Ajouter une langue ">
-            <span class="input-group-btn"><button type="submit" class="btn btn-success">ajouter</button></span>
+             
+            <label class="control-label" for="niveau">Niveau</label>
+            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu"> lu
+            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "ecrit"> ecrit
+            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu et ecrit"> lu et ecrit
+             <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "tres bon niveau"> Trés bon niveau
+            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
+          <div ng-messages="vm.form.langueForm.niveau.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Car niveau is required.</p>
+          </div>
+
+            <button type="submit" class="btn btn-success">ajouter</button>
             </div>
           </div>
         </fieldset>
@@ -24,7 +34,7 @@
         </thead>
         <tbody>
           <tr data-ng-repeat="langue in vm.langues">
-            <td class="col-md-10 col-sm-9">{{langue.langueName}}</td>
+            <td class="col-md-10 col-sm-9">{{langue.langueName}}, {{langue.niveau}} </td>
             <td>
               <button class="btn btn-info" data-ui-sref="curriculums.langues.edit({langueId: langue._id})"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(langue)"><span class="glyphicon glyphicon-trash"></span></button>

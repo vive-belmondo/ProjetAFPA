@@ -45,8 +45,7 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var langue = req.langue;
   langue.langueName = req.body.langueName;
-  langue.langueLu = req.body.langueLu;
-  langue.langueEcrit = req.body.langueEcrit;
+  langue.niveau = req.body.niveau;
 
   langue.save(function (err) {
     if (err) {
