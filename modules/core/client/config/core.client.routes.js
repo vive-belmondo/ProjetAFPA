@@ -60,7 +60,7 @@
         },
         data: {
           ignoreState: true,
-          pageTitle: 'Bad Request'
+          pageTitle: 'Mauvaise requête'
         }
       })
       .state('forbidden', {
@@ -68,7 +68,7 @@
         templateUrl: '/modules/core/client/views/403.client.view.html',
         data: {
           ignoreState: true,
-          pageTitle: 'Forbidden'
+          pageTitle: 'Interdit'
         }
       });
   }

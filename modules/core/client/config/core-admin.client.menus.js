@@ -37,7 +37,7 @@
     menuService.addMenuItem('topbar', {
       title: 'Module CV',
       state: 'curriculums.competences.list',
-      roles: ['*']
+      roles: ['admin', 'user']
     });
   }
 }());
