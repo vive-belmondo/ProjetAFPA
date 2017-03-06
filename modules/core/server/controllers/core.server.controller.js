@@ -27,6 +27,9 @@ exports.renderIndex = function (req, res) {
       cp:req.user.cp,
       ville: req.user.ville,
       tel: req.user.tel,
+      civilite: req.user.civilite,
+      matricule: req.user.matricule,
+      dn: req.user.dn,
       additionalProvidersData: req.user.additionalProvidersData
     };
   }

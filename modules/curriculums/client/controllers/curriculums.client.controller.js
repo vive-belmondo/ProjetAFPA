@@ -5,15 +5,17 @@
     .module('curriculums')
     .controller('CurriculumsController', CurriculumsController);
 
-  CurriculumsController.$inject = ['$scope', 'Authentication', '$http', '$window', 'UsersService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService'];
+  CurriculumsController.$inject = ['$scope', 'Authentication', '$http', '$window', 'UsersService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService'];
 
-  function CurriculumsController($scope, Authentication, $http, $window, UsersService, FonctionsService, EtablissementsService, CompetencesByConnectedUserService) {
+  function CurriculumsController($scope, Authentication, $http, $window, UsersService, FonctionsService, EtablissementsService, CompetencesByConnectedUserService,TechniquesByConnectedUserService) {
     var vm = this;
     vm.user = Authentication.user;
     vm.downloadPdf = downloadPdf;
     vm.etablissement = EtablissementsService.query();
-    vm.fonction = FonctionsService.query();
+    vm.fonctions = FonctionsService.query();
     vm.competences = CompetencesByConnectedUserService.query();
+    vm.techniques = TechniquesByConnectedUserService.query();
+    
 
 
     function downloadPdf(user) {

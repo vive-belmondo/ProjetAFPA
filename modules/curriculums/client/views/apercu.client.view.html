@@ -11,7 +11,11 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row cadre">
-				<div class="col-md-5">
+				<div  class="col-md-5">
+					<div ng-repeat = "fonction in vm.fonctions" ng-show = "vm.user.fonction === fonction._id ">
+					{{ fonction.fonctionName}}
+					</div>
+--------------------------------------------------------------------------------------					
 					{{ vm.user.firstName }} {{ vm.user.lastName | uppercase }}<br>
 					{{ vm.fonction.fonctionName }}<br>
 					mail {{ vm.user.email }} <br>
@@ -29,6 +33,9 @@
 					<br>
 				</div>
 			</div>
+			<div ng-repeat = "competences in vm.competences">competences peda:{{ competences.competenceName }}</div>
+			<div ng-repeat = "techniques in vm.techniques">techniques peda:{{ techniques.techniqueName }}</div>
+
 			
 		</div>
 	</div>
