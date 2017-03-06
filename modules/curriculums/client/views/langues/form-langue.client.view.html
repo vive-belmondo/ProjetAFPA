@@ -1,0 +1,20 @@
+<div>
+  <div class="titre">Modifier une langue</div>
+    <div class="col-md-12">
+      <form name="vm.form.langueForm" class="form-horizontal" ng-submit="vm.save(vm.form.langueForm.$valid)" novalidate>
+        <fieldset>
+          <div class="form-group col-md-12" show-errors>
+            <div class="input-group">
+              <label class="input-group-addon sr-only" for="langueName">Compétence</label>
+              <input type="text" name="langueName" ng-model="vm.langue.langueName" id="langueName" class="form-control" placeholder="langue" required>
+              <span class="input-group-btn"><button type="submit" class="btn btn-success">valider</button></span>
+          </div>
+          <div ng-messages="vm.form.langueForm.langueName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La langue est obligatoire</p>
+          </div>
+        </fieldset>
+      </form>
+      <span><button ng-click="vm.back()" class="btn btn-danger">annuler</button></span>
+    </div>
+  </div>
+</div>
