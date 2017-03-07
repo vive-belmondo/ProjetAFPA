@@ -130,9 +130,52 @@ body{
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.sous-titre{
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #1b2631;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .nav{
   text-transform: uppercase;
 }
+
+/*/////////// FORMULAIRE /////////////*/
+
+.titre-form{
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #337AB7;
+  font-size: 18px;
+  border-bottom: 1px solid #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sous-titre-form{
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #337AB7;
+  font-size: 14px;
+  border-bottom: 1px solid #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cadre-form{
+  background-color: #eef6fe;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #337AB7;
+}
+
 
 /*///////// DECO //////////*/
 .photoCV{
