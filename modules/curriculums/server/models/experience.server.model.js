@@ -29,12 +29,12 @@ var ExperienceSchema = new Schema({
     default: '',
     trim: true,
   },
-  datedebut: {
+  dateDebut: {
     type: Date,
     default: '',
     trim: true,
   },
-  datefin: {
+  dateFin: {
     type: Date,
     default: '',
     trim: true,

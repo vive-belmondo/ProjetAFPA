@@ -1,0 +1,26 @@
+<div class="titre"> Ajouter une expérience</div>
+  <form name="vm.form.experienceForm" class="form-horizontal" ng-submit="vm.save(vm.form.experienceForm.$valid)" novalidate>
+    <fieldset>
+      <div class="form-group row" show-errors>
+        <div class="col-md-4">
+            <date-mois></date-mois>
+            <date-annee></date-annee>
+        </div>
+
+        <div class="col-md-8">
+            <div class="input-group">
+              <label class="input-group-addon sr-only" for="entreprise">Entreprise</label>
+              <input type="text" name="entreprise" ng-model="vm.experience.entreprise" id="entreprise" class="form-control" placeholder="Ajouter une entreprise">
+
+              <label class="input-group-addon sr-only" for="ville">Ville</label>
+              <input type="text" name="ville" ng-model="vm.experience.ville" id="ville" class="form-control" placeholder="Ajouter une ville">
+
+              <label class="input-group-addon sr-only" for="poste">Poste</label>
+              <input type="text" name="poste" ng-model="vm.experience.poste" id="poste" class="form-control" placeholder="Ajouter une poste">
+              <span class="input-group-btn"><button type="submit" class="btn btn-success">ajouter</button></span>
+            </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
