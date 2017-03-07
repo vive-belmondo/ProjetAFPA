@@ -47,9 +47,14 @@ exports.update = function (req, res) {
   experience.entreprise = req.body.entreprise;
   experience.ville = req.body.ville;
   experience.poste = req.body.poste;
-  experience.dateDebut = req.body.dateDebut;
-  experience.dateFin = req.body.dateFin;
+  experience.dateDebutMois = req.body.dateDebutMois;
+  experience.dateDebutAnnee = req.body.dateDebutAnnee;
+  experience.dateFinMois = req.body.dateFinMois;
+  experience.dateFinAnnee = req.body.dateFinAnnee;
   experience.mission = req.body.mission;
+
+
+
 
   experience.save(function (err) {
     if (err) {

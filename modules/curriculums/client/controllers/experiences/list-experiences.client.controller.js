@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('ExperiencesListController', ExperiencesListController);
 
-  ExperiencesListController.$inject = ['$location', '$window', 'Notification','$scope', '$state', 'experienceResolve', 'Authentication', 'ExperiencesByConnectedUserService', 'UsersService'];
+  ExperiencesListController.$inject = ['$location', '$http', '$window', 'Notification','$scope', '$state', 'experienceResolve', 'Authentication', 'ExperiencesByConnectedUserService', 'UsersService'];
 
-  function ExperiencesListController($location, $window, Notification, $scope, $state, experience, Authentication, ExperiencesByConnectedUserService, UsersService) {
+  function ExperiencesListController($location, $http, $window, Notification, $scope, $state, experience, Authentication, ExperiencesByConnectedUserService, UsersService) {
     var vm = this;
     vm.remove = remove;
     vm.experience = experience;
@@ -58,6 +58,17 @@
     }
 
 
+    function selectAnnee(){
+      var today = new Date();
+      var anneeEnCours = today.getUTCFullYear();
+      vm.years = [];
+      for (var i=anneeEnCours; i> anneeEnCours-60; i--){
+        vm.years.push(i);
+      }
+      return vm.years[i];
+    }
+    selectAnnee();
+    
   }
 }());
 

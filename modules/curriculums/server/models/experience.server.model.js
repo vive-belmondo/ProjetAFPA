@@ -29,13 +29,23 @@ var ExperienceSchema = new Schema({
     default: '',
     trim: true,
   },
-  dateDebut: {
-    type: Date,
+  dateDebutMois: {
+    type: String,
     default: '',
     trim: true,
   },
-  dateFin: {
-    type: Date,
+  dateDebutAnnee: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  dateFinMois: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  dateFinAnnee: {
+    type: String,
     default: '',
     trim: true,
   },

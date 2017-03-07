@@ -13,13 +13,19 @@
             <th class="col-md-10 col-sm-9">ENTREPRISE</th>
             <th class="col-md-10 col-sm-9">VILLE</th>
             <th class="col-md-10 col-sm-9">POSTE</th>
+            <th class="col-md-10 col-sm-9">DEBUT</th>
+            <th class="col-md-10 col-sm-9">FIN</th>
+            <th class="col-md-10 col-sm-9">MISSION</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="col-md-10 col-sm-9">{{experience.entreprise}}</td>
             <td class="col-md-10 col-sm-9">{{experience.ville}}</td>
-            <td class="col-md-10 col-sm-9">{{experience.poste}}</td>
+            <td class="col-md-10 col-sm-9">{{vm.years}}</td>
+            <td class="col-md-10 col-sm-9">{{experience.dateDebutMois}} {{experience.dateDebutAnnee}}</td>
+            <td class="col-md-10 col-sm-9">{{experience.dateFinMois}} {{experience.dateFinAnnee}}</td>
+            <td class="col-md-10 col-sm-9">{{experience.mission}}</td>
             <td>
               <button class="btn btn-info" data-ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-danger" ng-click="vm.remove(experience)"><span class="glyphicon glyphicon-trash"></span></button>
