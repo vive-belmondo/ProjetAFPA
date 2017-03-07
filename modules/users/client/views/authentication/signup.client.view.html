@@ -25,14 +25,14 @@
         </div>
         <label class="control-label" for="fonction">Fonction</label>
         <div>
-          <select ng-model="vm.credentials.fonction">
+          <select ng-model="vm.credentials.fonction" class="form-control">
             <option value="">Sélectionner</option>
             <option ng-repeat="fonction in vm.fonctions | orderBy:'fonctionName'" ng-value="fonction._id">{{ fonction.fonctionName | uppercase  }}</option>
           </select>
         </div>
         <label class="control-label" for="fonction">Etablissement</label>
         <div>
-          <select ng-model="vm.credentials.etablissement">
+          <select ng-model="vm.credentials.etablissement" class="form-control">
             <option value="">Sélectionner</option>
             <option ng-repeat="etablissement in vm.etablissements | orderBy:'etablissementName'" ng-value="etablissement._id">{{ etablissement.etablissementName | uppercase  }}</option>
           </select>

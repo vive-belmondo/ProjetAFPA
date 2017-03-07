@@ -3,22 +3,25 @@
     <div class="col-md-12">
       <form name="vm.form.langueForm" class="form-horizontal" ng-submit="vm.save(vm.form.langueForm.$valid)" novalidate>
         <fieldset>
-          <div class="form-group col-md-12" show-errors>
+          <div class="col-md-12" show-errors>
             <div class="titre"> Ajouter une langue </div>
             <div >
               <input type="text" name="langueName" ng-model="vm.langue.langueName" id="langueName" class="form-control" placeholder="Ajouter une langue ">
-             
-            <label class="control-label" for="niveau">Niveau</label>
-            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu"> lu
-            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "ecrit"> ecrit
-            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu et ecrit"> lu et ecrit
-             <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "tres bon niveau"> Trés bon niveau
-            <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
-          <div ng-messages="vm.form.langueForm.niveau.$error" role="alert">
+            <br>
+            <br>
+             <div class="col-md-12" >
+              <label class="control-label" for="niveau">Niveau</label>
+              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu"> lu
+              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "ecrit"> ecrit
+              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu et ecrit"> lu et ecrit
+               <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "tres bon niveau"> Trés bon niveau
+              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
+             </div>
+            <div ng-messages="vm.form.langueForm.niveau.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Car niveau is required.</p>
           </div>
 
-            <button type="submit" class="btn btn-success">ajouter</button>
+           <span class="pull-right"> <button type="submit" class="btn btn-success">ajouter</button></span>
             </div>
           </div>
         </fieldset>
