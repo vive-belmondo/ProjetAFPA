@@ -58,14 +58,14 @@
     }
 
 
-
+    //////////table of years //////////////////////////////////
     var today = new Date();
     var anneeEnCours = today.getUTCFullYear();
       vm.years = [];
       for (var i=anneeEnCours; i > anneeEnCours-60; i--)
       {
        
-        vm.years.push(i);
+        vm.years.push(i);/// [2017,2016,2015,2014,................,1958]//////
       }
   }
 }());
