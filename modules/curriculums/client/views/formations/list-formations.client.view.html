@@ -1,0 +1,39 @@
+<section>
+  <div class="row">
+    <div class="col-md-12">
+      <my-fm my-fm-data="vm.formations"></my-fm>
+    </div>
+              
+
+    <div class="col-md-12">
+      <div class="titre">Liste des formations</div>
+      <table id="tableau" border="1" class="table table-striped table-condensed table-responsive"  data-ng-repeat="formation in vm.formations">
+        <thead>
+          <tr>
+            <th class="col-md-10 col-sm-9">Intitulé</th>
+            <th class="col-md-10 col-sm-9">Organisme</th>
+            <th class="col-md-10 col-sm-9">Domaine</th>
+            <th class="col-md-10 col-sm-9">DEBUT</th>
+            <th class="col-md-10 col-sm-9">FIN</th>
+            <th class="col-md-10 col-sm-9">Diplome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-md-10 col-sm-9">{{formation.intitule}}</td>
+            <td class="col-md-10 col-sm-9">{{formation.organisme}}</td>
+            <td class="col-md-10 col-sm-9">{{formation.doamine}}</td>
+            <td class="col-md-10 col-sm-9">{{formation.dateDebutMois}} {{formation.dateDebutAnnee}}</td>
+            <td class="col-md-10 col-sm-9">{{formation.dateFinMois}} {{formation.dateFinAnnee}}</td>
+            <td class="col-md-10 col-sm-9">{{formation.diplome}}</td>
+            <td>
+              <button class="btn btn-info" data-ui-sref="curriculums.formations.edit({formationId: formation._id})"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-danger" ng-click="vm.remove(formation)"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+

@@ -58,6 +58,15 @@
     }
 
 
+
+    var today = new Date();
+    var anneeEnCours = today.getUTCFullYear();
+      vm.years = [];
+      for (var i=anneeEnCours; i > anneeEnCours-60; i--)
+      {
+       
+        vm.years.push(i);
+      }
   }
 }());
 

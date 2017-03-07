@@ -24,6 +24,26 @@ var FormationSchema = new Schema({
     default: '',
     trim: true,
   },
+  dateDebutMois: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  dateDebutAnnee: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  dateFinMois: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  dateFinAnnee: {
+    type: String,
+    default: '',
+    trim: true,
+  },
   domaine: {
     type: String,
     default: '',

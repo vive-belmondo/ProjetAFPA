@@ -47,9 +47,12 @@ exports.update = function (req, res) {
   formation.intitule = req.body.intitule;
   formation.organisme = req.body.organisme;
   formation.domaine = req.body.domaine;
-  formation.dateDebut = req.body.dateDebut;
-  formation.dateFin = req.body.dateFin;
   formation.diplome = req.body.diplome;
+  formation.dateDebutMois = req.body.dateDebutMois;
+  formation.dateDebutAnnee = req.body.dateDebutAnnee;
+  formation.dateFinMois = req.body.dateFinMois;
+  formation.dateFinAnnee = req.body.dateFinAnnee;
+
 
   formation.save(function (err) {
     if (err) {
