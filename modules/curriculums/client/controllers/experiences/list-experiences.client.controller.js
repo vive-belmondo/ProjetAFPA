@@ -15,7 +15,6 @@
     vm.form = {};
     vm.save = save;
     vm.back = back;
-
     vm.experiences = ExperiencesByConnectedUserService.query();
 
     function remove(experience) {
@@ -58,16 +57,14 @@
     }
 
 
-    function selectAnnee(){
-      var today = new Date();
-      var anneeEnCours = today.getUTCFullYear();
+    var today = new Date();
+    var anneeEnCours = today.getUTCFullYear();
       vm.years = [];
-      for (var i=anneeEnCours; i> anneeEnCours-60; i--){
+      for (var i=anneeEnCours; i > anneeEnCours-60; i--)
+      {
+       
         vm.years.push(i);
       }
-      return vm.years[i];
-    }
-    selectAnnee();
     
   }
 }());
