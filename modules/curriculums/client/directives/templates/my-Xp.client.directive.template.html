@@ -3,45 +3,36 @@
 
     <fieldset>
       <div class="form-group row" show-errors>
-        <div class="col-md-6">
-          <div class="sous-titre-form">Date de début</div>
-          <div class="col-md-6"><date-mois></date-mois></div>
-          <div class="col-md-6"><date-annee></date-annee></div>
-        </div>
-        <div class="col-md-6">
-          <div class="sous-titre-form">Date de fin</div>
-          <div class="col-md-6"><date-mois></date-mois></div>
-          <div class="col-md-6"><date-annee></date-annee></div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="input-group">
-            <div class="sous-titre-form">Entreprise</div>
-            <input type="text" name="entreprise" ng-model="vm.experience.entreprise" id="entreprise" class="form-control" placeholder="Ajouter une entreprise">
+        <div class="col-md-12 input-group">
+          <div class="col-md-6">
+            <div class="sous-titre-form">Date de début</div>
+            <div class="col-md-6"><date-mois></date-mois></div>
+            <div class="col-md-6"><date-annee></date-annee></div>
+          </div>
+          <div class="col-md-6">
+            <div class="sous-titre-form">Date de fin</div>
+            <div class="col-md-6"><date-mois></date-mois></div>
+            <div class="col-md-6"><date-annee></date-annee></div>
+          </div>
+          <div class="col-md-6">
+              <div class="sous-titre-form">Entreprise</div>
+              <input type="text" name="entreprise" ng-model="vm.experience.entreprise" id="entreprise" class="form-control" placeholder="Ajouter une entreprise">
+          </div>
+          <div class="col-md-6">
+              <div class="sous-titre-form">Ville</div>
+              <input type="text" name="ville" ng-model="vm.experience.ville" id="ville" class="form-control" placeholder="Ajouter une ville">
+          </div>
+          <div class="col-md-12">
+              <div class="sous-titre-form">Poste</div>
+              <input type="text" name="poste" ng-model="vm.experience.poste" id="poste" class="form-control" placeholder="Ajouter une poste">
+          </div>
+          <div class="col-md-12">
+              <div class="sous-titre-form">Mission</div>
+              <textarea name="mission" ng-model="vm.experience.mission" id="mission" class="form-control" placeholder="Ajouter une mission"></textarea>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="input-group">
-            <div class="sous-titre-form">Ville</div>
-            <input type="text" name="ville" ng-model="vm.experience.ville" id="ville" class="form-control" placeholder="Ajouter une ville">
-          </div>
-        </div>
-
-        <div class="col-md-12">
-          <div class="input-group">
-            <div class="sous-titre-form">Poste</div>
-            <input type="text" name="poste" ng-model="vm.experience.poste" id="poste" class="form-control" placeholder="Ajouter une poste">
-          </div>
-        </div>
-
-        <div class="col-md-12">
-          <div class="input-group">
-            <div class="sous-titre-form">Mission</div>
-            <textarea name="mission" ng-model="vm.experience.mission" id="mission" class="form-control" placeholder="Ajouter une mission"></textarea>
-          </div>
-        </div>
-        <span class="pull-right"><button type="submit" class="btn btn-success">ajouter</button></span>
       </div>
+      <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
     </fieldset>
   </form>
 </div>
