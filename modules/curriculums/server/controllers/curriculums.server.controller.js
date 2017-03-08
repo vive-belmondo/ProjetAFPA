@@ -42,13 +42,13 @@ exports.curriculumByID = function (req, res, next, id) {
 //////////////////////////GENERER UN PDF///////////////////////////
 
 exports.generatePdf = function(req, res){
-  var curriculum = req.curriculum;
+  var user = req.user;
   var html = fs.readFileSync('./modules/curriculums/client/views/html-pdf.curriculum.client.view.html', 'utf8');
   var template = handlebars.compile(html);
-  var result = template(curriculum);
+  var result = template(user);
 
-  pdf.create(result).toFile('./modules/curriculums/client/pdf/' + curriculum._id + '.pdf', function(error, result) {
+  pdf.create(result).toFile('./modules/curriculums/client/pdf/test2.pdf', function(error, result) {
     if (error) return console.log(error);
-    res.json('./modules/curriculums/client/pdf/' + curriculum._id + '.pdf');
+    res.json('./modules/curriculums/client/pdf/test2.pdf');
   });
 };

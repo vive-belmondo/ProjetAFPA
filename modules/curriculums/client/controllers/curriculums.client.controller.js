@@ -19,8 +19,9 @@
 
 
     function downloadPdf(user) {
-    $http.get('/api/users/pdf/' + user._id)
+    $http.get('/api/users/pdf')
      .then(function(response) {
+        console.log(response);
         var path = response.data;
             path = path.slice(1);
         $window.open (path, '_blank');

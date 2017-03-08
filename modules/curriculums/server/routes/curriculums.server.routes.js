@@ -10,7 +10,7 @@ module.exports = function (app) {
   // Curriculums collection routes
 
   
-  app.route('/api/curriculums/pdf/:curriculumId')
+  app.route('/api/curriculums/pdf')
     .get(curriculums.generatePdf);
 
   // Finish by binding the curriculum middleware

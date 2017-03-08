@@ -32,8 +32,31 @@
           </div>
           <div class="col-md-6">
             <div class="sous-titre-form">Date de fin</div>
-            <div class="col-md-6"></div>
-            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <select class="form-control" class="col-md-6" ng-model="vm.experience.dateFinMois">
+                <option value="">Mois</option>
+                <option value="Janvier">Janvier</option>
+                <option value="Février">Février</option>
+                <option value="Mars">Mars</option>
+                <option value="Avril">Avril</option>
+                <option value="Mai">Mai</option>
+                <option value="Juin">Juin</option>
+                <option value="Juillet">Juillet</option>
+                <option value="Août">Août</option>
+                <option value="Septembre">Septembre</option>
+                <option value="Octobre">Octobre</option>
+                <option value="Novembre">Novembre</option>
+                <option value="Décembre">Décembre</option>
+              </select>
+
+            </div>
+            <div class="col-md-6">
+              <select class="form-control" class="col-md-6" ng-model="vm.experience.dateFinAnnee">
+                <option value ="">Année</option>
+                <option ng-repeat="year in vm.years" >{{ year }}</option>
+              </select>
+
+            </div>
           </div>
           <div class="col-md-6">
               <div class="sous-titre-form">Entreprise</div>

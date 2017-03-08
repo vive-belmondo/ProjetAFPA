@@ -33,7 +33,7 @@ acl = new acl(new acl.memoryBackend());
       resources: '/api/curriculumsByMark',
       permissions: '*'
     },{
-      resources: '/api/curriculums/pdf/:curriculumId',
+      resources: '/api/curriculums/pdf',
       permissions: '*'
     }]
   }, {
@@ -55,7 +55,7 @@ acl = new acl(new acl.memoryBackend());
       permissions: ['get']
     },
     {
-      resources: '/api/curriculums/pdf/:curriculumId',
+      resources: '/api/curriculums/pdf',
       permissions: ['get']
     }]
   }, {

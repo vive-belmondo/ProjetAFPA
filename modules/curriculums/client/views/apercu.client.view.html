@@ -8,11 +8,13 @@
 	</div>
 </section>
  --><section>
+    <a class="btn btn-primary" ng-click="vm.downloadPdf({userId: vm.user._id})" target="_blank">PDF</a>
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row cadre">
 				<div  class="col-md-5">
-					<div ng-repeat = "fonction in vm.fonctions" ng-if = "vm.user.fonction === fonction._id ">
+					<div ng-repeat="fonction in vm.fonctions" ng-if ="vm.user.fonction === fonction._id">
 					{{ fonction.fonctionName}}
 					</div>
 --------------------------------------------------------------------------------------					
@@ -40,7 +42,6 @@
 			{{ techniques.techniqueName }}</div>
 			<div class="sous-titre">Langues:</div>
 			<div ng-repeat = "langue in vm.langues"> {{langue.langueName}}: {{langue.niveau}} </div>
-
 			
 		</div>
 	</div>

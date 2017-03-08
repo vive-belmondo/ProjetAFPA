@@ -52,6 +52,7 @@
       }
     }
 
+///////////////redirect to state curriculums.formations.list//////////////////////////
 
     function back() {
       $state.go('curriculums.formations.list'); // should we send the User to the list or the updated Formation's view?
