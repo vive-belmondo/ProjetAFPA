@@ -1,6 +1,5 @@
-  <form name="vm.form.experienceForm" class="form-horizontal cadre-form" ng-submit="vm.save(vm.form.experienceForm.$valid)" novalidate>
-  <div class="titre-form">{{vm.experience._id ? 'Modifier une expérience' : 'Ajouter une expérience'}}</div>
-
+  <form name="vm.form.experienceForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.experienceForm.$valid)" novalidate>
+    <div class="titre-form">{{vm.experience._id ? 'Modifier une expérience' : 'Ajouter une expérience'}}</div>
     <fieldset>
       <div class="form-group row" show-errors>
         <div class="col-md-12 input-group">
@@ -48,35 +47,32 @@
                 <option value="Novembre">Novembre</option>
                 <option value="Décembre">Décembre</option>
               </select>
-
             </div>
             <div class="col-md-6">
               <select class="form-control" class="col-md-6" ng-model="vm.experience.dateFinAnnee">
                 <option value ="">Année</option>
                 <option ng-repeat="year in vm.years" >{{ year }}</option>
               </select>
-
             </div>
           </div>
           <div class="col-md-6">
-              <div class="sous-titre-form">Entreprise</div>
-              <input type="text" name="entreprise" ng-model="vm.experience.entreprise" id="entreprise" class="form-control" placeholder="Ajouter une entreprise">
+            <div class="sous-titre-form">Entreprise</div>
+            <input type="text" name="entreprise" ng-model="vm.experience.entreprise" id="entreprise" class="form-control" placeholder="Ajouter une entreprise">
           </div>
           <div class="col-md-6">
-              <div class="sous-titre-form">Ville</div>
-              <input type="text" name="ville" ng-model="vm.experience.ville" id="ville" class="form-control" placeholder="Ajouter une ville">
+            <div class="sous-titre-form">Ville</div>
+            <input type="text" name="ville" ng-model="vm.experience.ville" id="ville" class="form-control" placeholder="Ajouter une ville">
           </div>
           <div class="col-md-12">
-              <div class="sous-titre-form">Poste</div>
-              <input type="text" name="poste" ng-model="vm.experience.poste" id="poste" class="form-control" placeholder="Ajouter une poste">
+            <div class="sous-titre-form">Poste</div>
+            <input type="text" name="poste" ng-model="vm.experience.poste" id="poste" class="form-control" placeholder="Ajouter une poste">
           </div>
           <div class="col-md-12">
-              <div class="sous-titre-form">Mission</div>
-              <textarea name="mission" ng-model="vm.experience.mission" id="mission" class="form-control" placeholder="Ajouter une mission"></textarea>
+            <div class="sous-titre-form">Mission</div>
+            <textarea name="mission" ng-model="vm.experience.mission" id="mission" class="form-control" placeholder="Ajouter une mission"></textarea>
           </div>
         </div>
       </div>
-      <div><button type="submit" class="btn btn-block btn-success">{{vm.experience._id ? 'Confirmer' : 'Ajouter'}}</button></div>
-    </fieldset>
-  </form>
-</div>
+      <div><button type="submit" class="btn btn-block btn-form">{{vm.experience._id ? 'Confirmer' : 'Ajouter'}}</button></div>
+  </fieldset>
+</form>

@@ -1,29 +1,23 @@
 <section>
   <div class="row">
     <div class="col-md-12">
-      <form name="vm.form.langueForm" class="form-horizontal cadre-form" ng-submit="vm.save(vm.form.langueForm.$valid)" novalidate>
-       <div class="titre-form"> Ajouter une langue </div>
+      <form name="vm.form.langueForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.langueForm.$valid)" novalidate>
+        <div class="titre-form"> Ajouter une langue </div>
         <fieldset>
-        <div class="row form-group" show-errors>
-          <div class="col-md-12" >
-           
-            <div >
+          <div class="row form-group" show-errors>
+            <div class="col-md-12" >
               <input type="text" name="langueName" ng-model="vm.langue.langueName" id="langueName" class="form-control" placeholder="Ajouter une langue ">
-             <div class="col-md-12" >
-              <div class="sous-titre-form" for="niveau">Niveau</div>
-              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu"> lu
-              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "écrit"> écrit
-              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu et écrit"> lu et écrit
-               <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "très bon niveau"> très bon niveau
-              <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
-             </div>
-            <div ng-messages="vm.form.langueForm.niveau.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Le niveau de langue est requis</p>
-          </div>
-
-           <span class="pull-right"> <button type="submit" class="btn btn-success">ajouter</button></span>
+              <div class="col-md-12" >
+                <div class="sous-titre-form" for="niveau">Niveau</div>
+                <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu"> lu
+                <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "écrit"> écrit
+                <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "lu et écrit"> lu et écrit
+                <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "très bon niveau"> très bon niveau
+                <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
+                <br><br>
+                <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
+              </div>
             </div>
-          </div>
           </div>
         </fieldset>
       </form>

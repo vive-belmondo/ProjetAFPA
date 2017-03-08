@@ -1,6 +1,20 @@
 <div>
-  <div class="titre">Modifier une compétence pédagogique</div>
-    <div class="col-md-12">
+  <div class="col-md-12">
+    <form name="vm.form.competenceForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.competenceForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group col-md-12" show-errors>
+          <div class="titre-form"> Modifier une compétence pédagogique</div>
+            <label class="sr-only" for="competenceName">Compétence pédagogique</label>
+            <input type="text" name="competenceName" ng-model="vm.competence.competenceName" id="competenceName" class="form-control" placeholder="Ajouter une compétence pédagogique">
+            <br>
+          <div><button type="submit" class="btn btn-block btn-success">confirmer</button></div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!--     <div class="col-md-12">
       <form name="vm.form.competenceForm" class="form-horizontal" ng-submit="vm.save(vm.form.competenceForm.$valid)" novalidate>
         <fieldset>
           <div class="form-group col-md-12" show-errors>
@@ -15,6 +29,4 @@
         </fieldset>
       </form>
       <span><button ng-click="vm.back()" class="btn btn-danger">annuler</button></span>
-    </div>
-  </div>
-</div>
+    </div> -->

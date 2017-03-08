@@ -1,14 +1,15 @@
 <section>
-  <div class="row">
+<!--   <div class="row">
     <div class="col-md-12">
-      <form name="vm.form.techniqueForm" class="form-horizontal" ng-submit="vm.save(vm.form.techniqueForm.$valid)" novalidate>
+ -->      <form name="vm.form.techniqueForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.techniqueForm.$valid)" novalidate>
         <fieldset>
           <div class="form-group col-md-12" show-errors>
-            <div class="titre"> Ajouter une compétence technique</div>
-            <div class="input-group">
-              <label class="input-group-addon sr-only" for="techniqueName">Compétence technique</label>
+            <div class="titre-form"> Ajouter une compétence technique</div>
+            <div>
+              <label class="sr-only" for="techniqueName">Compétence technique</label>
               <input type="text" name="techniqueName" ng-model="vm.technique.techniqueName" id="techniqueName" class="form-control" placeholder="Ajouter une compétence technique">
-            <span class="input-group-btn"><button type="submit" class="btn btn-success">ajouter</button></span>
+              <br>
+            <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
             </div>
           </div>
         </fieldset>
@@ -32,6 +33,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>
+<!--     </div>
+  </div> -->
 </section>

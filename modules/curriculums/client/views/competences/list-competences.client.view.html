@@ -1,15 +1,14 @@
 <section>
   <div class="row">
     <div class="col-md-12">
-      <form name="vm.form.competenceForm" class="form-horizontal" ng-submit="vm.save(vm.form.competenceForm.$valid)" novalidate>
+      <form name="vm.form.competenceForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.competenceForm.$valid)" novalidate>
         <fieldset>
           <div class="form-group col-md-12" show-errors>
-            <div class="titre"> Ajouter une compétence pédagogique</div>
-            <div class="input-group">
-              <label class="input-group-addon sr-only" for="competenceName">Compétence pédagogique</label>
+            <div class="titre-form"> Ajouter une compétence pédagogique</div>
+              <label class="sr-only" for="competenceName">Compétence pédagogique</label>
               <input type="text" name="competenceName" ng-model="vm.competence.competenceName" id="competenceName" class="form-control" placeholder="Ajouter une compétence pédagogique">
-            <span class="input-group-btn"><button type="submit" class="btn btn-success">ajouter</button></span>
-            </div>
+              <br>
+            <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
           </div>
         </fieldset>
       </form>

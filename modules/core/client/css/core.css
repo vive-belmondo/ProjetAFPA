@@ -118,7 +118,7 @@ a:hover .header-profile-image {
 body{
   font-family: 'Montserrat', sans-serif;
   color: #1b2631;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .titre{
@@ -128,7 +128,7 @@ body{
   font-size: 18px;
   border-bottom: 1px solid #ddd;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sous-titre{
@@ -169,10 +169,8 @@ body{
   margin-bottom: 10px;
 }
 
-.cadre-form{
+.cadre.form{
   background-color: #eef6fe;
-  border-radius: 5px;
-  padding: 10px;
   border: 1px solid #337AB7;
 }
 
@@ -184,7 +182,42 @@ body{
 }
 
 .cadre{
-  background-color: #eef6fe;
   border-radius: 5px;
   padding: 10px;
+}
+
+/*///////////// CV /////////////////*/
+.cadre.list{
+  border: 1px solid #ddd;
+}
+/* expériences + formations */
+.petit{
+  font-size: 12px;
+}
+.souligne{
+  border-bottom: 1px solid #ddd;
+  margin-top: 3px;
+  margin-bottom: 15px;
+}
+
+.xp{
+}
+
+.xp.intitule{
+  font-weight: bold;
+}
+
+
+.btn-form{
+  background-color: white;
+  background-position: 0 -15px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 3px #ddd;
+}
+.btn-form:hover, .btn-form:focus {
+  color: #337AB7;
+}
+.btn-form:hover {
+    color: #337AB7;
+    border-color: none;
 }
