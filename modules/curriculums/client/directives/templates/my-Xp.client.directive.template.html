@@ -25,7 +25,7 @@
             <div class="col-md-6">
               <select class="form-control" class="col-md-6" ng-model="vm.experience.dateDebutAnnee">
                 <option value ="">Année</option>
-                <option ng-repeat="year in vm.years" >{{ year }}</option>
+                <option ng-repeat="year in vm.years" ng-if="year <= vm.experience.dateFinAnnee || !vm.experience.dateFinAnnee "  >{{ year }}</option>
               </select>
             </div>
           </div>
@@ -51,7 +51,7 @@
             <div class="col-md-6">
               <select class="form-control" class="col-md-6" ng-model="vm.experience.dateFinAnnee">
                 <option value ="">Année</option>
-                <option ng-repeat="year in vm.years" >{{ year }}</option>
+                <option ng-repeat="year in vm.years" ng-if="year >= vm.experience.dateDebutAnnee " >{{ year }}</option>
               </select>
             </div>
           </div>
