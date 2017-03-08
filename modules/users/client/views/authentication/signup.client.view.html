@@ -61,7 +61,7 @@
         </div>
         <div class="form-group" show-errors>
           <label for="dn">Date de naissance</label>
-          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.credentials.dn" placeholder="Date de naissance" required>
+          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.credentials.dn" placeholder="AAAA-MM-jj" required>
           <div ng-messages="vm.userForm.dn.$error" role="alert">
             <p class="help-block error-text" ng-message="required">La dn est obligatoire</p>
           </div>

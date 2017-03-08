@@ -8,7 +8,8 @@ var mongoose = require('mongoose'),
   config = require(path.resolve('./config/config')),
   Schema = mongoose.Schema,
   crypto = require('crypto'),
-  validator = require('validator'),
+  // validator = require('validator'),
+  validator = require('node-mongoose-validator'),
   generatePassword = require('generate-password'),
   owasp = require('owasp-password-strength-test');
 
@@ -78,7 +79,7 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
-    username: {
+  username: {
     type: String,
     unique: 'Username already exists',
     required: 'Please fill in a username',
@@ -112,12 +113,24 @@ var UserSchema = new Schema({
     trim: true,
     required: 'La ville est obligatoire'
   },
-  tel: {
-    type: Number,
-    default: '',
-    trim: true,
-    required: 'Le numéro de téléphone est obligatoire'
-  },
+  // tel: {
+  //   type: Number,
+  //   default: '',
+  //   // trim: true,
+  //   // required: 'Le numéro de téléphone est obligatoire'
+  // },
+ tel: {
+        type: String,
+        validate: {
+          validator: function(v, cb) {
+            setTimeout(function() {
+              cb(/\d{2}.\d{2}.\d{2}.\d{2}.\d{2}/.test(v));
+            }, 5);
+          },
+          message: '{VALUE} is not a valid phone number!'
+        },
+        required: [true, 'User phone number required']
+      },
   civilite: {
     type: String,
     default: '',
@@ -127,8 +140,17 @@ var UserSchema = new Schema({
   dn: {
     type: String,
     default: '',
-    trim: true,
-    required: 'La date de naissance est obligatoire'
+    validate: {
+          validator: function(v, cb) {
+            setTimeout(function() {
+              cb(/\d{2}-\d{2}-\d{4}/.test(v));
+            }, 5);
+          },
+          message: '{VALUE} is not a valid phone number!'
+        },
+        required: [true, 'User phone number required']
+    // trim: true,
+    // required: 'La date de naissance est obligatoire'
   },
   matricule: {
     type: String,
@@ -284,5 +306,16 @@ UserSchema.statics.generateRandomPassphrase = function () {
     }
   });
 };
+  // UserSchema.path('firstName').validate(validator.$notEmpty({msg: 'entrez votre prenom SVP.'}));
+  // UserSchema.path('dn').validate(validator.$isDate({msg: 'veuillez entrer une date valide SVP'}));
 
-mongoose.model('User', UserSchema);
+ mongoose.model('User', UserSchema);
+// var user = new User();
+//     var error;
+
+//     user.phone = '555.0123';
+//     user.validate(function(error) {
+//       assert.ok(error);
+//       assert.equal(error.errors['phone'].message,
+//         '555.0123 is not a valid phone number!');
+//     });
