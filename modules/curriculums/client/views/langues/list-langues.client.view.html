@@ -15,7 +15,7 @@
                 <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "très bon niveau"> très bon niveau
                 <input type="radio" name="niveau" ng-model="vm.langue.niveau" value = "langue maternelle"> langue maternelle
                 <br><br>
-                <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
+                <div><button type="submit" class="btn btn-block btn-form">ajouter</button></div>
               </div>
             </div>
           </div>
@@ -24,17 +24,12 @@
     </div>
     <div class="col-md-12">
       <div class="titre">Liste des langues</div>
-      <table id="tableau" border="1" class="table table-striped table-condensed table-responsive">
-        <thead>
-          <tr>
-            <th class="col-md-10 col-sm-9">LANGUES</th>
-          </tr>
-        </thead>
+      <table id="tableau" class="table table-striped table-responsive">
         <tbody>
           <tr data-ng-repeat="langue in vm.langues">
             <td class="col-md-10 col-sm-9">{{langue.langueName}}, {{langue.niveau}} </td>
             <td align="center">
-              <button class="btn  btn-danger  " ng-click="vm.remove(langue)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-xs btn-form  " ng-click="vm.remove(langue)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>
         </tbody>

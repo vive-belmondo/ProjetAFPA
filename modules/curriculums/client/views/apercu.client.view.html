@@ -7,7 +7,36 @@
 		<div ng-repeat = "competences in vm.competences">{{ competences.competenceName }}</div>
 	</div>
 </section>
- --><section >
+ -->
+<section>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="row">
+				<div class="col-md-12"></div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-8"></div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6"></div>
+					</div>
+				</div>
+				<div class="col-md-12"></div>
+				<div class="col-md-12"></div>
+				<div class="col-md-12"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+ <section >
     <button pdf-save-button="pdfcv" pdf-name="CV-{{ vm.user.displayName}}.pdf" class="btn btn-primary">PDF</button>
     <div pdf-save-content="pdfcv">
 	<div class="row">
@@ -17,7 +46,6 @@
 					<div ng-repeat="fonction in vm.fonctions" ng-if ="vm.user.fonction === fonction._id">
 					{{ fonction.fonctionName}}
 					</div>
---------------------------------------------------------------------------------------					
 					{{ vm.user.firstName }} {{ vm.user.lastName | uppercase }}<br>
 					{{ vm.fonction.fonctionName }}<br>
 					mail {{ vm.user.email }} <br>
@@ -47,3 +75,24 @@
 	</div>
 </div>
 </section>
+
+
+      <div class="col-md-12" data-ng-repeat="experience in vm.experiences">
+        <div class="row cadre list xp">
+          <div class="col-md-2 petit">
+            {{experience.dateDebutMois}} {{experience.dateDebutAnnee}}
+            <br>
+            {{experience.dateFinMois}} {{experience.dateFinAnnee}}
+          </div>
+          <div class="col-md-10">
+            <div class="xp intitule">{{experience.poste}}
+              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
+              <button class="btn btn-form btn-xs pull-right" ng-click="vm.remove(experience)"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+
+            <div class="petit souligne">{{experience.entreprise}} - {{experience.ville}}</div>
+            <div>{{experience.mission}}</div>
+          </div>
+        </div>
+        <br>
+      </div>
