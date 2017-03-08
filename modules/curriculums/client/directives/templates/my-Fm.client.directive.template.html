@@ -1,5 +1,5 @@
   <form name="vm.form.formationForm" class="form-horizontal cadre-form" ng-submit="vm.save(vm.form.formationForm.$valid)" novalidate>
-  <div class="titre-form"> Ajouter une formation</div>
+  <div class="titre-form">{{vm.formation._id ? 'Modifier une formation' : 'Ajouter une formation'}}</div>
 
     <fieldset>
       <div class="form-group row" show-errors>
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
+      <div><button type="submit" class="btn btn-block btn-success">{{vm.formation._id ? 'Confirmer' : 'Ajouter'}}</button></div>
     </fieldset>
   </form>
 </div>

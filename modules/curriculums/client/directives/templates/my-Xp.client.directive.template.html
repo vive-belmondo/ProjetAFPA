@@ -1,5 +1,5 @@
   <form name="vm.form.experienceForm" class="form-horizontal cadre-form" ng-submit="vm.save(vm.form.experienceForm.$valid)" novalidate>
-  <div class="titre-form"> Ajouter une expérience</div>
+  <div class="titre-form">{{vm.experience._id ? 'Modifier une expérience' : 'Ajouter une expérience'}}</div>
 
     <fieldset>
       <div class="form-group row" show-errors>
@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
+      <div><button type="submit" class="btn btn-block btn-success">{{vm.experience._id ? 'Confirmer' : 'Ajouter'}}</button></div>
     </fieldset>
   </form>
 </div>
