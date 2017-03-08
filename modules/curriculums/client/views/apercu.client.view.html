@@ -7,9 +7,9 @@
 		<div ng-repeat = "competences in vm.competences">{{ competences.competenceName }}</div>
 	</div>
 </section>
- --><section>
-    <a class="btn btn-primary" ng-click="vm.downloadPdf({userId: vm.user._id})" target="_blank">PDF</a>
-
+ --><section >
+    <button pdf-save-button="idOne" pdf-name="CV-{{ vm.user.displayName}}.pdf" class="btn btn-primary">PDF</button>
+    <div pdf-save-content="idOne">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row cadre">
@@ -45,4 +45,5 @@
 			
 		</div>
 	</div>
+</div>
 </section>

@@ -24,6 +24,11 @@ module.exports = {
         'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/html2canvas/build/html2canvas.min.js',
+        'public/lib/jsPDF/dist/jspdf.debug.js',
+        'public/lib/angular-save-html-to-pdf/dist/saveHtmlToPdf.min.js',
+        'public/lib/jquery/dist/jquery.min.js',
+
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
