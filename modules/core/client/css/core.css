@@ -1,6 +1,6 @@
 /*////////// HEADER //////////////*/
 .content {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -46,6 +46,87 @@ a:hover .header-profile-image {
   background-image: linear-gradient(to bottom, #C8EF8F 0%, #6AAF04 100%);
 }*/
 
+
+
+/*///////////// MENU DU HAUT /////////////*/
+.navbar-inverse{
+/*  background-image: linear-gradient(to bottom, #6AAF0470 20%, #6AAF04 114%);
+*/
+  background-image: none;
+  background-color: #6AAF0480;
+  border-color: #6AAF04;
+}
+.navbar-inverse a:hover{
+  background-color: #fff;
+  border-color: none;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+  background-image: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  color: #6AAF04;
+  box-shadow: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav .active > li > a {
+    color: #6AAF04;
+}
+
+.navbar-inverse .navbar-nav > .open > a{
+  background-image: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  color: #6AAF04;
+  box-shadow: none;
+}
+
+.navbar-nav a {
+    color: #fff;
+    text-shadow: none !important;
+}
+
+.navbar-nav > li > a {
+    color: #fff;
+    text-shadow: none !important;
+}
+
+
+/*////// MENU GAUCHE module CV ///////////*/
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #6AAF0460;
+}
+a:hover, a:focus {
+    color: #6AAF04;
+    text-decoration: underline;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #6AAF0420;
+}
+
+
+
+/*///////// BOUTONS //////////*/
+
+.btn-form{
+  background-color: white;
+  background-position: 0 -15px;
+  border: 1px solid #6AAF0470;
+  box-shadow: 3px 3px 3px #6AAF0450;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.btn-form:hover .btn-form:focus {
+  color: #6AAF04;
+}
+.btn-form:hover {
+    color: #6AAF04;
+    border-color: none;
+}
 
 
  /*///////////////  CARD ////////////////////*/
@@ -117,8 +198,12 @@ a:hover .header-profile-image {
 /*///////// TYPO ////////////*/
 body{
   font-family: 'Montserrat', sans-serif;
-  color: #1b2631;
+  color: #33393f;
   font-size: 14px;
+}
+
+a {
+  color: #6AAF04;
 }
 
 .titre{
@@ -126,7 +211,7 @@ body{
   text-decoration: none;
   color: #1b2631;
   font-size: 18px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #6AAF04;
   margin-top: 30px;
   margin-bottom: 20px;
 }
@@ -136,7 +221,7 @@ body{
   text-decoration: none;
   color: #1b2631;
   font-size: 14px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #6AAF04;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -144,6 +229,11 @@ body{
 .nav{
   text-transform: uppercase;
 }
+
+.table > tbody > tr > td{
+  vertical-align: center;
+}
+
 
 /*/////////// FORMULAIRE /////////////*/
 
@@ -153,7 +243,7 @@ body{
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 5px;
-  color: #337AB7;
+  color: #6AAF04;
   font-size: 18px;
   border-bottom: 1px solid #fff;
   margin-top: 10px;
@@ -162,7 +252,7 @@ body{
 .sous-titre-form{
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
-  color: #337AB7;
+  color: #6AAF04;
   font-size: 14px;
   border-bottom: 1px solid #fff;
   margin-top: 10px;
@@ -170,8 +260,8 @@ body{
 }
 
 .cadre.form{
-  background-color: #eef6fe;
-  border: 1px solid #337AB7;
+  background-color: #6AAF0430;
+  border: 1px solid #6AAF04;
 }
 
 
@@ -188,14 +278,14 @@ body{
 
 /*///////////// CV /////////////////*/
 .cadre.list{
-  border: 1px solid #ddd;
+  border: 1px solid #6AAF04;
 }
 /* expériences + formations */
 .petit{
   font-size: 12px;
 }
 .souligne{
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #6AAF04;
   margin-top: 3px;
   margin-bottom: 15px;
 }
@@ -208,16 +298,19 @@ body{
 }
 
 
-.btn-form{
-  background-color: white;
-  background-position: 0 -15px;
-  border: 1px solid #ddd;
-  box-shadow: 3px 3px 3px #ddd;
+
+
+.red{
+  background-color: red;
 }
-.btn-form:hover, .btn-form:focus {
-  color: #337AB7;
+.green{
+  background-color: #6AAF04;
 }
-.btn-form:hover {
-    color: #337AB7;
-    border-color: none;
+.black{
+  background-color: black;
+  color: white;
 }
+
+
+vert clair : 6AAF0430
+vert normal afpa : 6AAF04
