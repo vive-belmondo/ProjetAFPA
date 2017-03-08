@@ -1,7 +1,7 @@
 <section>
-<!--   <div class="row">
+  <div class="row">
     <div class="col-md-12">
- -->      <form name="vm.form.techniqueForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.techniqueForm.$valid)" novalidate>
+      <form name="vm.form.techniqueForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.techniqueForm.$valid)" novalidate>
         <fieldset>
           <div class="form-group col-md-12" show-errors>
             <div class="titre-form"> Ajouter une compétence technique</div>
@@ -9,30 +9,26 @@
               <label class="sr-only" for="techniqueName">Compétence technique</label>
               <input type="text" name="techniqueName" ng-model="vm.technique.techniqueName" id="techniqueName" class="form-control" placeholder="Ajouter une compétence technique">
               <br>
-            <div><button type="submit" class="btn btn-block btn-success">ajouter</button></div>
+            <div><button type="submit" class="btn btn-block btn-form">ajouter</button></div>
             </div>
           </div>
         </fieldset>
       </form>
     </div>
+
     <div class="col-md-12">
       <div class="titre">Liste des compétences techniques</div>
-      <table id="tableau" border="1" class="table table-striped table-condensed table-responsive">
-        <thead>
-          <tr>
-            <th class="col-md-10 col-sm-9">COMPETENCES TECHNIQUES</th>
-          </tr>
-        </thead>
+      <table id="tableau" class="table table-striped table-responsive">
         <tbody>
           <tr data-ng-repeat="technique in vm.techniques">
-            <td class="col-md-10 col-sm-9">{{ technique.techniqueName}}</td>
+            <td class="col-md-10 col-sm-9">{{ technique.techniqueName }}</td>
             <td>
-              <button class="btn btn-info" data-ui-sref="curriculums.techniques.edit({techniqueId: technique._id})" ><span class="glyphicon glyphicon-pencil"></span></button>
-              <button class="btn btn-danger" ng-click="vm.remove(technique)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-form" data-ui-sref="curriculums.techniques.edit({techniqueId: technique._id})" ><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-form" ng-click="vm.remove(technique)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>
         </tbody>
       </table>
-<!--     </div>
-  </div> -->
+    </div>
+  </div>
 </section>

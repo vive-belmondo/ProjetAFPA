@@ -44,7 +44,7 @@ var FormationSchema = new Schema({
     default: '',
     trim: true,
   },
-  domaine: {
+  ville: {
     type: String,
     default: '',
     trim: true,
