@@ -4,7 +4,7 @@
       <my-xp my-xp-data="vm.experiences"></my-xp>
       <div class=" col-md-12 titre">Liste des expériences</div>
 
-      <div class="col-md-12" data-ng-repeat="experience in vm.experiences">
+      <div class="col-md-12" data-ng-repeat="experience in vm.experiences | orderBy : '-dateFinAnnee'">
         <div class="row cadre list xp">
           <div class="col-md-2 petit">
             {{experience.dateDebutMois}} {{experience.dateDebutAnnee}}
@@ -13,7 +13,7 @@
           </div>
           <div class="col-md-10">
             <div class="xp intitule">{{experience.poste}}
-              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
+              <button class="btn btn-form btn-xs pull-right" ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
               <button class="btn btn-form btn-xs pull-right" ng-click="vm.remove(experience)"><span class="glyphicon glyphicon-trash"></span></button>
             </div>
 

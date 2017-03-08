@@ -143,12 +143,12 @@ var UserSchema = new Schema({
     validate: {
           validator: function(v, cb) {
             setTimeout(function() {
-              cb(/\d{2}-\d{2}-\d{4}/.test(v));
+              cb(/^(0[1-9]|[1-2]\d|3[0-1])\/(0[1-9]|1[0-2])\/\d\d\d\d$/.test(v));
             }, 5);
           },
-          message: '{VALUE} is not a valid phone number!'
+          message: '{VALUE} n\'est pas une date valide!'
         },
-        required: [true, 'User phone number required']
+        required: [true, 'la date de naissance est obligatoire']
     // trim: true,
     // required: 'La date de naissance est obligatoire'
   },
@@ -307,8 +307,8 @@ UserSchema.statics.generateRandomPassphrase = function () {
   });
 };
   // UserSchema.path('firstName').validate(validator.$notEmpty({msg: 'entrez votre prenom SVP.'}));
-  // UserSchema.path('dn').validate(validator.$isDate({msg: 'veuillez entrer une date valide SVP'}));
-
+    UserSchema.path('cp').validate(validator.$isLength(5 , 5));
+    // UserSchema.path('dn').validate(validator.$isBefore(new Date()));
  mongoose.model('User', UserSchema);
 // var user = new User();
 //     var error;
