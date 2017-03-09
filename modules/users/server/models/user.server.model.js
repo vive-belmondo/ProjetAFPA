@@ -124,12 +124,12 @@ var UserSchema = new Schema({
         validate: {
           validator: function(v, cb) {
             setTimeout(function() {
-              cb(/\d{2}.\d{2}.\d{2}.\d{2}.\d{2}/.test(v));
+              cb(/^(0[1-9]).\d{2}.\d{2}.\d{2}.\d{2}$/.test(v));
             }, 5);
           },
-          message: '{VALUE} is not a valid phone number!'
+          message: '{VALUE} n\'est pas un numéro valide!'
         },
-        required: [true, 'User phone number required']
+        required: [true, 'le numéro de telephone est obligatoire']
       },
   civilite: {
     type: String,
@@ -308,14 +308,5 @@ UserSchema.statics.generateRandomPassphrase = function () {
 };
   // UserSchema.path('firstName').validate(validator.$notEmpty({msg: 'entrez votre prenom SVP.'}));
     UserSchema.path('cp').validate(validator.$isLength(5 , 5));
-    // UserSchema.path('dn').validate(validator.$isBefore(new Date()));
+    // UserSchema.path('dn').validate(validator.$isAfter(today));
  mongoose.model('User', UserSchema);
-// var user = new User();
-//     var error;
-
-//     user.phone = '555.0123';
-//     user.validate(function(error) {
-//       assert.ok(error);
-//       assert.equal(error.errors['phone'].message,
-//         '555.0123 is not a valid phone number!');
-//     });
