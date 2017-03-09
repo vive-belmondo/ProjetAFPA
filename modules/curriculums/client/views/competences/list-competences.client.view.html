@@ -20,8 +20,8 @@
           <tr data-ng-repeat="competence in vm.competences">
             <td class="col-md-10 col-sm-9">{{competence.competenceName}}</td>
             <td>
-              <button class="btn btn-form" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})"><span class="glyphicon glyphicon-pencil"></span></button>
-              <button class="btn btn-form" ng-click="vm.remove(competence)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-xs btn-form" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-xs btn-form" ng-click="vm.remove(competence)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>
         </tbody>

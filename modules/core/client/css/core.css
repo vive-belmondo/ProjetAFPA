@@ -53,7 +53,7 @@ a:hover .header-profile-image {
 /*  background-image: linear-gradient(to bottom, #6AAF0470 20%, #6AAF04 114%);
 */
   background-image: none;
-  background-color: #6AAF0480;
+  background-color: #6AAF04;
   border-color: #6AAF04;
 }
 .navbar-inverse a:hover{
@@ -61,9 +61,12 @@ a:hover .header-profile-image {
   border-color: none;
 }
 
-.navbar-inverse .navbar-nav > .active > a {
-  background-image: linear-gradient(to bottom, #fff 0%, #fff 100%);
-  color: #6AAF04;
+.navbar-inverse .navbar-nav > .active > a
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background-image: linear-gradient(to bottom, #41660A 0%, #41660A 100%);
+  background-color: #41660A;
+  color: #fff;
   box-shadow: none;
 }
 
@@ -92,10 +95,11 @@ a:hover .header-profile-image {
 }
 
 
+
 /*////// MENU GAUCHE module CV ///////////*/
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #fff;
-    background-color: #6AAF0460;
+    background-color: #6AAF04;
 }
 a:hover, a:focus {
     color: #6AAF04;
