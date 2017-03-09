@@ -17,8 +17,6 @@
     vm.back = back;
 
 
-
-
 	vm.fonctions = FonctionsService.query();
 
     // Remove existing Fonction

@@ -7,7 +7,7 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div> -->
-  <div class="titre">Modifier une fonction</div>
+<!--   <div class="titre">Modifier une fonction</div>
   <div class="col-md-6">
     <form name="vm.form.fonctionForm" class="form-horizontal" ng-submit="vm.save(vm.form.fonctionForm.$valid)" novalidate>
       <fieldset>
@@ -24,4 +24,25 @@
     </form>
     <span><button ng-click="vm.back()" class="btn btn-danger">annuler</button></span>
   </div>
-</div>
+</div> -->
+    <div class="col-md-12">
+      <form name="vm.form.fonctionForm" class="form-horizontal cadre form" ng-submit="vm.save(vm.form.fonctionForm.$valid)" novalidate>
+        <fieldset>
+          <div class="form-group col-md-12" show-errors>
+            <div class="titre-form">{{vm.fonction._id ? 'Modifier une fonction' : 'Créer une fonction'}}</div>
+            <div>
+              <label class=" sr-only" for="fonctionName">Fonction</label>
+              <input type="text" name="fonctionName" ng-model="vm.fonction.fonctionName" id="fonctionName" class="form-control" placeholder="Ajouter une fonction" required>
+              <br>
+            <span><button type="submit" class="btn btn-block btn-form">{{vm.fonction._id ? 'confirmer' : 'ajouter'}}</button></span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <br>
+      <span><button ng-click="vm.back()" class="btn btn-form pull-right">annuler</button></span>
+
+    </div>
+
+
+    

@@ -29,7 +29,7 @@
         controller: 'EtablissementsAdminController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin', 'user']
+          roles: ['admin']
         },
         resolve: {
           etablissementResolve: newEtablissement

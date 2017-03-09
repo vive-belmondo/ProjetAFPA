@@ -13,8 +13,8 @@
           </div>
           <div class="col-md-10">
             <div class="xp intitule">{{formation.intitule}}
-              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.formations.edit({formationId: formation._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
               <button class="btn btn-form btn-xs pull-right" ng-click="vm.remove(formation)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.formations.edit({formationId: formation._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
             </div>
             <div class="petit souligne">{{formation.organisme}} - {{formation.ville}}</div>
             <div>{{formation.diplome}}</div>

@@ -76,3 +76,5 @@
       <div><button type="submit" class="btn btn-block btn-form">{{vm.experience._id ? 'Confirmer' : 'Ajouter'}}</button></div>
   </fieldset>
 </form>
+<br>
+<div ng-show="vm.experience._id"><button ng-click="vm.back()" class="btn btn-sm btn-form pull-right">annuler</button></div>

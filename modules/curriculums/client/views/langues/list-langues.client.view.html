@@ -29,7 +29,8 @@
           <tr data-ng-repeat="langue in vm.langues">
             <td class="col-md-10 col-sm-9">{{langue.langueName}}, {{langue.niveau}} </td>
             <td align="center">
-              <button class="btn btn-xs btn-form  " ng-click="vm.remove(langue)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-form btn-xs pull-right" ng-click="vm.remove(langue)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.langues.edit({langueId: langue._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
             </td>
           </tr>
         </tbody>
