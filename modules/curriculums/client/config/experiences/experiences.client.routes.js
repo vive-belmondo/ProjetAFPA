@@ -15,7 +15,7 @@
         template: '<ui-view/>'
       })
       .state('curriculums.experiences.list', {
-        url: '/:idUser/list',
+        url: '/list',
         templateUrl: '/modules/curriculums/client/views/experiences/list-experiences.client.view.html',
         controller: 'ExperiencesListController',
         controllerAs: 'vm',

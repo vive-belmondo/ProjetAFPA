@@ -24,6 +24,15 @@
         data: {
           pageTitle: 'Aperçu du CV'
         }
+      })
+      .state('curriculums.cv', {
+        url: '',
+        templateUrl: '/modules/curriculums/client/views/list-cv.client.view.html',
+        controller: 'ListCvController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Liste des CV'
+        }
       });
   }
 }());

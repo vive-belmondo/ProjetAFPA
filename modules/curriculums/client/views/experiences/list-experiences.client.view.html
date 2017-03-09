@@ -13,10 +13,9 @@
           </div>
           <div class="col-md-10">
             <div class="xp intitule">{{experience.poste}}
-              <button class="btn btn-form btn-xs pull-right" ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
               <button class="btn btn-form btn-xs pull-right" ng-click="vm.remove(experience)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-form btn-xs pull-right" ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
             </div>
-
             <div class="petit souligne">{{experience.entreprise}} - {{experience.ville}}</div>
             <div>{{experience.mission}}</div>
           </div>

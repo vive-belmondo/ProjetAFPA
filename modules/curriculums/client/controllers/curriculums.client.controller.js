@@ -5,42 +5,29 @@
     .module('curriculums')
     .controller('CurriculumsController', CurriculumsController);
 
-  CurriculumsController.$inject = ['$scope', 'Authentication', '$http', '$window', 'UsersService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService', 'LanguesByConnectedUserService'];
+  CurriculumsController.$inject = ['$scope', 'Authentication', '$http', '$window', 'AdminService', 'UsersService','ExperiencesByConnectedUserService', 'FormationsByConnectedUserService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService', 'LanguesByConnectedUserService'];
 
-  function CurriculumsController($scope, Authentication, $http, $window, UsersService, FonctionsService, EtablissementsService, CompetencesByConnectedUserService,TechniquesByConnectedUserService,LanguesByConnectedUserService) {
+  function CurriculumsController($scope, Authentication, $http, $window, AdminService, UsersService, FonctionsService, EtablissementsService,ExperiencesByConnectedUserService, FormationsByConnectedUserService, CompetencesByConnectedUserService,TechniquesByConnectedUserService,LanguesByConnectedUserService) {
     var vm = this;
     vm.user = Authentication.user;
-    // vm.downloadPdf = downloadPdf;
+    vm.downloadPdf = downloadPdf;
     vm.etablissement = EtablissementsService.query();
     vm.fonctions = FonctionsService.query();
     vm.competences = CompetencesByConnectedUserService.query();
     vm.techniques = TechniquesByConnectedUserService.query();
     vm.langues = LanguesByConnectedUserService.query();
+    vm.experiences = ExperiencesByConnectedUserService.query();
+    vm.formations = FormationsByConnectedUserService.query();
 
 
-    // function downloadPdf() {
-    // $http.get('/api/users/pdf')
-    //  .then(function(response) {
-    //     console.log(response);
-    //     var path = response.data;
-    //         path = path.slice(1);
-    //     $window.open (path, '_blank');
-    //   });
-    // }
 
-  //   function downloadPdf(){
-  //   html2canvas($("#pdf"), {
-  //           onrendered: function (canvas) {
-  //               var data = canvas.toDataURL();
-  //               var docDefinition = {
-  //                   content: [{
-  //                       image: data,
-  //                       width: 500,
-  //                   }]
-  //               };
-  //               pdfMake.createPdf().download("cv.pdf");
-  //           }
-  //       });
-  // }
+   function downloadPdf(user) {
+    $http.get('/api/curriculums/pdf/' + user._id)
+       .then(function(response) {
+          var path = response.data;
+              path = path.slice(1);
+          $window.open (path, '_blank');
+      });
+    }
   }
 }());

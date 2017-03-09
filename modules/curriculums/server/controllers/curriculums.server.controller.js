@@ -52,3 +52,17 @@ exports.generatePdf = function(req, res){
     res.json('./modules/curriculums/client/pdf/test2.pdf');
   });
 };
+
+
+
+// exports.generatePdf = function(req, res){
+//   var car = req.car;
+//   var html = fs.readFileSync('./modules/cars/server/views/html-pdf.car.server.view.html', 'utf8');
+//   var template = handlebars.compile(html);
+//   var result = template(car);
+
+//   pdf.create(result).toFile('./modules/cars/client/pdf/' + car._id + '.pdf', function(error, result) {
+//     if (error) return console.log(error);
+//     res.json('./modules/cars/client/pdf/' + car._id + '.pdf');
+//   });
+// };

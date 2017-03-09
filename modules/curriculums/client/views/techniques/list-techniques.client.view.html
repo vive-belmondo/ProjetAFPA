@@ -23,8 +23,8 @@
           <tr data-ng-repeat="technique in vm.techniques">
             <td class="col-md-10 col-sm-9">{{ technique.techniqueName }}</td>
             <td>
-              <button class="btn btn-form" data-ui-sref="curriculums.techniques.edit({techniqueId: technique._id})" ><span class="glyphicon glyphicon-pencil"></span></button>
-              <button class="btn btn-form" ng-click="vm.remove(technique)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-xs btn-form" data-ui-sref="curriculums.techniques.edit({techniqueId: technique._id})" ><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-xs btn-form" ng-click="vm.remove(technique)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>
         </tbody>

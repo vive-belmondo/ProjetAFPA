@@ -24,16 +24,10 @@ acl = new acl(new acl.memoryBackend());
       resources: '/api/uploadCarPicture',
       permissions: '*'
     }, {
-      resources: '/api/curriculumsByMark/:idMark',
-      permissions: '*'
-    }, {
       resources: '/api/getDate',
       permissions: '*'
     }, {
-      resources: '/api/curriculumsByMark',
-      permissions: '*'
-    },{
-      resources: '/api/curriculums/pdf',
+      resources: '/api/curriculums/pdf/:userId',
       permissions: '*'
     }]
   }, {
@@ -48,14 +42,7 @@ acl = new acl(new acl.memoryBackend());
       resources: '/api/getDate',
       permissions: ['get']
     }, {
-      resources: '/api/curriculumsByMark/:idMark',
-      permissions: ['get']
-    }, {
-      resources: '/api/curriculumsByMark',
-      permissions: ['get']
-    },
-    {
-      resources: '/api/curriculums/pdf',
+      resources: '/api/curriculums/pdf/:userId',
       permissions: ['get']
     }]
   }, {

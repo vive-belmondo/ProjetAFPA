@@ -38,6 +38,9 @@
 
  <section >
     <button pdf-save-button="pdfcv" pdf-name="CV-{{ vm.user.displayName}}.pdf" class="btn btn-primary">PDF</button>
+    <button ng-model="valider" class="btn btn-primary">valider le CV</button>
+    <a data-ng-click="vm.downloadPdf(user._id)" target="_blank">PDF SERVER</a>
+
     <div pdf-save-content="pdfcv">
 	<div class="row">
 		<div class="col-md-12">
