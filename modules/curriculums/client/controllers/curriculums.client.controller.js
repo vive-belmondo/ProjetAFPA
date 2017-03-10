@@ -23,9 +23,6 @@
     vm.cv.formations = FormationsByConnectedUserService.query();
     vm.save = save;
 
-    console.log(vm.cv);
-
-
 
     function save() {
       

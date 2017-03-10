@@ -27,18 +27,6 @@
         data: {
           pageTitle: 'Aperçu du CV'
         }
-      })
-      .state('curriculums.cv', {
-        url: '/list',
-        templateUrl: '/modules/curriculums/client/views/list-cv.client.view.html',
-        controller: 'CurriculumsController',
-        controllerAs: 'vm',
-        resolve: {
-          cvResolve: newCurriculum
-        },
-        data: {
-          pageTitle: 'Liste des CV'
-        }
       });
 
     newCurriculum.$inject = ['CurriculumsService'];

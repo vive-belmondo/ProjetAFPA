@@ -34,6 +34,10 @@ var CurriculumSchema = new Schema({
   langues: [{
     type: Schema.ObjectId,
     ref: 'Langue'
+  }],
+  validation: [{
+    type: Boolean,
+    default: false
   }]
   
 });

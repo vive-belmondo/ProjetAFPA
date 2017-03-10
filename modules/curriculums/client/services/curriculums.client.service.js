@@ -6,9 +6,9 @@
     .module('curriculums.admin.services')
     .factory('CurriculumsService', CurriculumsService);
 
-  CurriculumsService.$inject = ['$resource'];
+  CurriculumsService.$inject = ['$resource', '$log'];
 
-  function CurriculumsService($resource) {
+  function CurriculumsService($resource, $log) {
     var Curriculum = $resource('/api/curriculums/:curriculumId', 
       {
         curriculumId: '@_id'
@@ -51,14 +51,6 @@
       // Log error
       $log.error(error);
     }
-
-
-
-
-
-
-
-
   }
 
   //TODO this should be Users service

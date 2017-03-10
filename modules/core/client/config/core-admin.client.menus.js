@@ -31,7 +31,7 @@
     });
     menuService.addMenuItem('topbar', {
       title: 'Liste des CVs',
-      state: 'curriculums.competences.list',
+      state: 'admin.cv',
       roles: ['admin']
     });
     menuService.addMenuItem('topbar', {

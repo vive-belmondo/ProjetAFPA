@@ -59,6 +59,7 @@ exports.update = function (req, res) {
   curriculum.competences = req.body.competences;
   curriculum.techniques = req.body.techniques;
   curriculum.langues = req.body.langues;
+  curriculum.validation = req.body.validation;
 
   curriculum.save(function (err) {
     if (err) {
