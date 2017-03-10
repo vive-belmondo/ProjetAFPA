@@ -26,7 +26,6 @@
 
     function save() {
       
-        console.log('test');
       // Create a new formation, or update the current instance
       vm.cv.createOrUpdate()
         .then(successCallback)

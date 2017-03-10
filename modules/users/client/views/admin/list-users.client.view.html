@@ -60,7 +60,7 @@
               <td>{{ user.etablissement.etablissementName | toLowerCase }}</td>
               <td>{{ user.email }}</td>
               <td>
-                <button class="btn btn-xs btn-form" ui-sref="admin.user({userId: user._id})"><span class="glyphicons glyphicons-eye-open"></span></button>
+                <button class="btn btn-xs btn-form" ui-sref="admin.user({userId: user._id})"><span class="glyphicon glyphicon-eye-open"></span></button>
                 <button class="btn btn-xs btn-form" ng-click="vm.remove(user)"><span class="glyphicon glyphicon-trash"></span></button>
               </td>
             </tr>
