@@ -1,2 +1,102 @@
-liste
+<!-- <section>
+	<div class="titre">Aperçu de votre CV</div>
+	<a class="btn btn-primary" data-ng-click="vm.cv.downloadPdf({curriculumId: vm.cv.curriculumId})" target="_blank">PDF</a>
+	<div>
+		{{ vm.cv.user.displayName }}<br>
+		<div ng-repeat="fonction in vm.cv.fonction">{{ fonction.fonctionName }}</div>
+		<div ng-repeat = "competences in vm.cv.competences">{{ competences.competenceName }}</div>
+	</div>
+</section>
+ -->
+<section>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="row">
+				<div class="col-md-12"></div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-8"></div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6"></div>
+					</div>
+				</div>
+				<div class="col-md-12"></div>
+				<div class="col-md-12"></div>
+				<div class="col-md-12"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+ <section >
+    <button pdf-save-button="pdfcv" pdf-name="CV-{{ vm.cv.user.displayName}}.pdf" class="btn btn-primary">PDF</button>
+    <button ng-click="vm.save()" class="btn btn-primary">valider le CV</button>
+    <a data-ng-click="vm.cv.downloadPdf(user._id)" target="_blank">PDF SERVER</a>
+
+    <div pdf-save-content="pdfcv">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row cadre">
+				<div  class="col-md-5">
+					<div ng-repeat="fonction in vm.cv.fonctions" ng-if ="vm.cv.user.fonction === fonction._id">
+					{{ fonction.fonctionName}}
+					</div>
+					{{ vm.cv.user.firstName }} {{ vm.cv.user.lastName | uppercase }}<br>
+					{{ vm.cv.fonction.fonctionName }}<br>
+					mail {{ vm.cv.user.email }} <br>
+					adresse {{ vm.cv.user.adresse }} <br>
+					cp {{ vm.cv.user.cp }} <br>
+					ville {{ vm.cv.user.ville }} <br>
+					tel {{ vm.cv.user.tel }} <br>
+					civilité {{ vm.cv.user.civilite }} <br>
+					Né(e) le {{ vm.cv.user.dn }} <br>
+					matricule {{ vm.cv.user.matricule }} <br>
+					{{ vm.cv.etablissement.etablissementName }}<br>
+				</div>
+				<div class="col-md-5 col-md-offset-2">
+					<img class="photoCV" ngf-src="'/' + vm.cv.user.profileImageURL"><br>
+					<br>
+				</div>
+			</div>
+			<div class="sous-titre">Competences pedagogiques:</div>
+			<div ng-repeat = "competences in vm.cv.competences">{{ competences.competenceName }}</div>
+			<div class="sous-titre">competences Techniques:</div>
+			<div ng-repeat = "techniques in vm.cv.techniques">
+			{{ techniques.techniqueName }}</div>
+			<div class="sous-titre">Langues:</div>
+			<div ng-repeat = "langue in vm.cv.langues"> {{langue.langueName}}: {{langue.niveau}} </div>
+			
+		</div>
+	</div>
+</div>
+</section>
+
+
+      <div class="col-md-12" data-ng-repeat="experience in vm.cv.experiences">
+        <div class="row cadre list xp">
+          <div class="col-md-2 petit">
+            {{experience.dateDebutMois}} {{experience.dateDebutAnnee}}
+            <br>
+            {{experience.dateFinMois}} {{experience.dateFinAnnee}}
+          </div>
+          <div class="col-md-10">
+            <div class="xp intitule">{{experience.poste}}
+              <button class="btn btn-form btn-xs pull-right" data-ui-sref="curriculums.experiences.edit({experienceId: experience._id})"><span class="glyphicon glyphicon-pencil"></span></button>  
+              <button class="btn btn-form btn-xs pull-right" ng-click="vm.cv.remove(experience)"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+
+            <div class="petit souligne">{{experience.entreprise}} - {{experience.ville}}</div>
+            <div>{{experience.mission}}</div>
+          </div>
+        </div>
+        <br>
+      </div>
 

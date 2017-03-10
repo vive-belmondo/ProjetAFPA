@@ -4,6 +4,7 @@
  * Module dependencies
  */
 var mongoose = require('mongoose'),
+    validator = require('node-mongoose-validator'),
   Schema = mongoose.Schema;
 
 /**
@@ -45,4 +46,5 @@ var EtablissementSchema = new Schema({
   }
 });
 
+EtablissementSchema.path('cp').validate(validator.$isLength(5 , 5));
 mongoose.model('Etablissement', EtablissementSchema);

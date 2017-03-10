@@ -18,6 +18,90 @@ var _ = require('lodash'),
 
 
 
+
+
+  exports.create = function (req, res) {
+  var curriculum = new Curriculum(req.body);
+  curriculum.user = req.user;
+
+  curriculum.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(curriculum);
+    }
+  });
+};
+
+/**
+ * Show the current curriculum
+ */
+exports.read = function (req, res) {
+  // convert mongoose document to JSON
+  var curriculum = req.curriculum ? req.curriculum.toJSON() : {};
+  // Add a custom field to the Curriculum, for determining if the current User is the "owner".
+  // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Curriculum model.
+  curriculum.isCurrentUserOwner = !!(req.user && curriculum.user && curriculum.user._id.toString() === req.user._id.toString());
+
+  res.json(curriculum);
+};
+
+/**
+ * Update an curriculum
+ */
+exports.update = function (req, res) {
+  var curriculum = req.curriculum;
+  curriculum.user = req.body.user;
+  curriculum.formations = req.body.formations;
+  curriculum.experiences = req.body.experiences;
+  curriculum.competences = req.body.competences;
+  curriculum.techniques = req.body.techniques;
+  curriculum.langues = req.body.langues;
+
+  curriculum.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(curriculum);
+    }
+  });
+};
+
+/**
+ * Delete an curriculum
+ */
+exports.delete = function (req, res) {
+  var curriculum = req.curriculum;
+
+  curriculum.remove(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(curriculum);
+    }
+  });
+};
+
+/**
+ * List of Curriculums
+ */
+exports.list = function (req, res) {
+  Curriculum.find().sort('-created').populate('user', 'displayName').populate('technique').populate('competence').populate('formation').populate('experience').populate('langue').exec(function (err, curriculums) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(curriculums);
+    }
+  });
+};
 // ////////////// MIDDLEWARE ////////////////////
 exports.curriculumByID = function (req, res, next, id) {
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -25,7 +109,7 @@ exports.curriculumByID = function (req, res, next, id) {
       message: 'Curriculum is invalid'
     });
   }
-  Curriculum.findById(id).populate('user', 'displayName').populate('competence').populate('fonction','fonctionName').exec(function (err, curriculum) {
+  Curriculum.findById(id).populate('user', 'displayName').populate('technique').populate('competence').populate('competence').populate('formation').populate('experience').populate('langue').exec(function (err, curriculum) {
     if (err) {
       return next(err);
     } else if (!curriculum) {

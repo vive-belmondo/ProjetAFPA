@@ -34,16 +34,13 @@ acl = new acl(new acl.memoryBackend());
     roles: ['user'],
     allows: [{
       resources: '/api/curriculums',
-      permissions: ['get']
-    }, {
-      resources: '/api/curriculums/:curriculumId',
-      permissions: ['get']
-    }, {
+      permissions: '*'
+    },  {
       resources: '/api/getDate',
-      permissions: ['get']
+      permissions: '*'
     }, {
       resources: '/api/curriculums/pdf/:userId',
-      permissions: ['get']
+      permissions: '*'
     }]
   }, {
     roles: ['guest'],

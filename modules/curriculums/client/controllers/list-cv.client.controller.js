@@ -5,9 +5,9 @@
     .module('curriculums')
     .controller('ListCvController', ListCvController);
 
-  ListCvController.$inject = ['$scope', 'Authentication', '$http', '$window', 'AdminService', 'UsersService', 'ExperiencesService' , 'FormationsService' , 'EtablissementsService', 'CompetencesService', 'TechniquesService', 'LanguesService'];
+  ListCvController.$inject = ['$scope','CurriculumsService' ,'Authentication', '$http', '$window', 'AdminService', 'UsersService', 'ExperiencesService' , 'FormationsService' , 'EtablissementsService', 'CompetencesService', 'TechniquesService', 'LanguesService'];
 
-  function ListCvController($scope, Authentication, $http, $window, AdminService, UsersService,ExperiencesService, FormationsService, EtablissementsService, CompetencesService,TechniquesService,LanguesService) {
+  function ListCvController($scope, CurriculumsService,Authentication, $http, $window, AdminService, UsersService,ExperiencesService, FormationsService, EtablissementsService, CompetencesService,TechniquesService,LanguesService) {
     var vm = this;
     vm.users = UsersService.query();
     vm.downloadPdf = downloadPdf;
@@ -18,8 +18,8 @@
     vm.langues = LanguesService.query();
     vm.experiences = ExperiencesService.query();
     vm.formations = FormationsService.query();
-   
-
+    // vm.curriculums = CurriculumsService.query();
+    
 
 
    function downloadPdf(user) {

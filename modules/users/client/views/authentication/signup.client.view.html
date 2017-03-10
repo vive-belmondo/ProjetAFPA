@@ -61,7 +61,7 @@
         </div>
         <div class="form-group" show-errors>
           <label for="dn">Date de naissance</label>
-          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.credentials.dn" placeholder="AAAA-MM-jj" required>
+          <input type="text" id="dn" name="dn" class="form-control" ng-model="vm.credentials.dn" placeholder="JJ/MM/AAAA" required>
           <div ng-messages="vm.userForm.dn.$error" role="alert">
             <p class="help-block error-text" ng-message="required">La dn est obligatoire</p>
           </div>
@@ -82,7 +82,7 @@
         </div>
         <div class="form-group" show-errors>
           <label for="tel">Numéro de téléphone</label>
-          <input type="tel" id="tel" name="tel" class="form-control" ng-model="vm.credentials.tel" placeholder="Numéro de téléphone" required>
+          <input type="tel" id="tel" name="tel" class="form-control" ng-model="vm.credentials.tel" placeholder="ex: 06.23.25.12.41" required>
           <div ng-messages="vm.userForm.tel.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Le numéro de téléphone est obligatoire</p>
             <p class="help-block error-text" ng-message="tel">Le numéro de téléphone  est invalide</p>

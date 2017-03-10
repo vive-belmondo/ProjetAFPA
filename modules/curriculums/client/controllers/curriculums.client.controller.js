@@ -5,24 +5,49 @@
     .module('curriculums')
     .controller('CurriculumsController', CurriculumsController);
 
-  CurriculumsController.$inject = ['$scope', 'Authentication', '$http', '$window', 'AdminService', 'UsersService','ExperiencesByConnectedUserService', 'FormationsByConnectedUserService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService', 'LanguesByConnectedUserService'];
+  CurriculumsController.$inject = ['$scope','Notification','cvResolve', 'Authentication', '$http', '$window', 'AdminService', 'UsersService','ExperiencesByConnectedUserService', 'FormationsByConnectedUserService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService', 'LanguesByConnectedUserService'];
 
-  function CurriculumsController($scope, Authentication, $http, $window, AdminService, UsersService, FonctionsService, EtablissementsService,ExperiencesByConnectedUserService, FormationsByConnectedUserService, CompetencesByConnectedUserService,TechniquesByConnectedUserService,LanguesByConnectedUserService) {
+  function CurriculumsController($scope,Notification,cv,Authentication, $http, $window, AdminService, UsersService, FonctionsService, EtablissementsService,ExperiencesByConnectedUserService, FormationsByConnectedUserService, CompetencesByConnectedUserService,TechniquesByConnectedUserService,LanguesByConnectedUserService) {
     var vm = this;
-    vm.user = Authentication.user;
+    
     vm.downloadPdf = downloadPdf;
-    vm.etablissement = EtablissementsService.query();
-    vm.fonctions = FonctionsService.query();
-    vm.competences = CompetencesByConnectedUserService.query();
-    vm.techniques = TechniquesByConnectedUserService.query();
-    vm.langues = LanguesByConnectedUserService.query();
-    vm.experiences = ExperiencesByConnectedUserService.query();
-    vm.formations = FormationsByConnectedUserService.query();
+
+    vm.cv = cv;
+    vm.cv.user = Authentication.user;
+    vm.cv.etablissement = EtablissementsService.query();
+    vm.cv.fonctions = FonctionsService.query();
+    vm.cv.competences = CompetencesByConnectedUserService.query();
+    vm.cv.techniques = TechniquesByConnectedUserService.query();
+    vm.cv.langues = LanguesByConnectedUserService.query();
+    vm.cv.experiences = ExperiencesByConnectedUserService.query();
+    vm.cv.formations = FormationsByConnectedUserService.query();
+    vm.save = save;
+
+    console.log(vm.cv);
 
 
 
-   function downloadPdf(user) {
-    $http.get('/api/curriculums/pdf/' + user._id)
+    function save() {
+      
+        console.log('test');
+      // Create a new formation, or update the current instance
+      vm.cv.createOrUpdate()
+        .then(successCallback)
+        .catch(errorCallback);
+
+      function successCallback(res) {
+        
+         // should we send the User to the list or the updated Formation's view?
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> CV saved successfully!' });
+      }
+
+      function errorCallback(res) {
+        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Formation save error!' });
+      }
+    }
+
+  function downloadPdf(user) {
+    $http.get('/api/curriculums/pdf/' + cv._id)
        .then(function(response) {
           var path = response.data;
               path = path.slice(1);
