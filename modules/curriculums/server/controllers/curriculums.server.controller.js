@@ -20,12 +20,13 @@ var _ = require('lodash'),
 
 
 
-  exports.create = function (req, res) {
-  var curriculum = new Curriculum(req.body);
+exports.create = function (req, res) {
+  var curriculum = new Curriculum();
   curriculum.user = req.user;
 
   curriculum.save(function (err) {
     if (err) {
+      console.log(err);
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
@@ -59,7 +60,6 @@ exports.update = function (req, res) {
   curriculum.competences = req.body.competences;
   curriculum.techniques = req.body.techniques;
   curriculum.langues = req.body.langues;
-  curriculum.validation = req.body.validation;
 
   curriculum.save(function (err) {
     if (err) {

@@ -13,7 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var competence = new Competence(req.body);
-  competence.user = req.user;
+  competence.cv = req.user.cv;
 
   competence.save(function (err) {
     if (err) {
@@ -113,7 +113,7 @@ exports.competenceByID = function (req, res, next, id) {
 
 ////////////////////////// competences by user ////////////////// 
 exports.competencesByConnectedUser = function (req, res) {
-  Competence.find({ user: req.user._id }).exec(function (err, competences) {
+  Competence.find({ cv: req.user.cv }).exec(function (err, competences) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

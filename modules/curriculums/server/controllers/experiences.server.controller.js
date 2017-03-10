@@ -13,7 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var experience = new Experience(req.body);
-  experience.user = req.user;
+  experience.cv = req.user.cv;
 
   experience.save(function (err) {
     if (err) {
@@ -123,7 +123,7 @@ exports.experienceByID = function (req, res, next, id) {
 
 ////////////////////////// experiences by user ////////////////// 
 exports.experiencesByConnectedUser = function (req, res) {
-  Experience.find({ user: req.user._id }).exec(function (err, experiences) {
+  Experience.find({ cv: req.user.cv }).exec(function (err, experiences) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

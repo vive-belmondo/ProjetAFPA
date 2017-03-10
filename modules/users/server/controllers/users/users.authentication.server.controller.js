@@ -7,7 +7,8 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
   passport = require('passport'),
-  User = mongoose.model('User');
+  User = mongoose.model('User'),
+  Curriculum = mongoose.model('Curriculum');
 
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
@@ -19,40 +20,47 @@ var noReturnUrls = [
  * Signup
  */
 exports.signup = function (req, res) {
-  // For security measurement we remove the roles from the req.body object
-  delete req.body.roles;
+  var cv = new Curriculum();
 
-  // Init user and add missing fields
-  var user = new User(req.body);
-  user.provider = 'local';
-  user.displayName = user.firstName + ' ' + user.lastName;
-  user.email = req.body.email;
-  user.fonction = req.body.fonction;
-  user.etablissement = req.body.etablissement;
-  user.adresse = req.body.adresse;
-  user.cp = req.body.cp;
-  user.ville = req.body.ville;
-  user.tel = req.body.tel;
-  user.civilite = req.body.civilite;
-  user.dn = req.body.dn;
-  user.matricule = req.body.matricule;
-
-
-  // Then save the user
-  user.save(function (err) {
+  cv.save(function (err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      // Remove sensitive data before login
-      user.password = undefined;
-      user.salt = undefined;
-      res.json(user);
+      // For security measurement we remove the roles from the req.body object
+      delete req.body.roles;
+
+      // Init user and add missing fields
+      var user = new User(req.body);
+      user.provider = 'local';
+      user.displayName = user.firstName + ' ' + user.lastName;
+      user.email = req.body.email;
+      user.fonction = req.body.fonction;
+      user.etablissement = req.body.etablissement;
+      user.adresse = req.body.adresse;
+      user.cp = req.body.cp;
+      user.ville = req.body.ville;
+      user.tel = req.body.tel;
+      user.civilite = req.body.civilite;
+      user.dn = req.body.dn;
+      user.matricule = req.body.matricule;
+      user.cv = cv;
+      // Then save the user
+      user.save(function (err) {
+        if (err) {
+          return res.status(422).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          // Remove sensitive data before login
+          user.password = undefined;
+          user.salt = undefined;
+          res.json(user);
+        }
+      });
     }
   });
-
-
 };
 
 /**

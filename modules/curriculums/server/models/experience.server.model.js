@@ -54,9 +54,9 @@ var ExperienceSchema = new Schema({
     default: '',
     trim: true,
   },
-  user: {
+  cv: {
     type: Schema.ObjectId,
-    ref: 'User'
+    ref: 'Curriculum'
   }
 });
 

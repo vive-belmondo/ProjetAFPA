@@ -13,7 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var formation = new Formation(req.body);
-  formation.user = req.user;
+  formation.cv = req.user.cv;
 
   formation.save(function (err) {
     if (err) {
@@ -121,7 +121,7 @@ exports.formationByID = function (req, res, next, id) {
 
 ////////////////////////// formations by user ////////////////// 
 exports.formationsByConnectedUser = function (req, res) {
-  Formation.find({ user: req.user._id }).exec(function (err, formations) {
+  Formation.find({ cv: req.user.cv }).exec(function (err, formations) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

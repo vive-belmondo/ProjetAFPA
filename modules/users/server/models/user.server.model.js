@@ -95,6 +95,10 @@ var UserSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'Etablissement'
   },
+  cv: {
+    type: Schema.ObjectId,
+    ref: 'Curriculum'
+  },
   adresse: {
     type: String,
     default: '',

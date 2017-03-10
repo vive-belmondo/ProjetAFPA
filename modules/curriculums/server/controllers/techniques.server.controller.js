@@ -13,7 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var technique = new Technique(req.body);
-  technique.user = req.user;
+  technique.cv = req.user.cv;
 
   technique.save(function (err) {
     if (err) {
@@ -118,12 +118,13 @@ exports.techniqueByID = function (req, res, next, id) {
 
 ////////////////////////// techniques by user ////////////////// 
 exports.techniquesByConnectedUser = function (req, res) {
-  Technique.find({ user: req.user._id }).exec(function (err, techniques) {
+  Technique.find({ cv: req.user.cv }).exec(function (err, techniques) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
+      console.log(techniques);
       res.json(techniques);
     }
   });

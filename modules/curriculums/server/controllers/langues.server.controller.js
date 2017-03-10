@@ -13,7 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var langue = new Langue(req.body);
-  langue.user = req.user;
+  langue.cv = req.user.cv;
 
   langue.save(function (err) {
     if (err) {
@@ -114,7 +114,7 @@ exports.langueByID = function (req, res, next, id) {
 
 ////////////////////////// langues by user ////////////////// 
 exports.languesByConnectedUser = function (req, res) {
-  Langue.find({ user: req.user._id }).exec(function (err, langues) {
+  Langue.find({ cv: req.user.cv }).exec(function (err, langues) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
