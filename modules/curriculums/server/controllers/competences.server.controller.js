@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Competence = mongoose.model('Competence'),
+  Curriculum = mongoose.model('Curriculum'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -15,13 +16,31 @@ exports.create = function (req, res) {
   var competence = new Competence(req.body);
   competence.cv = req.user.cv;
 
-  competence.save(function (err) {
+  competence.save(function (err, competence) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(competence);
+      Curriculum.findById(competence.cv).exec(function (err, curriculum) {
+        if (err) {
+          return next(err);
+        } else if (!competence) {
+          return res.status(404).send({
+            message: 'No competence with that identifier has been found'
+          });
+        }
+        curriculum.competences.push(competence._id);
+        curriculum.save(function (err, curriculum) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(curriculum);
+          }
+        });
+      });
     }
   });
 };

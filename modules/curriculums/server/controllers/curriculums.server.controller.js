@@ -13,6 +13,7 @@ var _ = require('lodash'),
   pdf = require('html-pdf'),
   handlebars = require('handlebars'),
   Curriculum = mongoose.model('Curriculum'),
+  User = mongoose.model('User'),
   validator = require('validator');
 
 
@@ -32,6 +33,33 @@ exports.create = function (req, res) {
       });
     } else {
       res.json(curriculum);
+    }
+  });
+};
+
+
+/**
+ * Validate an curriculum
+ */
+exports.validate = function (req, res) {
+  console.log(req.user);
+  Curriculum.findById(req.user.cv).exec(function (err, curriculum) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      curriculum.validation = true;
+
+      curriculum.save(function (err) {
+        if (err) {
+          return res.status(422).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          res.json(curriculum);
+        }
+      });
     }
   });
 };
@@ -93,7 +121,7 @@ exports.delete = function (req, res) {
  * List of Curriculums
  */
 exports.list = function (req, res) {
-  Curriculum.find().sort('-created').populate('user', 'displayName').populate('technique').populate('competence').populate('formation').populate('experience').populate('langue').exec(function (err, curriculums) {
+  Curriculum.find().sort('-created').populate('user', 'displayName').populate('techniques').populate('competences').populate('formations').populate('experiences').populate('langues').exec(function (err, curriculums) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -103,6 +131,7 @@ exports.list = function (req, res) {
     }
   });
 };
+
 // ////////////// MIDDLEWARE ////////////////////
 exports.curriculumByID = function (req, res, next, id) {
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -110,7 +139,7 @@ exports.curriculumByID = function (req, res, next, id) {
       message: 'Curriculum is invalid'
     });
   }
-  Curriculum.findById(id).populate('user', 'displayName').populate('technique').populate('competence').populate('competence').populate('formation').populate('experience').populate('langue').exec(function (err, curriculum) {
+  Curriculum.findById(id).populate('user', 'displayName').populate('techniques').populate('competences').populate('formations').populate('experiences').populate('langues').exec(function (err, curriculum) {
     if (err) {
       return next(err);
     } else if (!curriculum) {
@@ -126,16 +155,31 @@ exports.curriculumByID = function (req, res, next, id) {
 
 //////////////////////////GENERER UN PDF///////////////////////////
 
-exports.generatePdf = function(req, res){
-  var user = req.user;
-  var html = fs.readFileSync('./modules/curriculums/client/views/html-pdf.curriculum.client.view.html', 'utf8');
-  var template = handlebars.compile(html);
-  var result = template(user);
+exports.generatePdf = function(req, res) {
 
-  pdf.create(result).toFile('./modules/curriculums/client/pdf/test2.pdf', function(error, result) {
-    if (error) return console.log(error);
-    res.json('./modules/curriculums/client/pdf/test2.pdf');
+
+  User.findById(req.params.userId)
+    .populate('user')
+    .populate('etablissement')
+    .populate('fonction')
+    .populate({
+      path: 'cv',
+      populate: {
+        path:'competences techniques experiences formations langues',
+      }
+    })
+
+    .exec(function (err, user) {
+      var html = fs.readFileSync('./modules/curriculums/client/views/html-pdf.curriculum.client.view.html', 'utf8');
+      var template = handlebars.compile(html);
+      var result = template(user);
+
+      pdf.create(result).toFile('./modules/curriculums/client/pdf/test2.pdf', function(error, result) {
+        if (error) return console.log(error);
+        res.json('./modules/curriculums/client/pdf/test2.pdf');
+      });
   });
+
 };
 
 

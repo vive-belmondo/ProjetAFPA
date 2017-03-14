@@ -29,17 +29,26 @@ acl = new acl(new acl.memoryBackend());
     }, {
       resources: '/api/curriculums/pdf/:userId',
       permissions: '*'
+    }, {
+      resources: '/api/validateCV',
+      permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
       resources: '/api/curriculums',
       permissions: '*'
+    }, {
+      resources: '/api/curriculums/:curriculumId',
+      permissions: '*'
     },  {
       resources: '/api/getDate',
       permissions: '*'
     }, {
       resources: '/api/curriculums/pdf/:userId',
+      permissions: '*'
+    }, {
+      resources: '/api/validateCV',
       permissions: '*'
     }]
   }, {

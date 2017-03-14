@@ -1,7 +1,43 @@
-Liste des CVs
 <section>
-<div ng-repeat="cv in vm.cv">
-	{{ cv.displayName }}
-</div>
+	<div class="titre">Liste des CVs</div>
+	<div>
+	   <div class="col-md-3">
+	      <div class="input-group">
+	        <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
+	        <input type="text" class="form-control" ng-model="vm.search" placeholder="recherche par nom">
+	      </div>
+	    </div>
+	   <div class="col-md-3">
+	      <div class="input-group">
+	        <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
+	        <input type="text" class="form-control" ng-model="vm.search" placeholder="recherche par établissement">
+	      </div>
+	    </div>
+	   <div class="col-md-3">
+	      <div class="input-group">
+	        <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
+	        <input type="text" class="form-control" ng-model="vm.search" placeholder="recherche par fonction">
+	      </div>
+	    </div>
+	   <div class="col-md-3">
+	      <div class="input-group">
+	        <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
+	        <input type="text" class="form-control" ng-model="vm.search" placeholder="recherche par mot clé">
+	      </div>
+	    </div>
+	    <br>
+		<table class="table table-striped table-condensed table-responsive">
+			<thead>
+				<th>nom</th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in vm.users | orderBy: 'lastName'">
+					<td>{{ user.lastName | uppercase }} {{ user.firstName }}</td>
+					<td><button class="btn-form" data-ng-click="vm.downloadPdf(user)" target="_blank"><span class="glyphicon glyphicon-file"></span></button>
+					<button class="btn-form" data-ng-click="vm.downloadPdf(user)" target="_blank"><span class="glyphicon glyphicon-trash"></span></button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </section>
-

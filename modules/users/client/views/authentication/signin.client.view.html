@@ -1,3 +1,5 @@
+<br>
+<br>
 <div>
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
@@ -6,21 +8,21 @@
           <uib-alert type="danger" ng-show="vm.error" class="text-center text-danger">
             <span ng-bind="vm.error"></span>
           </uib-alert>
-          <label for="usernameOrEmail">E-mail</label>
-          <input type="text" id="usernameOrEmail" name="usernameOrEmail" class="form-control" ng-model="vm.credentials.usernameOrEmail" placeholder="Adresse E-mail" required autofocus>
+<!--           <label for="usernameOrEmail">E-mail</label>
+ -->          <input type="text" id="usernameOrEmail" name="usernameOrEmail" class="form-control" ng-model="vm.credentials.usernameOrEmail" placeholder="Adresse E-mail" required autofocus>
           <div ng-messages="vm.userForm.usernameOrEmail.$error" role="alert">
             <p class="help-block error-text" ng-message="required">L'adresse e-mail est requise</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label for="password">Mot de passe</label>
-          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Mot de passe" required>
+<!--           <label for="password">Mot de passe</label>
+ -->          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Mot de passe" required>
           <div ng-messages="vm.userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Le mot de passe est requis</p>
           </div>
         </div>
         <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">connexion</button>
+          <button type="submit" class="btn btn-block btn-form">connexion</button>
           <!-- &nbsp; or&nbsp;
           <a ui-sref="authentication.signup">Sign up</a> -->
         </div>

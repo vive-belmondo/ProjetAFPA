@@ -5,6 +5,7 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
+  Curriculum = mongoose.model('Curriculum'),
   Langue = mongoose.model('Langue'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
@@ -15,13 +16,31 @@ exports.create = function (req, res) {
   var langue = new Langue(req.body);
   langue.cv = req.user.cv;
 
-  langue.save(function (err) {
+  langue.save(function (err, langue) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(langue);
+      Curriculum.findById(langue.cv).exec(function (err, curriculum) {
+        if (err) {
+          return next(err);
+        } else if (!langue) {
+          return res.status(404).send({
+            message: 'No langue with that identifier has been found'
+          });
+        }
+        curriculum.langues.push(langue._id);
+        curriculum.save(function (err, curriculum) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(curriculum);
+          }
+        });
+      });
     }
   });
 };

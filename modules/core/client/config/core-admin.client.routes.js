@@ -20,11 +20,8 @@
         .state('admin.cv', {
         url: '/list',
         templateUrl: '/modules/curriculums/client/views/list-cv.client.view.html',
-        controller: 'CurriculumsController',
+        controller: 'ListCvController',
         controllerAs: 'vm',
-        resolve: {
-          cvResolve: newCurriculum
-        },
         data: {
           pageTitle: 'Liste des CV'
         }

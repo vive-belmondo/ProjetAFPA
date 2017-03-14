@@ -8,46 +8,101 @@
 	</div>
 </section>
  -->
+     <button ng-click="vm.validateCV()" class="btn btn-form">valider le CV</button>
+
 <section>
 	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-11">
+<!-- 		<div class="col-md-1 cv-color"></div>
+ -->		<div class="col-md-11">
 			<div class="row">
-				<div class="col-md-12"></div>
+				<div class="col-md-12 cv-gd-titre" align="center">titre du CV</div>
 				<div class="col-md-12">
+					<hr>
 					<div class="row">
-						<div class="col-md-8"></div>
-						<div class="col-md-4"></div>
+						<div class="col-md-8">
+
+						{{ vm.user.firstName }} {{ vm.user.lastName | uppercase }}<br>
+						Né(e) le {{ vm.user.dn }}<br>
+						<div ng-repeat="fonction in vm.fonctionds" ng-if="vm.cv.user.fonction === fonction._id">{{ fonction.fonctionName }}<br></div>
+						{{ vm.etablissement.etablissementName }} - {{ vm.etablissement.ville }}<br>
+						</div>
+						<div class="col-md-4 pull-right"><img class="photoCV" ngf-src="'/' + vm.user.profileImageURL"></div>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<div class="cv-titre">Compétences pédagogiques</div>
+							<div ng-repeat = "competences in vm.cv.competences">{{ competences.competenceName }}</div>
+						</div>
+						<div class="col-md-6">
+							<div class="cv-titre">Compétences Techniques</div>
+							<div ng-repeat = "techniques in vm.cv.techniques">{{ techniques.techniqueName }}</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-12"></div>
-				<div class="col-md-12"></div>
-				<div class="col-md-12"></div>
+				<div class="col-md-12">
+					<div class="cv-titre">Expériences professionnelles</div>
+					<div class="col-md-12" data-ng-repeat="experience in vm.cv.experiences">
+						<div class="row">
+							<div class="col-md-2 petit">
+							{{experience.dateDebutMois}} {{experience.dateDebutAnnee}}
+							<br>
+							{{experience.dateFinMois}} {{experience.dateFinAnnee}}
+							</div>
+							<div class="col-md-10">
+								<div class="cv-intitule">{{experience.poste}}
+								</div>
+								<div class="petit cv-souligne">{{experience.entreprise}} - {{experience.ville}}</div>
+								<div>{{experience.mission}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="cv-titre">Formations</div>
+					<div class="col-md-12" data-ng-repeat="formation in vm.cv.formations">
+						<div class="row">
+							<div class="col-md-2 petit">
+							{{formation.dateDebutMois}} {{formation.dateDebutAnnee}}
+							<br>
+							{{formation.dateFinMois}} {{formation.dateFinAnnee}}
+							</div>
+							<div class="col-md-10">
+								<div class="cv-intitule">{{formation.intitule}}
+								</div>
+								<div class="petit cv-souligne">{{formation.organisme}} - {{formation.ville}}</div>
+								<div>{{formation.diplome}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="cv-titre">Langues</div>
+					<div ng-repeat = "langue in vm.cv.langues"> {{langue.langueName}}: {{langue.niveau}} </div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<br>
+			<div class="cv-footer" align="center">{{ vm.user.adresse }} - {{ vm.user.cp }} {{ vm.user.ville }}<br>
+		Mail : {{ vm.user.email }} - Tél : {{ vm.user.tel }}
+		</div>
 </section>
 
-
-
- <section >
+<!--  <section >
     <button pdf-save-button="pdfcv" pdf-name="CV-{{ vm.cv.user.displayName}}.pdf" class="btn btn-primary">PDF</button>
     <button ng-click="vm.validateCV()" class="btn btn-primary">valider le CV</button>
-    <a data-ng-click="vm.cv.downloadPdf(user._id)" target="_blank">PDF SERVER</a>
+    <a data-ng-click="vm.downloadPdf(user)" target="_blank">PDF SERVER</a>
 
     <div pdf-save-content="pdfcv">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row cadre">
 				<div  class="col-md-5">
-					<div ng-repeat="fonction in vm.cv.cv.fonctions" ng-if ="vm.cv.user.fonction === fonction._id">
-					{{ fonction.fonctionName}}
+				<br><br><br>
+					<div ng-repeat="fonction in vm.cv.user.fonctions">
+					fonction : {{ fonction.fonctionName }}
 					</div>
 					{{ vm.cv.user.firstName }} {{ vm.cv.user.lastName | uppercase }}<br>
 					{{ vm.cv.fonction.fonctionName }}<br>
@@ -98,4 +153,4 @@
           </div>
         </div>
         <br>
-      </div>
+      </div> -->

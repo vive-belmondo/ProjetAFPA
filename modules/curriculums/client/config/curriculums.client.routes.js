@@ -21,17 +21,9 @@
         templateUrl: '/modules/curriculums/client/views/apercu.client.view.html',
         controller: 'CurriculumsController',
         controllerAs: 'vm',
-        resolve: {
-          cvResolve: newCurriculum
-        },
         data: {
           pageTitle: 'Aperçu du CV'
         }
       });
-
-    newCurriculum.$inject = ['CurriculumsService'];
-      function newCurriculum(CurriculumsService) {
-    return new CurriculumsService();
-  }
   }
 }());

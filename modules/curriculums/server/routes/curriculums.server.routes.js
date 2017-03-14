@@ -18,6 +18,9 @@ module.exports = function (app) {
     .get(curriculums.list)
     .post(curriculums.create);
 
+  app.route('/api/validateCV').all(curriculumsPolicy.isAllowed)
+    .get(curriculums.validate);
+
   //Single curriculum routes
   app.route('/api/curriculums/:curriculumId').all(curriculumsPolicy.isAllowed)
     .get(curriculums.read)

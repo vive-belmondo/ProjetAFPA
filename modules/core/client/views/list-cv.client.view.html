@@ -1,0 +1,19 @@
+<section>
+	<div class="titre">Liste des CVs</div>
+	<div>
+		<table class="table table-striped table-condensed table-responsive">
+			<thead>
+				<th>nom</th>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in vm.users">
+					<td>{{ user.displayName }}</td>
+					<td><button class="btn-form" data-ng-click="vm.downloadPdf(user)" target="_blank"><span class="glyphicon glyphicon-file"></span></button></td>
+					<td><button class="btn-form" data-ng-click="vm.downloadPdf(user)" target="_blank"><span class="glyphicon glyphicon-trash"></span></button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>

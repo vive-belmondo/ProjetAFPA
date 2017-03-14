@@ -10,13 +10,44 @@ var mongoose = require('mongoose'),
  * Curriculum Schema
  */
 var CurriculumSchema = new Schema({
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  },
   validation: {
     type: Boolean,
     default: false
+  },
+  competences: {
+  	type: [{
+  		type: Schema.ObjectId,
+  		ref: 'Competence'
+  	}],
+  	default: []
+  },
+  techniques: {
+    type: [{
+      type: Schema.ObjectId,
+      ref: 'Technique'
+    }],
+    default: []
+  },
+  langues: {
+    type: [{
+      type: Schema.ObjectId,
+      ref: 'Langue'
+    }],
+    default: []
+  },
+  formations: {
+    type: [{
+      type: Schema.ObjectId,
+      ref: 'Formation'
+    }],
+    default: []
+  },
+  experiences: {
+    type: [{
+      type: Schema.ObjectId,
+      ref: 'Experience'
+    }],
+    default: []
   }
 });
 

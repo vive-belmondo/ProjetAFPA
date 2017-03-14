@@ -25,6 +25,7 @@ exports.renderIndex = function (req, res) {
       etablissement:req.user.etablissement,
       adresse: req.user.adresse,
       cp:req.user.cp,
+      cv:req.user.cv,
       ville: req.user.ville,
       tel: req.user.tel,
       civilite: req.user.civilite,

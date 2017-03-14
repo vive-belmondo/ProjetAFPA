@@ -1,46 +1,78 @@
-<!-- <section>
-	<div class="titre">Aperçu de votre CV</div>
-	<a class="btn btn-primary" data-ng-click="vm.downloadPdf({curriculumId: vm.curriculumId})" target="_blank">PDF</a>
-	<div>
-		{{ vm.user.displayName }}<br>
-		<div ng-repeat="fonction in vm.fonction">{{ fonction.fonctionName }}</div>
-		<div ng-repeat = "competences in vm.competences">{{ competences.competenceName }}</div>
-	</div>
-</section>
- --><section>
+<section>
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row cadre">
-				<div  class="col-md-5">
-					<div ng-repeat="fonction in vm.fonctions" ng-if ="vm.user.fonction === fonction._id">
-					{{ fonction.fonctionName}}
+		<div class="col-md-1 cv-color">&nbsp;</div>
+		<div class="col-md-11">
+			<div class="row">
+				<div class="col-md-12 cv-gd-titre" align="center">titre du CV</div>
+				<div class="col-md-12">
+					<hr>
+					<div class="row">
+						<div class="col-md-8">
+						{{ vm.cv.user.firstName }} {{ vm.cv.user.lastName }}<br>
+						Né(e) le {{ vm.cv.user.dn }}<br>
+						{{ vm.cv.fonction.fonctionName }}<br>
+						{{ vm.cv.etablissement.etablissementName }} - {{ vm.cv.etablissement.ville }}<br>
+						</div>
+						<div class="col-md-4 pull-right"><img class="photoCV" ngf-src="'/' + vm.cv.user.profileImageURL"></div>
 					</div>
---------------------------------------------------------------------------------------					
-					{{ vm.user.firstName }} {{ vm.user.lastName | uppercase }}<br>
-					{{ vm.fonction.fonctionName }}<br>
-					mail {{ vm.user.email }} <br>
-					adresse {{ vm.user.adresse }} <br>
-					cp {{ vm.user.cp }} <br>
-					ville {{ vm.user.ville }} <br>
-					tel {{ vm.user.tel }} <br>
-					civilité {{ vm.user.civilite }} <br>
-					Né(e) le {{ vm.user.dn }} <br>
-					matricule {{ vm.user.matricule }} <br>
-					{{ vm.etablissement.etablissementName }}<br>
 				</div>
-				<div class="col-md-5 col-md-offset-2">
-					<img class="photoCV" ng-src="{{ vm.user.profileImageURL }}"><br>
-					<br>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="cv-titre">Compétences pédagogiques</div>
+							<div ng-repeat = "competences in vm.cv.competences">{{ competences.competenceName }}</div>
+						</div>
+						<div class="col-md-6">
+							<div class="cv-titre">Compétences Techniques</div>
+							<div ng-repeat = "techniques in vm.cv.techniques">{{ techniques.techniqueName }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="cv-titre">Expériences professionnelles</div>
+					<div class="col-md-12" data-ng-repeat="experience in vm.cv.experiences">
+						<div class="row">
+							<div class="col-md-2 petit">
+							{{experience.dateDebutMois}} {{experience.dateDebutAnnee}}
+							<br>
+							{{experience.dateFinMois}} {{experience.dateFinAnnee}}
+							</div>
+							<div class="col-md-10">
+								<div class="cv-intitule">{{experience.poste}}
+								</div>
+								<div class="petit cv-souligne">{{experience.entreprise}} - {{experience.ville}}</div>
+								<div>{{experience.mission}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="cv-titre">Formations</div>
+					<div class="col-md-12" data-ng-repeat="formation in vm.cv.formations">
+						<div class="row">
+							<div class="col-md-2 petit">
+							{{formation.dateDebutMois}} {{formation.dateDebutAnnee}}
+							<br>
+							{{formation.dateFinMois}} {{formation.dateFinAnnee}}
+							</div>
+							<div class="col-md-10">
+								<div class="cv-intitule">{{formation.poste}}
+								</div>
+								<div class="petit cv-souligne">{{formation.entreprise}} - {{formation.ville}}</div>
+								<div>{{formation.mission}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="cv-titre">Langues</div>
+					<div ng-repeat = "langue in vm.cv.langues"> {{langue.langueName}}: {{langue.niveau}} </div>
 				</div>
 			</div>
-			<div class="sous-titre">Competences pedagogiques:</div>
-			<div ng-repeat = "competences in vm.competences">{{ competences.competenceName }}</div>
-			<div class="sous-titre">competences Techniques:</div>
-			<div ng-repeat = "techniques in vm.techniques">
-			{{ techniques.techniqueName }}</div>
-			<div class="sous-titre">Langues:</div>
-			<div ng-repeat = "langue in vm.langues"> {{langue.langueName}}: {{langue.niveau}} </div>
-			
 		</div>
 	</div>
+	<br>
+			<div class="cv-footer" align="center">{{ vm.cv.user.adresse }} - {{ vm.cv.user.cp }} {{ vm.cv.user.ville }}<br>
+		Mail : {{ vm.cv.user.email }} - Tél : {{ vm.cv.user.tel }}
+		</div>
 </section>

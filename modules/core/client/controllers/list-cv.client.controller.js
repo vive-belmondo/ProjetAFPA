@@ -12,8 +12,13 @@
     
     vm.downloadPdf = downloadPdf;
 
-    vm.cv = CurriculumsService.query();
+    // vm.cvs = CurriculumsService.query();
     vm.users = UsersService.query();
+
+
+    console.log(vm.cvs);
+
+    console.log(vm.users);
 
 
     function downloadPdf(user) {

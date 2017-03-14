@@ -17,10 +17,10 @@
       <div class="titre">Liste des compétences pédagogiques</div>
       <table id="tableau" class="table table-striped table-responsive">
         <tbody>
-          <tr data-ng-repeat="competence in vm.competences">
+          <tr ng-repeat="competence in vm.cv.competences">
             <td class="col-md-10 col-sm-9">{{competence.competenceName}}</td>
             <td>
-              <button class="btn btn-xs btn-form" data-ui-sref="curriculums.competences.edit({competenceId: competence._id})"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-xs btn-form" data-ui-sref="curriculums.competence.edit({competenceId: competence._id})"><span class="glyphicon glyphicon-pencil"></span></button>
               <button class="btn btn-xs btn-form" ng-click="vm.remove(competence)"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
           </tr>

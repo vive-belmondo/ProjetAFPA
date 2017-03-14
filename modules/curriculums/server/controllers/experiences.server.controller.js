@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Experience = mongoose.model('Experience'),
+  Curriculum = mongoose.model('Curriculum'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -15,13 +16,31 @@ exports.create = function (req, res) {
   var experience = new Experience(req.body);
   experience.cv = req.user.cv;
 
-  experience.save(function (err) {
+  experience.save(function (err, experience) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(experience);
+      Curriculum.findById(experience.cv).exec(function (err, curriculum) {
+        if (err) {
+          return next(err);
+        } else if (!experience) {
+          return res.status(404).send({
+            message: 'No experience with that identifier has been found'
+          });
+        }
+        curriculum.experiences.push(experience._id);
+        curriculum.save(function (err, curriculum) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(curriculum);
+          }
+        });
+      });
     }
   });
 };

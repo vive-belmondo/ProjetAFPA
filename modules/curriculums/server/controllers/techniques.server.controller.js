@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Technique = mongoose.model('Technique'),
+  Curriculum = mongoose.model('Curriculum'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -15,13 +16,31 @@ exports.create = function (req, res) {
   var technique = new Technique(req.body);
   technique.cv = req.user.cv;
 
-  technique.save(function (err) {
+  technique.save(function (err, technique) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(technique);
+      Curriculum.findById(technique.cv).exec(function (err, curriculum) {
+        if (err) {
+          return next(err);
+        } else if (!technique) {
+          return res.status(404).send({
+            message: 'No technique with that identifier has been found'
+          });
+        }
+        curriculum.techniques.push(technique._id);
+        curriculum.save(function (err, curriculum) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(curriculum);
+          }
+        });
+      });
     }
   });
 };

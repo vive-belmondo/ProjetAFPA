@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Formation = mongoose.model('Formation'),
+  Curriculum = mongoose.model('Curriculum'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -15,13 +16,31 @@ exports.create = function (req, res) {
   var formation = new Formation(req.body);
   formation.cv = req.user.cv;
 
-  formation.save(function (err) {
+  formation.save(function (err, formation) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(formation);
+      Curriculum.findById(formation.cv).exec(function (err, curriculum) {
+        if (err) {
+          return next(err);
+        } else if (!formation) {
+          return res.status(404).send({
+            message: 'No formation with that identifier has been found'
+          });
+        }
+        curriculum.formations.push(formation._id);
+        curriculum.save(function (err, curriculum) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(curriculum);
+          }
+        });
+      });
     }
   });
 };

@@ -70,7 +70,7 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
 
-  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').populate('fonction','fonctionName').populate('etablissement','etablissementName').exec(function (err, users) {
+  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').populate('fonction','fonctionName').populate('etablissement','etablissementName').populate('cv').populate('curriculum').exec(function (err, users) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -91,7 +91,7 @@ exports.userByID = function (req, res, next, id) {
     });
   }
 
-  User.findById(id, '-salt -password -providerData').populate('user', 'displayName').populate('fonction','fonctionName').populate('etablissement','etablissementName').exec(function (err, user) {
+  User.findById(id, '-salt -password -providerData').populate('user', 'displayName').populate('fonction','fonctionName').populate('etablissement','etablissementName').populate('cv').populate('curriculum').exec(function (err, user) {
     if (err) {
       return next(err);
     } else if (!user) {

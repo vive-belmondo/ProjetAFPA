@@ -5,45 +5,27 @@
     .module('curriculums')
     .controller('CurriculumsController', CurriculumsController);
 
-  CurriculumsController.$inject = ['$scope','Notification','cvResolve', 'Authentication', '$http', '$window', 'AdminService', 'UsersService','ExperiencesByConnectedUserService', 'FormationsByConnectedUserService', 'FonctionsService', 'EtablissementsService', 'CompetencesByConnectedUserService', 'TechniquesByConnectedUserService', 'LanguesByConnectedUserService'];
+  CurriculumsController.$inject = ['$scope', 'Notification', 'CurriculumsService', 'Authentication', '$http', '$window', 'FonctionsService', 'EtablissementsService'];
 
-  function CurriculumsController($scope,Notification,cv,Authentication, $http, $window, AdminService, UsersService, FonctionsService, EtablissementsService,ExperiencesByConnectedUserService, FormationsByConnectedUserService, CompetencesByConnectedUserService,TechniquesByConnectedUserService,LanguesByConnectedUserService) {
+  function CurriculumsController($scope, Notification, CurriculumsService, Authentication, $http, $window, FonctionsService, EtablissementsService) {
     var vm = this;
     
     vm.downloadPdf = downloadPdf;
+    vm.user = Authentication.user;
+    vm.fonctions = FonctionsService.query();
+    vm.etablissements = EtablissementsService.query();
 
-    vm.cv = cv;
-    vm.cv.user = Authentication.user;
-    vm.cv.etablissement = EtablissementsService.query();
-    vm.cv.fonctions = FonctionsService.query();
-    vm.cv.competences = CompetencesByConnectedUserService.query();
-    vm.cv.techniques = TechniquesByConnectedUserService.query();
-    vm.cv.langues = LanguesByConnectedUserService.query();
-    vm.cv.experiences = ExperiencesByConnectedUserService.query();
-    vm.cv.formations = FormationsByConnectedUserService.query();
-    vm.save = save;
+
+    vm.cv = CurriculumsService.get({
+      curriculumId: Authentication.user.cv
+    });
+
     vm.validateCV = validateCV;
 
     function validateCV() {
-      $http.get('/api/validateCV/' + vm.cv).success(function() {
+      $http.get('/api/validateCV').success(function() {
         console.log('ok');
       });
-    }
-
-    function save() {      
-      // Create a new formation, or update the current instance
-      vm.cv.createOrUpdate()
-        .then(successCallback)
-        .catch(errorCallback);
-
-      function successCallback(res) {        
-         // should we send the User to the list or the updated Formation's view?
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> CV saved successfully!' });
-      }
-
-      function errorCallback(res) {
-        Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Formation save error!' });
-      }
     }
 
     function downloadPdf(user) {
